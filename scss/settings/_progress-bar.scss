@@ -1,0 +1,121 @@
+// 檔案產出進度條（右上角浮動卡片）
+// 對應 js/progress-bar.js，卡片由 JS 動態注入，HTML 不需預先寫任何標記
+//
+// 用途：按下「Email 寄出」這類會在後端打包檔案的按鈕後，用來回報打包進度；
+//      進度到 100% 時百分比文字換成「完成」，並跳出 toast 告知已寄送。
+//
+// 命名：檔名沿用設計稿的元件名（Progress bar），但區塊 class 是 .progress-card
+//      —— 整張卡片才是這個元件，進度條本身只是其中的 __track / __fill。
+
+.progress-card {
+    position: fixed;
+    // 8px：對齊設計稿中卡片與 main 右上角的間距
+    top: $spacing-sm;
+    right: $spacing-sm;
+    // 需高於 .header-fixed(20)、.dialog(100) 與 .toast-message(200)，
+    // 但低於 .scroll-to-edge(999) / .tooltip(1000)，避免蓋住游標提示
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    // 全域已設 box-sizing: border-box，340px 為含內距的卡片總寬（對齊設計稿）
+    width: 340px;
+    padding: $spacing-md;
+    color: $color-bg-white;
+    background-color: rgba(0, 0, 0, 0.60);
+    border-radius: $radius-lg;
+    box-shadow: 0 4px 8px 3px rgba(0, 0, 0, 0.15), 0 1px 3px 0 rgba(0, 0, 0, 0.30);
+
+
+    &__body {
+        flex: 1;
+        // min-width: 0 是必要的：flex item 預設 min-width: auto，
+        // 長檔名會把卡片撐寬而不是在 &__name 收成 ellipsis
+        min-width: 0;
+    }
+
+    &__title {
+        display: flex;
+        align-items: center;
+        // 8px：設計稿 icon→檔名、檔名→百分比皆為 8px
+        gap: $spacing-sm;
+        // 8px：設計稿 title(18px) 與 bar 之間的間距
+        margin-bottom: $spacing-sm;
+        font-size: $fz-sm;
+        line-height: 18px;
+    }
+
+    &__icon {
+        // 設計稿 icon 為 16×16，需覆蓋 .material-symbols-outlined 的預設 24px
+        font-size: 16px;
+        flex: 0 0 auto;
+    }
+
+    &__name {
+        flex: 1;
+        min-width: 0;
+        // 檔名長度不可控（由後端決定），超出以 ellipsis 收斂，維持卡片固定寬度
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    // 百分比／「完成」文字。寬度會隨文字變化（8% → 100% → 完成），
+    // 用 flex: 0 0 auto + 右對齊，讓它不擠壓檔名、也不左右跳動
+    &__percent {
+        flex: 0 0 auto;
+        text-align: right;
+        font-variant-numeric: tabular-nums;
+    }
+
+    &__track {
+        height: 8px;
+        border-radius: 100px;
+        background-color: #fff;
+        overflow: hidden;
+    }
+
+    &__fill {
+        width: 0;
+        height: 100%;
+        border-radius: inherit;
+        background-color: $primary-1;
+        // 後端回報的進度是跳躍的（例如 0 → 30 → 70），
+        // 補上過場動畫讓它看起來是連續推進
+        transition: width 0.3s ease;
+    }
+
+    // 關閉鈕。設計稿的 action 區塊為 48×34、內含 24px 的 X，
+    // 這裡照原尺寸做，讓點擊範圍比圖示本身大一些
+    &__close {
+        flex: 0 0 auto;
+        width: 48px;
+        height: 34px;
+        padding: 0;
+        border: none;
+        border-radius: $radius-sm;
+        background: none;
+        color: $color-bg-white;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.8;
+        transition: opacity 0.2s ease;
+
+        &:hover {
+            opacity: 1;
+        }
+
+        .material-symbols-outlined {
+            font-size: 24px;
+        }
+    }
+
+    // 失敗狀態：只換進度條顏色，文字內容由 JS 寫入
+    &.is-failed {
+        .progress-card__fill {
+            background-color: $color-danger;
+        }
+    }
+}

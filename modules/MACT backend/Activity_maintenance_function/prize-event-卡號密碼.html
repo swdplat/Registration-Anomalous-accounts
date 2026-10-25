@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    <link href="../../../css/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../../../js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="../../../js/prize.js"></script>
+    <script type="text/javascript" src="../../../js/components.js"></script>
+    <script type="text/javascript" src="../../../js/calendar.js"></script>
+    <script type="text/javascript" src="../../../js/pagination.js"></script>
+    <script type="text/javascript" src="../../../js/toast-message.js"></script>
+    <script type="text/javascript" src="../../../js/tooltip.js"></script>
+    <script type="text/javascript" src="../../../js/scroll-to-edge.js"></script>
+    <title>設定活動條件</title>
+</head>
+<body>
+    <main>
+        <header class="header">
+            <button type="button" class="btn-sec btn-back larg"><i class="material-symbols-outlined">arrow_back</i></button>
+            <h1>設定活動條件</h1>
+        </header>
+        <div class="search-bar">
+            <div class="col-4">
+                <label for="game-name">活動條件</label>
+                <select id="game-name">
+                    <option value="" disabled>請選擇</option>
+                    <option value="遊戲A" selected>卡號密碼</option>
+                    <option value="遊戲B">遊戲B</option>
+                    <option value="遊戲C">遊戲C</option>
+                </select>
+            </div>
+            <div class="col-4">
+                <label>活動代號</label>
+                <p>2024072201</p>
+            </div>
+            <div class="col-4">
+                <label>活動名稱</label>
+                <p>參加指定活動</p>
+            </div>
+        </div>
+    
+        <div class="d-flex">
+            <button class="btn-pri larg insert-button">新增資料</button>
+            <button class="btn-sec larg mar-bm">整批刪除</button>
+        </div>
+        
+        <div class="table-pagination-wrap" data-pagination-root data-page-size="10">
+        <table class="item-list col" data-pagination-table>
+            <thead>
+                <tr>
+                    <th>功能</th>
+                    <th>品項</th>
+                    <th>卡別</th>
+                    <th>金額區間</th>
+                    <th>卡區間</th>
+                    <th>通路</th>
+                    <th>參加次數</th>
+                    <th>會員盤數中獎限制</th>
+                    <th>會員天數參加次數限制</th>
+                    <th>遊戲帳號領獎次數上限</th>
+                    <th>每一活動區參加限制</th>
+                </tr>
+            </thead>
+            <tbody data-section="dynamic-cardPWD" data-pagination-body>
+                <tr class="data-row">
+                    <td><button class="btn-text" data-action="delete-row">刪除</button></td>
+                    <td class="tooltip-trigger">MyCard 150點-三區實體卡測試用</td>
+                    <td>CTAR</td>
+                    <td>123456-789012</td>
+                    <td>-</td>
+                    <td class="tooltip-trigger">GD017_eplay全通路、Z048_程式組、GD017_eplay全通路、Z048_程式組</td>
+                    <td>5</td>
+                    <td>未設定</td>
+                    <td>未設定</td>
+                    <td>未設定</td>
+                    <td>未設定</td>
+                </tr>
+                <tr class="data-row">
+                    <td><button class="btn-text" data-action="delete-row">刪除</button></td>
+                    <td class="tooltip-trigger">MyCard 150點-三區實體卡測試用</td>
+                    <td>CTAR</td>
+                    <td>123456-789012</td>
+                    <td>MCARCM009895~MCARCM009896</td>
+                    <td class="tooltip-trigger">-</td>
+                    <td>5</td>
+                    <td>未設定</td>
+                    <td>未設定</td>
+                    <td>未設定</td>
+                    <td>未設定</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <div class="pagination" data-pagination>
+            <button type="button" class="first-page" data-pagination-action="first">第一頁</button>
+            <button type="button" class="pre-page" data-pagination-action="prev">上一頁</button>
+            <button type="button" class="page-number active" data-pagination-page="1">1</button>
+            <button type="button" class="next-page" data-pagination-action="next">下一頁</button>
+            <button type="button" class="last-page" data-pagination-action="last">最後一頁</button>
+        </div>
+        </div>
+    </main>
+</body>
+</html>

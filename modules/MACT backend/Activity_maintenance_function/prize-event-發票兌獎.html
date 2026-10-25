@@ -1,0 +1,449 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link href="../../../css/style.css" rel="stylesheet" type="text/css" />
+
+    <!-- Datepicker start -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.js"></script>
+    <script src="../../../js/zh.js"></script>
+    <!-- Datepicker end -->
+
+    <script type="text/javascript" src="../../../js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="../../../js/prize.js"></script>
+    <script type="text/javascript" src="../../../js/components.js"></script>
+    <script type="text/javascript" src="../../../js/calendar.js"></script>
+    <script type="text/javascript" src="../../../js/pagination.js"></script>
+    <script type="text/javascript" src="../../../js/toast-message.js"></script>
+    <script type="text/javascript" src="../../../js/tooltip.js"></script>
+    <script type="text/javascript" src="../../../js/scroll-to-edge.js"></script>
+    <title>設定活動條件</title>
+</head>
+
+<body>
+    <main>
+        <header class="header">
+            <button type="button" class="btn-sec btn-back larg"><i
+                    class="material-symbols-outlined">arrow_back</i></button>
+            <h1>設定活動條件</h1>
+        </header>
+        <div class="search-bar">
+            <div class="col-4">
+                <label for="game-name">活動條件</label>
+                <select id="game-name">
+                    <option value="" disabled>請選擇</option>
+                    <option value="遊戲A" selected>發票兌獎</option>
+                    <option value="遊戲B">遊戲B</option>
+                    <option value="遊戲C">遊戲C</option>
+                </select>
+            </div>
+            <div class="col-4">
+                <label>活動代號</label>
+                <p>2024072201</p>
+            </div>
+            <div class="col-4">
+                <label>活動名稱</label>
+                <p>參加指定活動</p>
+            </div>
+        </div>
+
+        <form>
+            <div class="notice-box">
+                <p><strong>設定邏輯說明：</strong>下方「判斷條件類型」＋「門檻模式」可自由組合，共支援以下情境：</p>
+                <ol>
+                    <li>品名比對 → 合計金額大於 0 即可抽獎/給獎</li>
+                    <li>數量＋單一門檻 → 依數量抽獎/給獎</li>
+                    <li>數量＋多重門檻・系統自動擇優 → 依購買數量落點判斷抽獎/給獎</li>
+                    <li>數量＋多重門檻・分開建活動並互斥 → 玩家同時符合多個數量門檻時僅能擇一參加抽獎/給獎</li>
+                    <li>金額＋單一門檻 → 依金額抽獎/給獎</li>
+                    <li>金額＋多重門檻・系統自動擇優 → 依購買金額落點判斷抽獎/給獎</li>
+                    <li>金額＋多重門檻・分開建活動並互斥 → 玩家同時符合多個金額門檻時僅能擇一參加抽獎/給獎</li>
+                </ol>
+            </div>
+
+            <section>
+                <h2 class="mar-0">基本設定</h2>
+                <div class="row mar-txl">
+                    <div class="col-4">
+                        <div class="field add-form-modal">
+                            <h3>商店名稱<i class="material-symbols-outlined tooltip-trigger"
+                                    data-tooltip="關鍵字模糊搜尋、中英文，選填。可新增多筆，比對發票明細是否符合活動指定通路。"
+                                    data-tooltip-position="right">Help</i></h3>
+                            <ul>
+                                <li>
+                                    <input type="text" placeholder="請輸入商店名稱，如：全家" />
+                                    <span style="pointer-events: none; opacity: 0;"
+                                        class="material-symbols-outlined"></span>
+                                </li>
+                            </ul>
+                            <div class="suppl" hidden>
+                                <span class="field-validation-error">欄位必填</span>
+                            </div>
+                            <button type="button" class="btn-sec small add-new-input mar-txs"><i
+                                    class="material-symbols-outlined">add_circle</i>新增商店名稱</button>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="field add-form-modal">
+                            <h3>品項名稱<span>*</span><i class="material-symbols-outlined tooltip-trigger"
+                                    data-tooltip="關鍵字模糊搜尋、中英文，必填至少 1 筆。明細中任一品項之品名符合設定字串即視為符合資格。"
+                                    data-tooltip-position="right">Help</i></h3>
+                            <ul>
+                                <li>
+                                    <input type="text" placeholder="請輸入品項名稱，如：維大力" />
+                                    <span style="pointer-events: none; opacity: 0;"
+                                        class="material-symbols-outlined"></span>
+                                </li>
+                            </ul>
+                            <div class="suppl">
+                                <span class="field-validation-error">欄位必填</span>
+                            </div>
+                            <button type="button" class="btn-sec small add-new-input mar-txs"><i
+                                    class="material-symbols-outlined">add_circle</i>新增商店名稱</button>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="field mar-0">
+                            <h3>購買日期起訖區間設定<span>*</span><i class="material-symbols-outlined tooltip-trigger"
+                                    data-tooltip="系統以發票開立日期是否落於此區間，判斷該筆消費是否符合資格。" data-tooltip-position="right">Help</i>
+                            </h3>
+                            <div class="date-range-field dual-inputs">
+                                <input type="text" name="range-start" class="calendar event-start-input"
+                                    autocomplete="off" placeholder="yyyy/mm/dd hh:mm">
+                                <span class="sign">-</span>
+                                <input type="text" name="range-end" class="calendar event-end-input" autocomplete="off"
+                                    placeholder="yyyy/mm/dd hh:mm">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="field mar-0">
+                            <h3>同一發票可否參與不同活動</h3>
+                            <label class="switch">
+                                <input type="checkbox" role="switch" name="HotEvent" value="enabled" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section>
+                <h2 class="mar-0">判斷條件與門檻設定</h2>
+                <div data-switch="select">
+                    <div class="row mar-txl">
+                        <div class="col-4">
+                            <div class="field mar-0">
+                                <h3>判斷條件類型<span>*</span><i class="material-symbols-outlined tooltip-trigger"
+                                        data-tooltip="品名對比: 符合品項即中獎，不判斷金額或數量。<br>依數量門檻: 依購買數量門檻判斷是否中獎。<br>依金額門檻: 依消費金額門檻判斷是否中獎。"
+                                        data-tooltip-position="right">Help</i></h3>
+                                <select>
+                                    <option selected="" disabled>請選擇</option>
+                                    <option value="item-name">品名對比</option>
+                                    <option value="quantity">依數量門檻</option>
+                                    <option value="amount">依金額門檻</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 品名對比：無額外設定，故不需要切換區塊 -->
+
+                    <!-- 依數量門檻 -->
+                    <div data-switch-case="quantity" style="display: none;">
+                        <div data-switch="radio">
+                            <div class="row mar-txl">
+                                <div class="col">
+                                    <div class="field mar-0">
+                                        <h3>門檻模式<span>*</span></h3>
+                                        <div class="radio-group">
+                                            <label>
+                                                <input type="radio" name="quantityThresholdMode" value="single"
+                                                    checked>
+                                                單一門檻
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="quantityThresholdMode" value="multi-auto">
+                                                多重門檻・系統自動擇優
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="quantityThresholdMode"
+                                                    value="multi-exclusive">
+                                                多重門檻・分開建活動並互斥
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 門檻模式：單一門檻 -->
+                            <div data-switch-case="single" class="controlled-inputs-box mar-txl mar-b0">
+                                <p>數量門檻：整數，如「3」件，符合品項之購買數量加總達門檻即達成（設 0 表示品項符合即達成）。</p>
+                                <div class="row mar-txxl">
+                                    <div class="col-4">
+                                        <div class="field mar-0">
+                                            <h3>門檻下限（件）<span>*</span></h3>
+                                            <input type="text" placeholder="例: 1" />
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="field mar-0">
+                                            <h3>門檻上限（件）</h3>
+                                            <input type="text" placeholder="留空表示無上限" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 門檻模式：多重門檻・系統自動擇優 -->
+                            <div data-switch-case="multi-auto" class="controlled-inputs-box mar-txl mar-b0"
+                                style="display: none;">
+                                <p>儲存時系統檢核：各區間不可重疊、下限需遞增排列，否則以紅字提示錯誤且不得儲存。</p>
+                                <div class="table-action-wrap mar-txxl">
+                                    <table class="item-list col mar-0">
+                                        <thead>
+                                            <tr>
+                                                <th>功能</th>
+                                                <th>下限（件）</th>
+                                                <th>上限（件，留空＝無上限）</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody data-section="dynamic-quantityTier">
+                                            <tr class="data-row">
+                                                <td><button type="button" class="btn-text"
+                                                        data-action="delete-row">刪除</button></td>
+                                                <td>
+                                                    <div class="field mar-0"><input type="text"
+                                                            placeholder="例: 1" /></div>
+                                                </td>
+                                                <td>
+                                                    <div class="field mar-0"><input type="text"
+                                                            placeholder="留空表示無上限" /></div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="btn-container add-button-row">
+                                        <button type="button" class="btn-sec small" data-add-button>新增一筆門檻</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 門檻模式：多重門檻・分開建活動並互斥 -->
+                            <div data-switch-case="multi-exclusive" class="controlled-inputs-box mar-txl mar-b0"
+                                style="display: none;">
+                                <div class="alert">
+                                    <i class="material-symbols-outlined fill-icon waring">warning</i>
+                                    <span>此活動即代表互斥群組中的其中一個門檻檔位，同群組內每個門檻請各自建立一個活動。同一發票在群組內任一活動兌換成功後，同群組其他活動皆會回傳「本發票已參加其他門檻活動，無法重複兌換」。此互斥群組機制與上方「同一發票可否參與不同活動」開關是兩套獨立設定：後者管理本活動與站上其他活動的關係，互斥群組僅管理同系列門檻活動彼此的關係。</span>
+                                </div>
+                                <div class="row mar-txxl">
+                                    <div class="col-4">
+                                        <div class="field mar-0">
+                                            <h3>所屬互斥群組<span>*</span></h3>
+                                            <input type="text"
+                                                placeholder="輸入或選擇群組名稱，如：維大力滿額互斥組" />
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="field mar-0">
+                                            <h3>本門檻下限（件）<span>*</span></h3>
+                                            <input type="text" placeholder="例: 1" />
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="field mar-0">
+                                            <h3>本門檻上限（件）</h3>
+                                            <input type="text" placeholder="留空表示無上限" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 依金額門檻 -->
+                    <div data-switch-case="amount" style="display: none;">
+                        <div class="row mar-txl">
+                            <div class="col-4">
+                                <div class="field mar-0">
+                                    <h3>幣別<span>*</span><i class="material-symbols-outlined tooltip-trigger"
+                                            data-tooltip="設定本次活動金額門檻計算所使用之幣別，預設為台幣。"
+                                            data-tooltip-position="right">Help</i></h3>
+                                    <select>
+                                        <option value="TWD" selected>台幣（TWD）</option>
+                                        <option value="USD" selected>美金（USD）</option>
+                                        <option value="JPY" selected>日圓（JPY）</option>
+                                        <option value="CNY" selected>人民幣（CNY）</option>
+                                        <option value="HKD" selected>港幣（HKD）</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div data-switch="radio">
+                            <div class="row mar-txl">
+                                <div class="col">
+                                    <div class="field mar-0">
+                                        <h3>門檻模式<span>*</span></h3>
+                                        <div class="radio-group">
+                                            <label>
+                                                <input type="radio" name="amountThresholdMode" value="single" checked>
+                                                單一門檻
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="amountThresholdMode" value="multi-auto">
+                                                多重門檻・系統自動擇優
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="amountThresholdMode" value="multi-exclusive">
+                                                多重門檻・分開建活動並互斥
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 門檻模式：單一門檻 -->
+                            <div data-switch-case="single" class="controlled-inputs-box mar-txl mar-b0">
+                                <p>金額門檻：符合品項之小計金額加總大於門檻即達成（設 0 表示品項符合即達成）。</p>
+                                <div class="row mar-txxl">
+                                    <div class="col-4">
+                                        <div class="field mar-0">
+                                            <h3>門檻下限（元）<span>*</span></h3>
+                                            <input type="text" placeholder="例: 100" />
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="field mar-0">
+                                            <h3>門檻上限（元）</h3>
+                                            <input type="text" placeholder="留空表示無上限" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 門檻模式：多重門檻・系統自動擇優 -->
+                            <div data-switch-case="multi-auto" class="controlled-inputs-box mar-txl mar-b0"
+                                style="display: none;">
+                                <p>儲存時系統檢核：各區間不可重疊、下限需遞增排列，否則以紅字提示錯誤且不得儲存。</p>
+                                <div class="table-action-wrap mar-txxl">
+                                    <table class="item-list col mar-0">
+                                        <thead>
+                                            <tr>
+                                                <th>功能</th>
+                                                <th>下限（元）</th>
+                                                <th>上限（元，留空＝無上限）</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody data-section="dynamic-amountTier">
+                                            <tr class="data-row">
+                                                <td><button type="button" class="btn-text"
+                                                        data-action="delete-row">刪除</button></td>
+                                                <td>
+                                                    <div class="field mar-0"><input type="text"
+                                                            placeholder="例: 100" /></div>
+                                                </td>
+                                                <td>
+                                                    <div class="field mar-0"><input type="text"
+                                                            placeholder="留空表示無上限" /></div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="btn-container add-button-row">
+                                        <button type="button" class="btn-sec small" data-add-button>新增一筆門檻</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 門檻模式：多重門檻・分開建活動並互斥 -->
+                            <div data-switch-case="multi-exclusive" class="controlled-inputs-box mar-txl mar-b0"
+                                style="display: none;">
+                                <div class="alert">
+                                    <i class="material-symbols-outlined fill-icon waring">warning</i>
+                                    <span>此活動即代表互斥群組中的其中一個門檻檔位，同群組內每個門檻請各自建立一個活動。同一發票在群組內任一活動兌換成功後，同群組其他活動皆會回傳「本發票已參加其他門檻活動，無法重複兌換」。此互斥群組機制與上方「同一發票可否參與不同活動」開關是兩套獨立設定：後者管理本活動與站上其他活動的關係，互斥群組僅管理同系列門檻活動彼此的關係。</span>
+                                </div>
+                                <div class="row mar-txxl">
+                                    <div class="col-4">
+                                        <div class="field mar-0">
+                                            <h3>所屬互斥群組<span>*</span></h3>
+                                            <input type="text"
+                                                placeholder="輸入或選擇群組名稱，如：維大力滿額互斥組" />
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="field mar-0">
+                                            <h3>本門檻下限（元）<span>*</span></h3>
+                                            <input type="text" placeholder="例: 100" />
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="field mar-0">
+                                            <h3>本門檻上限（元）</h3>
+                                            <input type="text" placeholder="留空表示無上限" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </form>
+
+        <div class="bottom">
+            <button class="btn-pri larg">確定</button>
+            <button class="btn-sec larg">取消</button>
+        </div>
+    </main>
+
+    <!-- 引入 Quill 編輯器 -->
+    <!-- 移至header -->
+
+    <!-- 編輯器初始化已移至 components.js，時間連動已移至 calendar.js -->
+
+    <!-- 自訂網頁 html/css 彈窗 -->
+    <div class="htmlcss-modal" id="htmlCssModal" style="display:none;">
+        <div class="htmlcss-modal-overlay"></div>
+        <div class="htmlcss-modal-panel">
+            <div class="htmlcss-modal-header">
+                <h1>自訂網頁html/css</h1>
+                <button type="button" class="btn-icon htmlcss-modal-close">
+                    <i class="material-symbols-outlined">close</i>
+                </button>
+            </div>
+            <div class="htmlcss-modal-body">
+                <div class="htmlcss-editor-col">
+                    <h2>HTML</h2>
+                    <div class="htmlcss-editor-wrap">
+                        <textarea id="htmlCssModalHtml"></textarea>
+                    </div>
+                </div>
+                <div class="htmlcss-editor-col">
+                    <h2>CSS</h2>
+                    <div class="htmlcss-editor-wrap">
+                        <textarea id="htmlCssModalCss"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="htmlcss-modal-footer">
+                <button type="button" class="btn-pri larg htmlcss-modal-save">儲存</button>
+                <button type="button" class="btn-sec larg htmlcss-modal-cancel">取消</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

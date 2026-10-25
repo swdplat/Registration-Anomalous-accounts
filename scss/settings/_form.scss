@@ -1,0 +1,289 @@
+form {
+    margin: $gap-base 0;
+    
+    section {
+        background-color: $color-bg-white;
+        padding: $spacing-xl;
+        border: 1px solid $color-border;
+        border-radius: $radius-lg;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .06), 0 4px 6px 0 rgba(0, 0, 0, .1);
+        margin-bottom: $spacing-xl;
+    }
+
+    h2 {
+        margin-bottom: $gap-base;
+        font-size: $fz-xl;
+        font-weight: 600;
+        color: $color-text;
+        display: flex;
+        align-items: center;
+        gap: $spacing-sm;
+
+        &::before {
+            content: "";
+            display: block;
+            width: 5px;
+            height: 23px;
+            background-color: $color-primary;
+        }
+    }
+
+    .field {
+        // width: 100%;
+        margin-bottom: $spacing-xl;
+        position: relative;
+        flex-grow: 1;
+
+        label {
+            display: flex;
+            align-items: center;
+            gap: $spacing-xs;
+            font-weight: 600;
+
+            span {
+                color: $color-required;
+            }
+        }
+
+        h3 {
+            margin: 0 0 $spacing-sm;
+            font-size: $fz-md;
+            font-weight: 600;
+            color: $color-text;
+            width: 100%;
+            line-height: 20px;
+            display: flex;
+            align-items: center;
+            gap: $spacing-xs;
+
+            span {
+                color: $color-required;
+            }
+        }
+
+        p {
+            margin: 0;
+            color: $color-text;
+            width: 100%;
+        }
+
+        input[type="text"] {
+            padding: $spacing-sm 15px;
+            border-radius: $radius-md;
+            background-color: $color-bg-white;
+            border: 1px solid $color-border;
+            height: $input-height;
+            width: 100%;
+
+            &:disabled {
+                color: $color-text-disabled;
+                background-color: $color-bg-disabled;
+                cursor: not-allowed
+            }
+        }
+
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: balance;
+
+            label {
+                display: flex;
+                align-items: center;
+                gap: $spacing-xs;
+                cursor: pointer;
+                height: 20px;
+                line-height: 20px;
+            }
+
+            .w-30 {
+                width: 30%;
+            }
+        }
+
+        textarea {
+            padding: 15px;
+            background-color: $color-bg-white;
+            border: 1px solid $color-border;
+            border-radius: $radius-md;
+            width: 100%;
+            resize: vertical;
+            font-size: $fz-md;
+            font-family: $font-family;
+
+            &:disabled {
+                color: $color-text-disabled;
+                background-color: $color-bg-disabled;
+            }
+        }
+
+        select {
+            padding: $spacing-sm 15px;
+            border-radius: $radius-md;
+            border: 1px solid $color-border;
+            background-color: $color-bg-white;
+            background-image: url('../images/dropdown.svg');
+            background-position: right 15px center;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: $input-height;
+            font-size: $fz-md;
+
+            &~select {
+                margin-top: $spacing-sm;
+            }
+
+            &:disabled {
+                background-color: $color-bg-disabled;
+                cursor: not-allowed;
+            }
+        }
+
+        .switch-field {
+            margin-top: $spacing-sm;
+            padding-left: 25px;
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: stretch;
+            gap: $spacing-xs;
+
+            label {
+                position: relative;
+                display: flex;
+                align-items: center;
+                width: 100%;
+
+                .unit {
+                    position: absolute;
+                    right: 15px;
+                    color: $color-text;
+                }
+
+                input:disabled~.unit {
+                    color: $color-text-disabled;
+                }
+            }
+
+            .sign {
+                line-height: $input-height;
+            }
+        }
+
+        .date-range-field {
+            margin-top: $spacing-sm;
+            display: flex;
+            gap: $spacing-xs;
+
+            .sign {
+                line-height: $input-height;
+            }
+        }
+
+        .input-field {
+            margin-top: $spacing-sm;
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: stretch;
+            gap: $spacing-xs;
+
+            label {
+                position: relative;
+                display: flex;
+                align-items: center;
+                width: 100%;
+
+                .unit {
+                    position: absolute;
+                    right: 15px;
+                    color: $color-text;
+                }
+
+                input:disabled~.unit {
+                    color: $color-text-disabled;
+                }
+            }
+
+            .sign {
+                line-height: $input-height;
+            }
+        }
+
+        .input-wrap {
+            width: 100%;
+        }
+
+        .searchSelectResults {
+            position: absolute;
+            width: 100%;
+            border: 1px solid $color-border;
+            background-color: $color-bg-white;
+            box-shadow: 2px 23px 35px rgba(0, 0, 0, 0.15);
+            border-radius: $radius-lg;
+            overflow: hidden;
+            z-index: 1000;
+
+            li {
+                padding: 7px 15px;
+                font-size: $fz-xs;
+
+                &:nth-child(1) {
+                    color: $color-border;
+
+                    &:hover {
+                        background-color: initial;
+                        color: $color-border;
+                    }
+                }
+
+                &:hover {
+                    background-color: #2F68D5;
+                    color: $color-bg-white;
+                }
+            }
+        }
+
+        ul {
+            li {
+                display: flex;
+                gap: $spacing-sm;
+                font-size: $fz-2xl;
+                
+                span {
+                    width: 36px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ============================================================================
+// field-side-action — 貼在欄位右側外緣的附屬按鈕
+// ============================================================================
+// 【使用時機】
+//   輸入框／下拉旁邊需要一顆動作按鈕（前往編輯進階條件、修改…）時使用。
+//
+// 【作法】
+//   按鈕改用絕對定位掛在欄位右側外緣，不佔用欄位本身的寬度，
+//   輸入框因此維持整欄滿版，多列欄位並排時左右邊界仍然對齊。
+//   垂直方向不指定 top/bottom，沿用靜態位置（.d-flex 的起始位置），
+//   按鈕會自動與同一列的輸入框對齊，欄位有無 <h3> 標題都不受影響。
+//
+// 【使用前提】
+//   必須放在 .field 之內，依附 .field 既有的 position: relative 定位。
+//   （同 _editable-list.scss 的 .input-buttons，差別在那個是疊在輸入框「內側」）
+// ============================================================================
+.field-side-action {
+    position: absolute;
+    // 貼齊欄位右緣後空一個欄距，間距與 .d-flex 的 gap 一致
+    left: calc(100% + #{$gap-base});
+    // 絕對定位的可用寬度為 0，不鎖住換行的話中文會逐字斷行
+    white-space: nowrap;
+}

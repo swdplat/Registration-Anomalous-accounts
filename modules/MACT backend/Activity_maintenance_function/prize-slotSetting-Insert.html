@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link type="text/css" rel="stylesheet" href="../../../css/daterangepicker.css" />
+    <link type="text/css" rel="stylesheet" href="../../../css/style.css" />
+
+    <!-- Datepicker start -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.js"></script>
+    <script src="../../../js/zh.js"></script>
+    <!-- Datepicker end -->
+
+    <script type="text/javascript" src="../../../js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="../../../js/moment.min.js"></script>
+    <script type="text/javascript" src="../../../js/daterangepicker.min.js"></script>
+    <script type="text/javascript" src="../../../js/components.js"></script>
+    <script type="text/javascript" src="../../../js/calendar.js"></script>
+    <script type="text/javascript" src="../../../js/pagination.js"></script>
+    <script type="text/javascript" src="../../../js/scroll-to-edge.js"></script>
+    <title>設定獎項盤數-新增</title>
+</head>
+
+<body>
+    <main>
+        <header class="header">
+            <h1>新增盤數</h1>
+
+        </header>
+        <div class="search-bar">
+            <div class="col-4">
+                <label>活動代號</label>
+                <p>2024072201</p>
+            </div>
+            <div class="col-4">
+                <label>活動名稱</label>
+                <p>參加指定活動</p>
+            </div>
+        </div>
+        <form>
+            <section>
+                <div class="row">
+                    <div class="col-4">
+                        <!-- <div class="field mar-0">
+                            <h3>日期區間起迄</h3>
+                            <label>
+                                <input type="text" class="calendar" autocomplete="off" placeholder="開始時間 - 結束時間">
+                            </label>
+                            <div class="suppl">
+                                <span class="field-validation-error">欄位必填</span>
+                            </div>
+                        </div> -->
+                        <div class="field mar-0">
+                            <h3>日期區間起迄<span>*</span></h3>
+                            <div class="date-range-field dual-inputs">
+                                <input type="text" name="range-start" class="calendar event-start-input"
+                                    autocomplete="off" placeholder="yyyy/mm/dd hh:mm">
+                                <span class="sign">-</span>
+                                <input type="text" name="range-end" class="calendar event-end-input" autocomplete="off"
+                                    placeholder="yyyy/mm/dd hh:mm">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="field mar-0">
+                            <h3>盤數</h3>
+                            <input type="text" placeholder="請輸入" />
+                            <div class="suppl">
+                                <span class="field-validation-error">欄位必填</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="field mar-0">
+                            <h3>區間<span>*</span></h3>
+                            <div class="switch-field pad-0">
+                                <div class="input-wrap">
+                                    <label>
+                                        <input type="text" placeholder="請輸入" />
+                                        <span class="unit"></span>
+                                    </label>
+                                    <div class="suppl">
+                                        <span class="field-validation-error">欄位必填</span>
+                                    </div>
+                                </div>
+                                <span class="sign">-</span>
+                                <div class="input-wrap">
+                                    <label>
+                                        <input type="text" placeholder="請輸入" />
+                                        <span class="unit"></span>
+                                    </label>
+                                    <div class="suppl">
+                                        <span class="field-validation-error">欄位必填</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="table-pagination-wrap" data-pagination-root data-page-size="10">
+                <table class="item-list col" data-pagination-table>
+                    <thead>
+                        <tr>
+                            <th>獎項名稱</th>
+                            <th>貨付款獎項資訊</th>
+                            <th>獎項數量</th>
+                            <th>數量</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>092702</td>
+                            <td>PRZ00007558</td>
+                            <td>20</td>
+                            <td class="field">
+                                <input type="text" placeholder="請輸入" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>點卡擴增</td>
+                            <td>PRZ00007561</td>
+                            <td>10</td>
+                            <td class="field">
+                                <input type="text" placeholder="請輸入" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>MCCoupon擴增</td>
+                            <td>PRZ00007562</td>
+                            <td>10</td>
+                            <td class="field">
+                                <input type="text" placeholder="請輸入" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pagination" data-pagination>
+                    <button type="button" class="first-page" data-pagination-action="first">第一頁</button>
+                    <button type="button" class="pre-page" data-pagination-action="prev">上一頁</button>
+                    <button type="button" class="page-number active" data-pagination-page="1">1</button>
+                    <button type="button" class="page-number" data-pagination-page="2">2</button>
+                    <button type="button" class="page-number" data-pagination-page="3">3</button>
+                    <button type="button" class="next-page" data-pagination-action="next">下一頁</button>
+                    <button type="button" class="last-page" data-pagination-action="last">最後一頁</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="bottom">
+            <button class="btn-pri larg">新增</button>
+            <button class="btn-sec larg">取消</button>
+        </div>
+    </main>
+</body>
+
+</html>

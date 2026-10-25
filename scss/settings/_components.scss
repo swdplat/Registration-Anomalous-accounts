@@ -1,0 +1,635 @@
+// 針對有class name的樣式，.search-bar, .alert, .popup等。
+
+// Header
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-base;
+
+    &>h1 {
+        margin: 0;
+        font-size: $fz-heading;
+        font-weight: 600;
+        color: $color-text;
+        order: 2;
+    }
+
+    // .btn {
+    //     padding: $spacing-sm 0;
+    //     display: flex;
+    //     align-items: center;
+    //     width: fit-content;
+    //     gap: $spacing-base * 0.5;
+
+    //     i {
+    //         width: 16px;
+    //         height: 16px;
+    //         background-position: center;
+    //         background-repeat: no-repeat;
+    //         background-size: 16px 16px;
+    //         display: block;
+
+    //         &.back {
+    //             background-image: url('../images/back.svg');
+    //         }
+    //     }
+    // }
+}
+
+// ============================================
+// Header（固定式）
+// 標題、頁籤與操作按鈕都收進 header，頁面往下捲動時 header 會固定在最上方。
+// 用法：<main class="has-fixed-header"> + <header class="header header-fixed">，
+// header 下方的內容區塊再套 .fixed-header-content 補回內距。
+// ============================================
+
+// 內距改由 header 與 .fixed-header-content 各自控制，避免 header 無法貼齊 main 兩側
+main.has-fixed-header {
+    padding: 0;
+}
+
+.header-fixed {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    padding: 40px 40px 20px;
+    background-color: $color-bg-gray;
+    border-bottom: 1px solid #EDEEF1;
+    box-shadow: 0 2px 18px 0 rgba(0, 0, 0, .04), 0 4px 22px 0 rgba(0, 0, 0, .03);
+
+    // 標題與操作按鈕同一列
+    .header-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: $gap-base;
+        min-height: 46px;
+
+        h1 {
+            margin: 0;
+            font-size: $fz-heading;
+            font-weight: 600;
+            color: $color-text;
+        }
+    }
+
+    // header 右側的操作按鈕（儲存、取消等）
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: $spacing-lg;
+
+        // 綁定頁籤（data-nav-tab-actions）時預設隱藏，切到對應頁籤才顯示
+        // 切換邏輯見 js/components.js
+        &[data-nav-tab-actions] {
+            display: none;
+
+            &.active {
+                display: flex;
+            }
+        }
+    }
+
+    // header 內的頁籤：上下間距改由 .header 的 gap 控制
+    .nav-tabs {
+        margin: 0;
+
+        li {
+            margin-bottom: 0;
+        }
+    }
+}
+
+// 固定式 header 下方的內容區
+.fixed-header-content {
+    padding: 40px;
+    // 底部留白緩衝，理由同 main
+    padding-bottom: 200px;
+}
+
+// 搜尋條
+.search-bar {
+    padding: $spacing-md $gap-base;
+    margin: $spacing-xl 0;
+    background-color: $color-bg-light;
+    border: 1px solid $color-border;
+    border-radius: $radius-lg;
+    min-width: min-content;
+    display: flex;
+    align-items: stretch;
+    gap: $gap-base;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06), 0 4px 6px 0 rgba(0, 0, 0, 0.10);
+
+    div {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-base * 0.5;
+
+        label {
+            font-weight: 600;
+            color: #000;
+            white-space: nowrap;
+            line-height: normal;
+        }
+
+        p {
+            line-height: 280%;
+        }
+
+        input[type="text"] {
+            padding: $spacing-base * 0.5 15px;
+            height: $input-height;
+            border-radius: $radius-md;
+            border: 1px solid $color-border;
+            background-color: $color-bg-white;
+        }
+
+        select {
+            padding: $spacing-base * 0.5 15px;
+            height: $input-height;
+            border-radius: $radius-md;
+            border: 1px solid $color-border;
+            background-color: $color-bg-white;
+            background-image: url('../images/dropdown.svg');
+            background-position: right 15px center;
+            background-repeat: no-repeat;
+        }
+    }
+
+    .field {
+        height: 100%;
+        width: 100%;
+    }
+
+    button {
+        align-self: flex-end;
+    }
+}
+
+.alert {
+    display: flex;
+    align-items: center;
+    gap: $spacing-base * 0.5;
+    padding: $spacing-base * 0.5 15px;
+    border-radius: $radius-lg;
+    border: 1px solid $color-warning;
+    background-color: $color-warning-bg;
+    font-size: 12px;
+    line-height: 150%;
+    font-weight: 600;
+}
+
+// 說明／提醒區塊（灰底虛線框），放在 section 上方做文字公告或設定說明
+.notice-box {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm-md; //12px
+    padding: $spacing-md;
+    margin-bottom: $spacing-xl; //與下方 section 的間距
+    background-color: $color-bg-gray;
+    border: 1px dashed $color-text;
+    border-radius: $radius-lg;
+    color: $color-text;
+    line-height: normal;
+
+    // reset 已清除粗體，補回
+    strong {
+        font-weight: 700;
+    }
+
+    // reset 已清除清單編號，補回
+    ol {
+        list-style: decimal;
+        padding-left: $spacing-lg; //24px
+    }
+}
+
+.upload-container {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+
+    input[type="file"] {
+        display: none;
+    }
+
+    .a-upload {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+        padding: $spacing-base * 0.5 $spacing-base;
+        border-radius: $radius-md;
+        background-color: $color-bg-white;
+        border: 1px solid $color-text;
+        color: $color-text;
+        cursor: pointer;
+    }
+
+    p {
+        display: none;
+        color: red;
+    }
+}
+
+.controlled-inputs-box {
+    padding: $spacing-base;
+    background-color: $color-bg-gray;
+    border-radius: $radius-lg;
+    margin-bottom: $spacing-xl;
+}
+
+/* Dual Listbox */
+.dual-listbox-container {
+    margin-bottom: $spacing-xl;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+
+    .unset-wrapper,
+    .set-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-sm;
+
+        h3 {
+            font-size: $fz-md;
+            font-weight: 600;
+        }
+
+        .searchbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: $spacing-sm;
+
+            input {
+                padding: 13px 15px;
+                border-radius: $radius-md;
+                background-color: $color-bg-white;
+                border: 1px solid $color-border;
+                width: 100%;
+                max-width: 200px;
+
+                &:disabled {
+                    background-color: $color-bg-disabled;
+                    cursor: not-allowed;
+                }
+            }
+
+            .trailing-element {
+                flex-grow: 1;
+                text-align: end;
+            }
+        }
+
+        ul {
+            height: 300px;
+            border-radius: $radius-sm;
+            border: 1px solid $color-border;
+            background-color: $color-bg-white;
+            overflow-Y: auto;
+
+            li {
+                padding: $spacing-sm 15px;
+                border-bottom: 1px solid $color-border;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                &.selected {
+                    color: $color-bg-white;
+                    background-color: $color-primary;
+
+                    .edit .material-symbols-outlined {
+                        color: #FEFEFE;
+                    }
+                }
+            }
+        }
+    }
+
+    .control-wrapper {
+        margin: 0 $gap-base 69px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-sm;
+    }
+
+    &.disabled {
+
+        ul,
+        li,
+        input {
+            background-color: $color-bg-disabled;
+            cursor: not-allowed;
+        }
+
+        button {
+            cursor: not-allowed;
+        }
+    }
+}
+
+/* Lightbox */
+.popup {
+    padding: $spacing-md;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    border-radius: $radius-lg;
+    background-color: $color-bg-white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: $spacing-xl;
+    width: 100%;
+    max-width: 300px;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.1);
+
+    button.btn {
+        margin: 0 auto;
+        padding: $spacing-sm $spacing-md;
+        color: #000;
+        height: 36px;
+        font-weight: 500;
+        line-height: 100%;
+        border-radius: $radius-md;
+        border: 1px solid $color-text;
+        background-color: $color-bg-white;
+        cursor: pointer;
+        white-space: nowrap;
+        width: fit-content;
+    }
+
+    &~.overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: block;
+        background: rgba(0, 0, 0, 0.7);
+        width: 100vw;
+        height: 100vh;
+        z-index: 1;
+    }
+}
+
+/* 可點擊複製的網址 */
+.copyable-url {
+    cursor: pointer;
+    transition: color 0.15s;
+
+    &:hover {
+        color: #4aa8ff;
+    }
+}
+
+/* Toast Message */
+.toast-message {
+    position: fixed;
+    top: 23px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px;
+    color: $color-bg-white;
+    background-color: #000;
+    border-radius: $radius-lg;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+    z-index: 200;
+}
+
+/* Tooltip */
+.tooltip-trigger {
+    position: relative;
+}
+
+// tooltip 有兩種定位模式，由 tooltip.js 依 data-tooltip-position 決定
+// （詳細說明見 tooltip.js 開頭）：
+//   1. 跟隨游標 — 未設定 data-tooltip-position（或設為 cursor）
+//      不會加上方向 class，因此下方的 ::before 箭頭不會出現
+//   2. 錨定觸發元素 — data-tooltip-position = top / bottom / left / right
+//      會加上 .tooltip-{方向} class，由下方規則畫出指向觸發元素的箭頭
+// 兩種模式共用 position: fixed（JS 一律寫入 viewport 座標），不需要切換 position。
+.tooltip {
+    position: fixed;
+    z-index: 1000;
+    max-width: 300px;
+    padding: $spacing-sm-md;
+    border-radius: $radius-lg;
+    line-height: 140%;
+    color: $color-bg-white;
+    background: rgba(0, 0, 0, 0.8);
+    white-space: normal;
+    word-break: break-word;
+    // 必要：跟隨游標模式下 tooltip 位於游標下方，若它會接收滑鼠事件，
+    // 游標會「碰到」自己的 tooltip 而觸發觸發元素的 mouseleave → 隱藏 → 再顯示，
+    // 造成無限閃爍
+    pointer-events: none;
+
+    // 箭頭基底（共用設定）：只在錨定模式（有方向 class）時才建立 ::before，
+    // 方向細節由下方 .tooltip-{top|bottom|left|right} 各自覆寫。
+    //
+    // 這裡刻意不寫成 &::before：跟隨游標模式沒有方向 class，拿不到 border-width /
+    // border-color，會 fallback 到初始值 medium(3px) + currentColor（.tooltip 的
+    // color 是白色），在 tooltip 左上角畫出一個白色小方塊。
+    //
+    // 若新增方向，記得把新的 .tooltip-{方向}::before 加進下面的選擇器清單，
+    // 並同步維護 tooltip.js 的 ANCHOR_GAP_V / ANCHOR_GAP_H / OPPOSITE_POSITION 與 anchoredCoords()。
+    // 指定方向放不下時 tooltip.js 會自動換成對面方向的 class，箭頭沿用下方規則即可。
+    &.tooltip-top::before,
+    &.tooltip-bottom::before,
+    &.tooltip-left::before,
+    &.tooltip-right::before {
+        position: absolute;
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+    }
+
+    // tooltip 在觸發元素右側 → 箭頭在 tooltip 左側朝左
+    &.tooltip-right::before {
+        top: 50%;
+        left: -8px;
+        transform: translateY(-50%);
+        border-width: 6px 8px 6px 0;
+        border-color: transparent rgba(0, 0, 0, 0.8) transparent transparent;
+    }
+
+    // tooltip 在觸發元素左側 → 箭頭在 tooltip 右側朝右
+    &.tooltip-left::before {
+        top: 50%;
+        right: -8px;
+        transform: translateY(-50%);
+        border-width: 6px 0 6px 8px;
+        border-color: transparent transparent transparent rgba(0, 0, 0, 0.8);
+    }
+
+    // tooltip 在觸發元素上方 → 箭頭在 tooltip 下緣朝下
+    &.tooltip-top::before {
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 8px 6px 0 6px;
+        border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+    }
+
+    // tooltip 在觸發元素下方 → 箭頭在 tooltip 上緣朝上
+    &.tooltip-bottom::before {
+        top: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 0 6px 8px 6px;
+        border-color: transparent transparent rgba(0, 0, 0, 0.8) transparent;
+    }
+}
+
+/* Multiple Checkbox */
+.mul-checkbox-group {
+    .mul-checkbox-items {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        gap: $spacing-sm $spacing-md;
+        padding-left: 25px;
+    }
+
+}
+
+.f-grow {
+    flex-grow: 1;
+}
+
+.wrap {
+    padding: $spacing-xl;
+    background-color: $color-bg-light;
+    border-radius: $radius-lg;
+}
+
+.shadow-md {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.06)) drop-shadow(0 4px 4px rgba(0, 0, 0, 0.10));
+}
+
+.fill-icon {
+    font-variation-settings: 'FILL'1;
+
+    &.waring {
+        color: $color-warning;
+    }
+}
+
+//Google icon文字大小控制
+.material-symbols-outlined {
+    //文字icon預設為24px
+
+    &.fz-xs {
+        font-size: $fz-xs; //12px
+    }
+    
+    &.fz-sm {
+        font-size: $fz-sm; //14px
+    }
+
+    &.fz-md {
+        font-size: $fz-md; //16px
+    }
+
+    &.fz-lg {
+        font-size: $fz-lg; //18px
+    }
+
+    &.fz-xl {
+        font-size: $fz-xl; //20px
+    }
+
+    &.fz-2xl {
+        font-size: $fz-2xl; //24px
+    }
+
+    &.fz-3xl {
+        font-size: $fz-3xl; //28px
+    }
+
+    &.fz-4xl {
+        font-size: $fz-4xl; //32px
+    }
+}
+
+.danger {
+    color: $color-danger;
+
+    button:not(.btn-text):not(.btn-sec) {
+        color: $color-danger;
+        border-color: $color-danger;
+    }
+}
+
+.suppl {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: $spacing-sm;
+    width: 100%;
+
+    // 讓 hidden 屬性能正常生效（壓過 .suppl 自身的 display:flex）
+    &[hidden] {
+        visibility: hidden;;
+    }
+
+    .remark {
+        color: $color-text-muted;
+        text-align: right;
+        display: block;
+        flex-grow: 1;
+    }
+
+    .field-validation-error {
+        color: $color-error;
+        text-align: left;
+        display: block;
+        font-size: $fz-sm;
+    }
+}
+
+.suppl-wrap {
+    padding-left: 25px;
+}
+
+// 收合箭頭樣式
+i.material-symbols-outlined {
+    user-select: none;
+    vertical-align: middle;
+}
+
+// 顯示控制
+.hide {
+    display: none !important;
+}
+
+.text-c {
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+}
+
+.perpage {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: $spacing-sm;
+
+    span {
+        white-space: nowrap;
+    }
+}

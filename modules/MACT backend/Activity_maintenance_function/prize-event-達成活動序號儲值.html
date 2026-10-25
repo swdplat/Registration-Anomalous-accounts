@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link href="../../../css/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../../../js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="../../../js/prize.js"></script>
+    <script type="text/javascript" src="../../../js/toast-message.js"></script>
+    <script type="text/javascript" src="../../../js/components.js"></script>
+    <script type="text/javascript" src="../../../js/calendar.js"></script>
+    <script type="text/javascript" src="../../../js/scroll-to-edge.js"></script>
+    <title>設定活動條件</title>
+</head>
+
+<body>
+    <main>
+        <header class="header">
+            <button type="button" class="btn-sec btn-back larg"><i class="material-symbols-outlined">arrow_back</i></button>
+            <h1>設定活動條件</h1>
+        </header>
+        <div class="search-bar mar-tl">
+            <div class="col-4">
+                <label for="game-name">活動條件</label>
+                <select id="game-name">
+                    <option value="" disabled>請選擇</option>
+                    <option value="達成活動序號儲值" selected>達成活動序號儲值</option>
+                    <option value="遊戲B">遊戲B</option>
+                    <option value="遊戲C">遊戲C</option>
+                </select>
+            </div>
+            <div class="col-4">
+                <label>活動代號</label>
+                <p>2024072201</p>
+            </div>
+            <div class="col-4">
+                <label>活動名稱</label>
+                <p>參加指定活動</p>
+            </div>
+        </div>
+        <form class="pad-ts">
+            <div class="table-action-wrap shadow-md">
+                <table class="item-list col mar-0">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>活動代號</th>
+                        </tr>
+                    </thead>
+                    <tbody data-section="dynamic-activityCode">
+                        <tr class="data-row">
+                            <td><button type="button" class="btn-text" data-action="delete-row">刪除</button></td>
+                            <td>
+                                <div class="field mar-0"><input type="text" placeholder="請輸入" /></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="btn-container add-button-row">
+                    <button type="button" class="btn-sec small" data-add-button>新增一筆活動代號</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="bottom">
+            <button class="btn-pri larg">新增</button>
+            <button class="btn-sec larg">取消</button>
+        </div>
+    </main>
+</body>
+
+</html>

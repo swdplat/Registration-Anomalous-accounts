@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="../../../css/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../../css/select2.css" />
+
+    <!-- Datepicker start -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.js"></script>
+    <script src="../../../js/zh.js"></script>
+    <!-- Datepicker end -->
+
+    <script type="text/javascript" src="../../../js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="../../../js/select2.min.js"></script>
+    <script type="text/javascript" src="../../../js/prize.js"></script>
+    <script type="text/javascript" src="../../../js/components.js"></script>
+    <script type="text/javascript" src="../../../js/switch-controls.js"></script>
+    <script type="text/javascript" src="../../../js/calendar.js"></script>
+    <script type="text/javascript" src="../../../js/pagination.js"></script>
+    <script type="text/javascript" src="../../../js/sort.js"></script>
+    <script type="text/javascript" src="../../../js/dual-listbox.js"></script>
+    <script type="text/javascript" src="../../../js/popup.js"></script>
+    <script type="text/javascript" src="../../../js/searchSelect.js"></script>
+    <script type="text/javascript" src="../../../js/cascade-select.js"></script>
+    <script type="text/javascript" src="../../../js/toast-message.js"></script>
+    <script type="text/javascript" src="../../../js/tooltip.js"></script>
+    <script type="text/javascript" src="../../../js/scroll-to-edge.js"></script>
+    <title>CP白名單維護-新增</title>
+</head>
+
+<body>
+    <main class="has-fixed-header">
+        <!-- 沿用列表頁的固定式 header；新增頁只停留在「白名單搜尋」流程，另一個頁籤停用不可點 -->
+        <div class="nav-tabs-container">
+            <header class="header header-fixed">
+                <div class="header-bar">
+                    <h1>新增一筆資料</h1>
+                    <div class="header-actions">
+                        <button class="btn-pri larg">儲存</button>
+                        <button class="btn-sec larg">取消</button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="fixed-header-content">
+                <form>
+                    <section>
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="field">
+                                    <h3>啟用狀態</h3>
+                                    <label class="switch">
+                                        <input type="checkbox" role="switch" name="eventStatus" value="enabled" checked>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="f-grow">
+                                    <div class="field mar-0">
+                                        <h3>CP廠商</h3>
+                                        <!-- 第一層（父）：進畫面即可點選；data-cascade-child 指向第二層 -->
+                                        <select class="select2-search" id="cpVendor" data-cascade-child="cpService">
+                                            <option value="" selected>請選擇</option>
+                                            <option value="vendorA">選項A</option>
+                                            <option value="vendorB">選項B</option>
+                                            <option value="vendorC">選項C</option>
+                                        </select>
+                                        <div class="suppl">
+                                            <span class="field-validation-error">欄位必填</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="f-grow">
+                                    <div class="field mar-0">
+                                        <h3>CP服務</h3>
+                                        <!-- 第二層（子＋父）：data-cascade-parent 指回 CP廠商、data-cascade-child 指向收款幣別 -->
+                                        <!-- 每個 <option> 用 data-parent 標明屬於哪個 CP廠商（此清單由後端渲染） -->
+                                        <select class="select2-search" id="cpService" data-cascade-parent="cpVendor"
+                                            data-cascade-child="cpCurrency" disabled>
+                                            <option value="" selected>請選擇</option>
+                                            <option value="svcA1" data-parent="vendorA">A-金流服務</option>
+                                            <option value="svcA2" data-parent="vendorA">A-點數服務</option>
+                                            <option value="svcB1" data-parent="vendorB">B-儲值服務</option>
+                                            <option value="svcC1" data-parent="vendorC">C-訂閱服務</option>
+                                            <option value="svcC2" data-parent="vendorC">C-一次性服務</option>
+                                        </select>
+                                        <div class="suppl">
+                                            <span class="field-validation-error">欄位必填</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="f-grow">
+                                    <div class="field mar-0">
+                                        <h3>收款幣幣別</h3>
+                                        <!-- 第三層（子）：data-cascade-parent 指回 CP服務 -->
+                                        <!-- 每個 <option> 用 data-parent 標明屬於哪個 CP服務（此清單由後端渲染） -->
+                                        <select class="select2-search" id="cpCurrency" data-cascade-parent="cpService"
+                                            disabled>
+                                            <option value="" selected>請選擇</option>
+                                            <option value="TWD" data-parent="svcA1">新台幣 TWD</option>
+                                            <option value="USD" data-parent="svcA1">美金 USD</option>
+                                            <option value="TWD" data-parent="svcA2">新台幣 TWD</option>
+                                            <option value="CNY" data-parent="svcB1">人民幣 CNY</option>
+                                            <option value="USD" data-parent="svcC1">美金 USD</option>
+                                            <option value="JPY" data-parent="svcC1">日圓 JPY</option>
+                                            <option value="TWD" data-parent="svcC2">新台幣 TWD</option>
+                                            <option value="USD" data-parent="svcC2">美金 USD</option>
+                                        </select>
+                                        <div class="suppl">
+                                            <span class="field-validation-error">欄位必填</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <h2>多重條件<i class="material-symbols-outlined fz-xl"
+                                data-tooltip="此處需進行條件判斷的勾選，勾選後則會依勾選之條件進行判斷，如勾選手機號碼及遊戲帳號，則需兩項條件皆符合才可通過白名單。"
+                                data-tooltip-position="right">Help</i></h2>
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="field">
+                                    <label>
+                                        <input type="checkbox" class="switch-limit" data-require-one="multiCondition"
+                                            checked />
+                                        手機號碼
+                                    </label>
+                                    <div class="switch-field">
+                                        <div class="input-wrap">
+                                            <label>
+                                                <input type="text" placeholder="請輸入" />
+                                            </label>
+                                            <div class="suppl">
+                                                <span class="field-validation-error">欄位必填</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="field">
+                                    <label>
+                                        <input type="checkbox" class="switch-limit" data-require-one="multiCondition" />
+                                        用戶號碼
+                                    </label>
+                                    <div class="switch-field">
+                                        <div class="input-wrap">
+                                            <label>
+                                                <input type="text" placeholder="請輸入" disabled />
+                                            </label>
+                                            <div class="suppl">
+                                                <span class="field-validation-error">欄位必填</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="field">
+                                    <label>
+                                        <input type="checkbox" class="switch-limit" data-require-one="multiCondition" />
+                                        電子郵件
+                                    </label>
+                                    <div class="switch-field">
+                                        <div class="input-wrap">
+                                            <label>
+                                                <input type="text" placeholder="請輸入" disabled />
+                                            </label>
+                                            <div class="suppl">
+                                                <span class="field-validation-error">欄位必填</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="field mar-0">
+                                    <label>
+                                        <input type="checkbox" class="switch-limit" data-require-one="multiCondition" />
+                                        遊戲帳號
+                                    </label>
+                                    <div class="switch-field">
+                                        <div class="input-wrap">
+                                            <label>
+                                                <input type="text" placeholder="請輸入" disabled />
+                                            </label>
+                                            <div class="suppl">
+                                                <span class="field-validation-error">欄位必填</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="f-grow">
+                                    <div class="field mar-0">
+                                        <h3>修改備註<i class="material-symbols-outlined fz-xl"
+                                                data-tooltip="點擊儲存按鈕後，則會記錄在「變更歷程」中。"
+                                                data-tooltip-position="right">Help</i></h3>
+                                        <select class="select2-search">
+                                            <option selected>請選擇</option>
+                                            <option>選項A</option>
+                                            <option>選項B</option>
+                                            <option>選項C</option>
+                                        </select>
+                                        <div class="suppl">
+                                            <span class="field-validation-error">欄位必填</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mar-txxl hide">
+                            <div class="field mar-0">
+                                <h3>變更歷程</h3>
+                                <textarea rows="5" placeholder="請輸入" disabled>
+2025/07/31 16:54:22    使用者 黃立維 變更為 開啟
+                                           備註:因XXCP端需求，確認該號碼可開放通行，故開啟白名單
+2025/07/31 16:54:22    使用者 黃立維 變更為 開啟
+                                           備註:因XXCP端需求，確認該號碼可開放通行，故開啟白名單
+2025/07/31 16:54:22    使用者 黃立維 變更為 開啟
+                                           備註:因XXCP端需求，確認該號碼可開放通行，故開啟白名單
+                                </textarea>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="field">
+                                    <h3>執行人員</h3>
+                                    <p>會員經營課 王小明</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="field">
+                                    <h3>修改人員</h3>
+                                    <p>會員經營課 王小明</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="field mar-0">
+                                    <h3>建立時間</h3>
+                                    <p>2025/07/25 17:34:15</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="field mar-0">
+                                    <h3>異動時間</h3>
+                                    <p>-</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

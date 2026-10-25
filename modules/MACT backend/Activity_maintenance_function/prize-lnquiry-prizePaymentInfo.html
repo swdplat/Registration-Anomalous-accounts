@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link type="text/css" rel="stylesheet" href="../../../css/daterangepicker.css" />
+    <link type="text/css" rel="stylesheet" href="../../../css/style.css" />
+    <script type="text/javascript" src="../../../js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="../../../js/moment.min.js"></script>
+    <script type="text/javascript" src="../../../js/daterangepicker.min.js"></script>
+    <script type="text/javascript" src="../../../js/components.js"></script>
+    <script type="text/javascript" src="../../../js/calendar.js"></script>
+    <script type="text/javascript" src="../../../js/toast-message.js"></script>
+    <script type="text/javascript" src="../../../js/pagination.js"></script>
+    <script type="text/javascript" src="../../../js/scroll-to-edge.js"></script>
+    <title>活動獎項查詢-貨付款獎項資訊</title>
+</head>
+
+<body>
+    <main>
+        <header class="header">
+            <h1>PRZ00007554</h1>
+            <button type="button" class="btn-sec btn-back larg"><i class="material-symbols-outlined">arrow_back</i></button>
+        </header>
+        <div class="search-bar">
+            <div class="col-4">
+                <label>活動代號</label>
+                <p>2024072201</p>
+            </div>
+            <div class="col-4">
+                <label>活動名稱</label>
+                <p>參加指定活動</p>
+            </div>
+        </div>
+
+        <div class="row row-between row-hcenter">
+            <button class="btn-pri larg insert-button">新增資料</button>
+            <div class="perpage field mar-bm">
+                <span>每頁顯示</span>
+                <select>
+                    <option>10</option>
+                    <option>50</option>
+                    <option>100</option>
+                </select>
+                <span>筆</span>
+            </div>
+        </div>
+
+        <div class="table-pagination-wrap" data-pagination-root data-page-size="10">
+            <table class="item-list col" data-pagination-table>
+                <thead>
+                    <tr>
+                        <th>功能</th>
+                        <th>獎項SN</th>
+                        <th>付款金額</th>
+                        <th>商品成本</th>
+                        <th>取貨類型</th>
+                    </tr>
+                </thead>
+                <tbody data-section="dynamic-prizePaymentInfo" data-pagination-body>
+                    <tr class="data-row">
+                        <td>
+                            <div class="action-btns">
+                                <button class="btn-text" data-action="delete-row">刪除</button>
+                            </div>
+                        </td>
+                        <td>7558</td>
+                        <td>100</td>
+                        <td>50</td>
+                        <td>表示取貨付款</td>
+                    </tr>
+                    <tr class="data-row">
+                        <td>
+                            <div class="action-btns">
+                                <button class="btn-text" data-action="delete-row">刪除</button>
+                            </div>
+                        </td>
+                        <td>7559</td>
+                        <td>200</td>
+                        <td>100</td>
+                        <td>表示取貨付款</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination" data-pagination>
+                <button type="button" class="first-page" data-pagination-action="first">第一頁</button>
+                <button type="button" class="pre-page" data-pagination-action="prev">上一頁</button>
+                <button type="button" class="page-number active" data-pagination-page="1">1</button>
+                <button type="button" class="page-number" data-pagination-page="2">2</button>
+                <button type="button" class="page-number" data-pagination-page="3">3</button>
+                <button type="button" class="next-page" data-pagination-action="next">下一頁</button>
+                <button type="button" class="last-page" data-pagination-action="last">最後一頁</button>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+[data-lang-multiselect] {
+    position: relative;
+
+    .search-checkbox-trigger {
+        width: 100%;
+        margin-top: $spacing-xs;
+        padding: $spacing-base * 0.5 15px;
+        border: 1px solid $color-border;
+        border-radius: $radius-sm;
+        background-color: $color-bg-white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        height: $input-height;
+
+        span {
+            color: $color-text;
+        }
+
+        i {
+            color: $color-text-muted;
+        }
+    }
+
+    .search-checkbox-panel {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin-top: $spacing-xs;
+        background-color: $color-bg-white;
+        border: 1px solid $color-border;
+        border-radius: $radius-md;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        padding: $spacing-sm;
+        z-index: 20;
+        max-height: 250px;
+        overflow-y: auto;
+
+        label {
+            display: flex;
+            align-items: center;
+            gap: $spacing-sm;
+            padding: $spacing-sm $spacing-sm;
+            cursor: pointer;
+            width: 100%;
+            white-space: normal;
+            word-break: break-word;
+            &:hover {
+                background-color: $color-bg-light;
+            }
+            
+            input[type="checkbox"] {
+                margin: 0;
+            }
+
+            // 該語系已被其他頁籤選用：呈現為 checked + disabled
+            &:has(input[data-cross-tab]) {
+                cursor: not-allowed;
+                color: $color-text-muted;
+                &:hover {
+                    background-color: transparent;
+                }
+            }
+        }
+
+        hr {
+            margin: $spacing-xs 0;
+            border: 0;
+            border-top: 1px solid $color-border;
+        }
+    }
+
+    .search-checkbox-tags {
+        margin-top: $spacing-sm;
+        display: flex;
+        flex-wrap: wrap;
+        gap: $spacing-sm;
+
+        .tag {
+            display: flex;
+            height: 25px;
+            padding: 4px 10px;
+            justify-content: center;
+            align-items: center;
+            gap: $spacing-xs;
+            background-color: #E1EFFD;
+            border-radius: $radius-sm;
+            font-size: $fz-md;
+            border-radius: 100px;
+            color: #0A6FBF;
+
+            .remove-tag {
+                font-size: $fz-sm;
+                cursor: pointer;
+
+                &:hover {
+                    color: $color-danger;
+                }
+            }
+        }
+    }
+}

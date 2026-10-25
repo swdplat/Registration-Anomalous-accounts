@@ -1,0 +1,365 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="../../../css/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../../css/select2.css" />
+
+    <!-- Datepicker start -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.js"></script>
+    <script src="../../../js/zh.js"></script>
+    <!-- Datepicker end -->
+
+    <script type="text/javascript" src="../../../js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="../../../js/select2.min.js"></script>
+    <script type="text/javascript" src="../../../js/prize.js"></script>
+    <script type="text/javascript" src="../../../js/components.js"></script>
+    <script type="text/javascript" src="../../../js/switch-controls.js"></script>
+    <script type="text/javascript" src="../../../js/calendar.js"></script>
+    <script type="text/javascript" src="../../../js/pagination.js"></script>
+    <script type="text/javascript" src="../../../js/editable-list.js"></script>
+    <script type="text/javascript" src="../../../js/sort.js"></script>
+    <script type="text/javascript" src="../../../js/dual-listbox.js"></script>
+    <script type="text/javascript" src="../../../js/popup.js"></script>
+    <script type="text/javascript" src="../../../js/searchSelect.js"></script>
+    <script type="text/javascript" src="../../../js/toast-message.js"></script>
+    <script type="text/javascript" src="../../../js/progress-bar.js"></script>
+    <script type="text/javascript" src="../../../js/tooltip.js"></script>
+    <script type="text/javascript" src="../../../js/scroll-to-edge.js"></script>
+    <title>CP白名單維護</title>
+</head>
+
+<body>
+    <main class="has-fixed-header">
+        <!-- 頁籤放在 header 內，切換的是 header 下方一整個區塊 -->
+        <div class="nav-tabs-container">
+            <header class="header header-fixed">
+                <div class="header-bar">
+                    <h1>CP風控白名單</h1>
+                    <!-- 僅「備註範本編輯」頁籤顯示，切換邏輯見 js/components.js -->
+                    <!-- data-editable-guard：列表還有列在編輯中就先跳提示，見 js/editable-list.js -->
+                    <div class="header-actions" data-nav-tab-actions="remark-template"
+                        data-editable-guard="remark-template">
+                        <button type="button" class="btn-pri larg">儲存</button>
+                        <button type="button" class="btn-sec larg">取消</button>
+                    </div>
+                </div>
+                <ul class="nav-tabs">
+                    <li class="active" data-nav-tab="whitelist-search">白名單搜尋</li>
+                    <li data-nav-tab="remark-template">備註範本編輯</li>
+                </ul>
+            </header>
+
+            <div class="nav-tabs-content fixed-header-content">
+                <!-- 白名單搜尋（預設） -->
+                <div class="nav-tab-panel active" data-nav-tab-panel="whitelist-search">
+                    <form>
+                        <section>
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="field">
+                                        <h3>建立時間<span>*</span></h3>
+                                        <div class="date-range-field">
+                                            <input type="text" name="range-start" class="calendar" autocomplete="off"
+                                                placeholder="yyyy/mm/dd hh:mm">
+                                            <span class="sign">-</span>
+                                            <input type="text" name="range-end" class="calendar" autocomplete="off"
+                                                placeholder="yyyy/mm/dd hh:mm">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="field">
+                                        <h3>異動時間</h3>
+                                        <div class="date-range-field">
+                                            <input type="text" name="range-start" class="calendar" autocomplete="off"
+                                                placeholder="yyyy/mm/dd hh:mm">
+                                            <span class="sign">-</span>
+                                            <input type="text" name="range-end" class="calendar" autocomplete="off"
+                                                placeholder="yyyy/mm/dd hh:mm">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h2>搜尋條件</h2>
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="field">
+                                        <h3>CP廠商</h3>
+                                        <select>
+                                            <option selected disabled>請選擇</option>
+                                            <option>選項</option>
+                                            <option>選項</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="field">
+                                        <h3>CP服務</h3>
+                                        <select>
+                                            <option selected disabled>請選擇</option>
+                                            <option>選項</option>
+                                            <option>選項</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="field">
+                                        <h3>執行條件</h3>
+                                        <select>
+                                            <option selected disabled>請選擇</option>
+                                            <option>選項</option>
+                                            <option>選項</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h2>多重條件</h2>
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="field">
+                                        <h3>手機號碼</h3>
+                                        <textarea type="text" placeholder="最多輸入25筆資料" rows="1"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="field">
+                                        <h3>用戶號碼</h3>
+                                        <textarea type="text" placeholder="最多輸入25筆資料" rows="1"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="field">
+                                        <h3>電子郵件</h3>
+                                        <textarea type="text" placeholder="最多輸入25筆資料" rows="1"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="field mar-0">
+                                        <h3>遊戲帳號</h3>
+                                        <textarea type="text" placeholder="最多輸入25筆資料" rows="1"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="field mar-0">
+                                        <h3>啟用狀態</h3>
+                                        <select>
+                                            <option selected disabled>請選擇</option>
+                                            <option>啟用</option>
+                                            <option>停用</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row row-end mar-txl">
+                                <button class="btn-sec larg">查詢</button>
+                            </div>
+                        </section>
+                    </form>
+
+                    <div class="row row-between row-hcenter">
+                        <div class="btn-group">
+                            <button class="btn-pri larg insert-button">新增資料</button>
+                            <!-- data-file-export：右上角浮動進度卡，見 js/progress-bar.js -->
+                            <button type="button" class="btn-sec larg insert-button"
+                                data-file-export="產出 Excel.xlsx" data-file-export-message="已寄送">Email 寄出</button>
+                        </div>
+                        <div class="perpage field mar-bm">
+                            <span>每頁顯示</span>
+                            <select>
+                                <option>10</option>
+                                <option>50</option>
+                            </select>
+                            <span>筆</span>
+                        </div>
+                    </div>
+
+                    <div class="table-pagination-wrap" data-pagination-root data-page-size="10">
+                        <table class="item-list col" data-pagination-table>
+                            <thead>
+                                <tr>
+                                    <th>功能</th>
+                                    <th>啟用狀態</th>
+                                    <th data-sort>ＣＰ廠商<i class="material-symbols-outlined sort-icon">arrow_drop_down</i>
+                                    </th>
+                                    <th data-sort>ＣＰ服務<i class="material-symbols-outlined sort-icon">arrow_drop_down</i>
+                                    </th>
+                                    <th>多重條件</th>
+                                    <th>用戶資料</th>
+                                    <th data-sort data-sort-type="date">建立時間<i
+                                            class="material-symbols-outlined sort-icon">arrow_drop_down</i></th>
+                                    <th>異動時間</th>
+                                    <th>備註</th>
+                                    <th>建立人</th>
+                                </tr>
+                            </thead>
+                            <tbody data-pagination-body>
+                                <tr>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="btn-text">修改</button>
+                                        </div>
+                                    </td>
+                                    <td>啟用</td>
+                                    <td>吉恩立數位科技股份有限公司</td>
+                                    <td>NCoin</td>
+                                    <td>手機號碼<br>用戶號碼<br>電子郵件<br>遊戲帳號</td>
+                                    <td>09667***88<br>0000-02******0911<br>**est1111@gmail.com<br>**1563246985</td>
+                                    <td>2024-08-01 00:00</td>
+                                    <td>2024-09-30 00:00</td>
+                                    <td class="tooltip-trigger">
+                                        因此門號長時間停用，故先隱藏</td>
+                                    <td>王大衛</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="btn-text">修改</button>
+                                        </div>
+                                    </td>
+                                    <td>啟用</td>
+                                    <td>NCSOFT Corporation</td>
+                                    <td>劍靈2</td>
+                                    <td>手機號碼<br>用戶號碼<br>電子郵件</td>
+                                    <td>09667***88<br>0000-02******0911<br>**est1111@gmail.com</td>
+                                    <td>2024-10-01 00:00</td>
+                                    <td>2024-12-30 00:00</td>
+                                    <td class="tooltip-trigger">
+                                        門號資料與綁定資料驗證，若有誤請進行修正，否則將影響資料匯入</td>
+                                    <td>王大衛</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="btn-text">修改</button>
+                                        </div>
+                                    </td>
+                                    <td>不啟用</td>
+                                    <td>Boyaa Interactive Hong KongLimited</td>
+                                    <td>博雅德州撲克</td>
+                                    <td>用戶號碼<br>電子郵件<br>遊戲帳號</td>
+                                    <td>0000-02******0911<br>**est1111@gmail.com<br>**1563246985</td>
+                                    <td>2025-01-01 00:00</td>
+                                    <td>2025-02-30 00:00</td>
+                                    <td class="tooltip-trigger">加入黑名單用戶資料，已停用，將無法再進行儲值服務</td>
+                                    <td>王大衛</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="pagination" data-pagination>
+                            <button type="button" class="first-page" data-pagination-action="first">第一頁</button>
+                            <button type="button" class="pre-page" data-pagination-action="prev">上一頁</button>
+                            <button type="button" class="page-number active" data-pagination-page="1">1</button>
+                            <button type="button" class="page-number" data-pagination-page="2">2</button>
+                            <button type="button" class="page-number" data-pagination-page="3">3</button>
+                            <button type="button" class="page-number" data-pagination-page="4">4</button>
+                            <button type="button" class="page-number" data-pagination-page="5">5</button>
+                            <button type="button" class="next-page" data-pagination-action="next">下一頁</button>
+                            <button type="button" class="last-page" data-pagination-action="last">最後一頁</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 備註範本編輯 -->
+                <div class="nav-tab-panel" data-nav-tab-panel="remark-template">
+                    <form>
+                        <section>
+                            <!-- 輸入框與「新增」按鈕底部對齊 -->
+                            <div class="row d-flex-end mar-bxl">
+                                <div class="col-4">
+                                    <div class="field mar-b0">
+                                        <h3>範本內容</h3>
+                                        <input type="text" placeholder="請輸入"
+                                            data-editable-source="remark-template" />
+                                    </div>
+                                </div>
+                                <button type="button" class="btn-pri larg"
+                                    data-editable-add="remark-template" data-editable-add-message="新增成功，請至列表檢查">新增</button>
+                            </div>
+
+                            <div class="row row-between row-hcenter mar-bl">
+                                <div class="btn-group">
+                                    <!-- type="button"：這顆在 form 內，不加會觸發表單送出而重整頁面 -->
+                                    <button type="button" class="btn-sec larg" data-file-export="產出 Excel.xlsx"
+                                        data-file-export-message="已寄送">Email 寄出</button>
+                                </div>
+                                <div class="perpage">
+                                    <span>每頁顯示</span>
+                                    <select>
+                                        <option>10</option>
+                                        <option>50</option>
+                                        <option>100</option>
+                                    </select>
+                                    <span>筆</span>
+                                </div>
+                            </div>
+
+                            <!-- 新增 / 刪除 / 單列修改的行為見 js/editable-list.js -->
+                            <div class="table-action-wrap mar-bxl" data-pagination-root data-page-size="10">
+                                <table class="item-list col mar-0" data-pagination-table>
+                                    <thead>
+                                        <tr>
+                                            <th>功能</th>
+                                            <th>範本內容</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody data-pagination-body data-editable-list="remark-template">
+                                        <tr class="data-row">
+                                            <td>
+                                                <div class="action-btns">
+                                                    <button type="button" class="btn-text"
+                                                        data-action="delete-row">刪除</button>
+                                                    <button type="button" class="btn-text"
+                                                        data-action="edit-row">修改</button>
+                                                </div>
+                                            </td>
+                                            <td data-editable-cell>
+                                                <span data-editable-text>廠商異動</span>
+                                                <div class="field mar-0 hide" data-editable-field>
+                                                    <input type="text" placeholder="請輸入" />
+                                                    <!-- 確定 / 取消疊在輸入框右側內緣，樣式見 scss/settings/_editable-list.scss -->
+                                                    <div class="input-buttons">
+                                                        <button type="button" class="input-button primary"
+                                                            data-action="confirm-edit">確定</button>
+                                                        <button type="button" class="input-button"
+                                                            data-action="cancel-edit">取消</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+                                <div class="pagination" data-pagination>
+                                    <button type="button" class="first-page" data-pagination-action="first">第一頁</button>
+                                    <button type="button" class="pre-page" data-pagination-action="prev">上一頁</button>
+                                    <button type="button" class="page-number active" data-pagination-page="1">1</button>
+                                    <button type="button" class="next-page" data-pagination-action="next">下一頁</button>
+                                    <button type="button" class="last-page" data-pagination-action="last">最後一頁</button>
+                                </div>
+                            </div>
+                        </section>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

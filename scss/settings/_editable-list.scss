@@ -1,0 +1,96 @@
+// ============================================================================
+// editable-list — 可即時編輯的資料列表樣式（對應 js/editable-list.js）
+// ============================================================================
+//
+// 【要解決的問題】
+//   同一格在「檢視」與「編輯」之間切換時，內容從一行文字（約 22px）換成
+//   $input-height（40px）的輸入框，整列會從 38px 撐到 57px，一進一出就跳動。
+//
+// 【作法】
+//   直接把儲存格高度鎖在「輸入框高度 + td 上下 padding」，讓檢視狀態預先把
+//   編輯狀態要用的空間留好，兩種狀態列高一致。
+//   高度給 <td> 而不是給裡面的文字：
+//     1. td 已有 vertical-align: middle，兩種狀態都會自動垂直置中。
+//     2. 不動 span 的 display，_table.scss 的 text-overflow: ellipsis 仍然有效。
+//   CSS 表格的儲存格高度是「取指定值與內容高度的較大者」，所以這裡等同下限，
+//   日後欄位變兩行也只會往下長，不會被裁掉。
+//
+// 【影響範圍】
+//   選擇器限定在 [data-editable-cell]，只有明確標記的儲存格會套用，
+//   其他 table 的列高完全不受影響（_table.scss 未做任何修改）。
+// ============================================================================
+
+// 全域已設 box-sizing: border-box，td 的高度含上下 padding 與框線，
+// 三者都要算進來，最後的列高才會跟編輯狀態完全一致（少算 1px 就會晃一下）。
+//   $input-height          40px  輸入框
+//   $spacing-sm * 2        16px  _table.scss 的 td 上下 padding
+//   1px                     1px  _table.scss 的 td border-bottom
+//   1px                     1px  不同系統字體預留空間
+$editable-cell-height: $input-height + $spacing-sm * 2 + 1px; // 57px
+
+td[data-editable-cell] {
+    height: $editable-cell-height + 1px;
+}
+
+// ============================================================================
+// input-button — 疊在輸入框右側內緣的小按鈕（Figma 元件名稱同名）
+// ============================================================================
+// 設計稿量測值：按鈕 52x32、圓角 4px、字級 14px、兩顆間距 8px，
+// 與輸入框上/下/右三邊各留 4px（40px 輸入框 - 4px*2 = 32px 按鈕高）。
+// 因為是絕對定位疊在輸入框上，輸入框要留出右側 padding，
+// 內容過長時文字才不會鑽到按鈕底下。
+// ============================================================================
+
+$input-button-height: 32px;
+$input-button-width: 52px; // 設計稿：12px padding + 2 字 + 12px padding
+$input-button-inset: ($input-height - $input-button-height) * 0.5; // 4px
+$input-button-gap: $spacing-sm; // 8px
+
+// 輸入框右側要讓出的寬度：內縮 + 兩顆按鈕 + 兩顆之間的間距 + 呼吸空間。
+// 呼吸空間抓大一點（16px），因為按鈕寬度由文字撐開，實際渲染會比設計稿略寬。
+$input-button-reserve: $input-button-inset + $input-button-width * 2 +
+    $input-button-gap + $spacing-md; // 132px
+
+.input-buttons {
+    // 依附 form .field 既有的 position: relative 定位
+    position: absolute;
+    top: $input-button-inset;
+    right: $input-button-inset;
+    display: flex;
+    gap: $input-button-gap;
+}
+
+// 按鈕是絕對定位疊在輸入框上，輸入框自己要讓出右側空間，
+// 範本內容太長時文字才不會鑽到按鈕底下（CSS 沒有前一個兄弟選擇器，直接指定 input）。
+// 選擇器要同時帶上 .field 與屬性：_form.scss 的 `form .field input[type="text"]`
+// 權重是 (0,2,2)，只寫 `[data-editable-field] input` 是 (0,2,1) 會被蓋掉。
+.field[data-editable-field] input[type="text"] {
+    padding-right: $input-button-reserve;
+}
+
+.input-button {
+    height: $input-button-height;
+    padding: 0 $spacing-sm-md;
+    font-size: $fz-sm;
+    font-weight: 500;
+    // button 基底是 100px 膠囊型，這裡依設計稿改回小圓角
+    border-radius: $radius-md;
+    border: 1px solid $color-primary;
+    background-color: $color-bg-white;
+    color: $color-primary;
+    white-space: nowrap;
+
+    &:hover:not(:disabled) {
+        background-color: rgba($color-primary, 0.08);
+    }
+
+    // 主要動作（確定）：實心底色
+    &.primary {
+        background-color: $color-primary;
+        color: $color-bg-white;
+
+        &:hover:not(:disabled) {
+            background-color: darken($color-primary, 8%);
+        }
+    }
+}

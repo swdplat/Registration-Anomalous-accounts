@@ -1,0 +1,321 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link href="../../../css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../../js/jquery-3.7.1.min.js"></script>
+  <script type="text/javascript" src="../../../js/prize.js"></script>
+  <script type="text/javascript" src="../../../js/toast-message.js"></script>
+  <script type="text/javascript" src="../../../js/components.js"></script>
+  <script type="text/javascript" src="../../../js/switch-controls.js"></script>
+  <script type="text/javascript" src="../../../js/calendar.js"></script>
+  <script type="text/javascript" src="../../../js/scroll-to-edge.js"></script>
+  <title>事前登錄</title>
+  <style>
+    table.item-list tr td.fit {
+      text-align: center;
+    }
+
+    table.item-list tr td:first-child {
+      text-align: center;
+    }
+
+    form .dividemember {
+      margin-bottom: 10px;
+      position: relative;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <header class="header">
+      <button type="button" class="btn-sec btn-back larg"><i class="material-symbols-outlined">arrow_back</i></button>
+      <h1>設定活動條件</h1>
+    </header>
+    <div class="search-bar mar-tl">
+      <div class="col-4">
+        <label for="game-name">活動條件</label>
+        <select id="game-name">
+          <option value="" disabled>請選擇</option>
+          <option value="多重條件設定" selected>事前登錄</option>
+          <option value="遊戲B">遊戲B</option>
+          <option value="遊戲C">遊戲C</option>
+        </select>
+      </div>
+      <div class="col-4">
+        <label>活動代號</label>
+        <p>2024072201</p>
+      </div>
+      <div class="col-4">
+        <label>活動名稱</label>
+        <p>參加指定活動</p>
+      </div>
+    </div>
+
+    <form action="">
+      <div class="row">
+        <div class="table-action-wrap col mar-bxl shadow-md">
+          <table class="item-list col mar-0">
+            <thead>
+              <tr>
+                <th>功能</th>
+                <th>勾選</th>
+                <th>項目描述</th>
+                <th>不可重複(唯一性)</th>
+              </tr>
+            </thead>
+            <tbody data-section="dynamic-preRegister">
+              <tr>
+                <td></td>
+                <td>
+                  <label for="">
+                    <input type="checkbox" id="" name="" />
+                  </label>
+                </td>
+                <td>手機，含欄位檢核</td>
+                <td class="fit">
+                  <label>
+                    <input type="radio" class="toggle-group" name="choose-one" value="disabled" />
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <label for="">
+                    <input type="checkbox" id="" name="" />
+                  </label>
+                </td>
+                <td>Email，含欄位檢核</td>
+                <td class="fit">
+                  <label>
+                    <input type="radio" class="toggle-group" name="choose-one" value="enabled" />
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <label for="">
+                    <input type="checkbox" id="" name="" />
+                  </label>
+                </td>
+                <td>姓名</td>
+                <td class="fit">
+                  <label>
+                    <input type="radio" class="toggle-group" name="choose-one" value="enabled" />
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <label for="">
+                    <input type="checkbox" id="" name="" />
+                  </label>
+                </td>
+                <td>專屬碼，MyCard會員專屬碼</td>
+                <td class="fit">
+                  <label>
+                    <input type="radio" class="toggle-group" name="choose-one" value="enabled" />
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <label for="">
+                    <input type="checkbox" id="" name="" />
+                  </label>
+                </td>
+                <td>會員帳號，MyCard會員帳號，手機或Email</td>
+                <td class="fit">
+                  <label>
+                    <input type="radio" class="toggle-group" name="choose-one" value="enabled" />
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <label for="">
+                    <input type="checkbox" id="" name="" />
+                  </label>
+                </td>
+                <td>載具</td>
+                <td class="fit">
+                  <label>
+                    <input type="radio" class="toggle-group" name="choose-one" value="enabled" />
+                  </label>
+                </td>
+              </tr>
+              <tr class="data-row">
+                <td>
+                  <button type="button" class="btn-text" data-action="delete-row">
+                    刪除
+                  </button>
+                </td>
+                <td>
+                  <label for="">
+                    <input type="checkbox" id="" name="" />
+                  </label>
+                </td>
+                <td>
+                  <div class="field mar-0">
+                    <input type="text" placeholder="自訂" />
+                  </div>
+                </td>
+                <td class="fit">
+                  <label>
+                    <input type="radio" class="toggle-group" name="choose-one" value="enabled" />
+                  </label>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="btn-container add-button-row">
+            <button type="button"  class="btn-sec small" data-add-button>新增自訂條件</button>
+          </div>
+        </div>
+
+      </div>
+      <section>
+        <div class="switch-container mar-0">
+          <div class="switch-main-controlled">
+            <div class="field mar-0">
+              <h3>是否判斷MyCard會員</h3>
+              <label class="switch">
+                <input type="checkbox" role="switch" name="toggleExample" value="enabled">
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+          <div class="controlled-inputs-box mar-ts mar-b0" style="display: none;">
+            <div class="controlled-inputs">
+              <div class="row">
+                <div class="col-4">
+                  <div class="field">
+                    <h3>標題</h3>
+                    <input type="text" placeholder="請輸入" disabled />
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="field">
+                    <h3>訊息文字</h3>
+                    <input type="text" placeholder="請輸入" disabled />
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="field">
+                    <h3>是否另開新頁</h3>
+                    <label class="switch">
+                      <input type="checkbox" role="switch" name="eventStatus" value="enabled" checked>
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                </div>
+                <!-- 可以複製"col"來新增欄位，1 row最多3個col，超過請新增1 row來增加col -->
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <div class="field">
+                    <h3>按鈕名稱</h3>
+                    <input type="text" placeholder="請輸入" disabled />
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="field">
+                    <h3>按鈕連結</h3>
+                    <input type="text" placeholder="請輸入" disabled />
+                  </div>
+                </div>
+                <!-- 可以複製"col"來新增欄位，1 row最多3個col，超過請新增1 row來增加col -->
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <div class="field">
+                    <div class="switch-toggle-select">
+                      <h3>是否關聯官方邀請碼</h3>
+                      <label class="switch">
+                        <input type="checkbox" role="switch" name="officialInvite" value="custom">
+                        <span class="slider round"></span>
+                      </label>
+                      <div class="dependent-inputs-select mar-ts">
+                        <select placeholder="請選擇" disabled>
+                          <option value="" selected>請選擇</option>
+                          <option value="多重條件設定">
+                            2021reg/2021REG_測返回列表
+                          </option>
+                          <option value="">regtest1/專屬碼註冊禮regtest1</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-8">
+                  <div class="field">
+                    <div class="toggle-option">
+                      <h3>中獎圖片</h3>
+                      <div class="radio-group">
+                        <label>
+                          <input type="radio" class="toggle-option-radio" name="optionExample1" value="default" checked>
+                          預設
+                        </label>
+                        <label>
+                          <input type="radio" class="toggle-option-radio" name="optionExample1" value="none">
+                          不顯示
+                        </label>
+                        <label>
+                          <input type="radio" class="toggle-option-radio" name="optionExample1" value="custom">
+                          自訂
+                        </label>
+                      </div>
+                      <div class="dependent-inputs mar-ts">
+                        <h3>中獎圖片連結</h3>
+                        <input type="text" placeholder="請輸入" disabled />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <div class="field mar-0">
+                    <div class="switch-toggle-select">
+                      <h3>是否自動轉跳按鈕連結</h3>
+                      <label class="switch">
+                        <input type="checkbox" role="switch" name="officialInvite1" value="custom">
+                        <span class="slider round"></span>
+                      </label>
+                      <div class="dependent-inputs-select mar-ts">
+                        <select placeholder="請選擇" disabled>
+                          <option value="" selected>請選擇</option>
+                          <option value="多重條件設定">
+                            2021reg/2021REG_測返回列表
+                          </option>
+                          <option value="">regtest1/專屬碼註冊禮regtest1</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </form>
+    <div class="bottom">
+      <button class="btn-pri larg">確定</button>
+      <button class="btn-sec larg">取消</button>
+    </div>
+  </main>
+</body>
+
+</html>

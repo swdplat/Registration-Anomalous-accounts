@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link type="text/css" rel="stylesheet" href="../../../css/daterangepicker.css" />
+    <link type="text/css" rel="stylesheet" href="../../../css/style.css" />
+    <script type="text/javascript" src="../../../js/moment.min.js"></script>
+    <script type="text/javascript" src="../../../js/daterangepicker.min.js"></script>
+    <script type="text/javascript" src="../../../js/jquery-3.7.1.min.js"></script>
+    <!-- Select2 下拉選單 start-->
+    <script type="text/javascript" src="../../../js/select2.min.js"></script>
+    <!-- Select2 下拉選單 end-->
+    <script type="text/javascript" src="../../../js/highlight.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script>
+    <script type="text/javascript" src="../../../js/components.js"></script>
+    <script type="text/javascript" src="../../../js/calendar.js"></script>
+    <script type="text/javascript" src="../../../js/pagination.js"></script>
+    <script type="text/javascript" src="../../../js/popup.js"></script>
+    <script type="text/javascript" src="../../../js/dual-listbox.js"></script>
+    <script type="text/javascript" src="../../../js/toast-message.js"></script>
+    <script type="text/javascript" src="../../../js/tooltip.js"></script>
+    <script type="text/javascript" src="../../../js/searchSelect.js"></script>
+    <script type="text/javascript" src="../../../js/searchCheckbox.js"></script>
+    <script type="text/javascript" src="../../../js/prize.js"></script>
+    <script type="text/javascript" src="../../../js/scroll-to-edge.js"></script>
+    <title>遊戲維護功能-新增</title>
+</head>
+<body>
+    <main>
+        <header class="header">
+            <h1>新增一筆資料</h1>
+        </header>
+        <form>
+            <section>
+                <div class="row">
+                <div class="col-4">
+                    <div class="field mar-0">
+                        <h3>遊戲ID</h3>
+                        <input type="text" value="xmBC" disabled />
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="field mar-0">
+                        <h3>上下架設定</h3>
+                        <label class="switch">
+                            <input type="checkbox" role="switch" name="eventStatus" value="enabled">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            </section>
+            
+            <div class="tabs-container shadow-md">
+                <div class="tabs-bar">
+                    <ul class="tabs">
+                        <li class="active">群組1<span class="material-symbols-outlined fz-md">Cancel</span></li>
+                    </ul>
+                    <button class="add-new-tab"><i class="material-symbols-outlined">add_circle</i>新增標籤</button>
+                </div>
+                <div class="content">
+                    <div class="tab1-content active">
+                        <div class="d-flex row-end mar-bm" style="position: absolute; right: 16px;">
+                            <button type="button" class="btn-sec small copy-tab-btn">複製頁籤內容</button>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="field">
+                                    <h3>頁籤群組名稱<span>*</span></h3>
+                                    <div class="d-flex">
+                                        <input type="text" class="showToast" placeholder="請輸入" value="群組1" />
+                                        <button type="button" class="changeAction btn-sec larg field-side-action">修改</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h2>活動顯示的前台語系</h2>
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="field" data-lang-multiselect>
+                                    <h3>語系<span>*</span></h3>
+                                    <!-- 送出用的隱藏欄位 -->
+                                    <input type="hidden" name="contentSettings-languages">
+                                    <!-- 觸發下拉 -->
+                                    <button type="button" class="search-checkbox-trigger">
+                                        <span>點擊選擇語系</span>
+                                        <i class="material-symbols-outlined">expand_more</i>
+                                    </button>
+                                    <!-- 下拉面板 -->
+                                    <div class="search-checkbox-panel" style="display: none;">
+                                        <label>
+                                            <input type="checkbox" data-all> 全選
+                                        </label>
+                                        <hr>
+                                        <label>
+                                            <input type="checkbox" name="languages[]" value="zh-tw" data-option>
+                                            繁體中文(台灣)
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="languages[]" value="en-us" data-option> 英文(美國)
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="languages[]" value="id-id" data-option> 印尼文(印尼)
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="languages[]" value="zh-hk" data-option>
+                                            繁體中文(香港)
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="languages[]" value="ms-my" data-option>
+                                            英文(馬來西亞)
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="languages[]" value="zh-cn" data-option>
+                                            簡體中文(中國)
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="languages[]" value="ja-jp" data-option> 日文(日本)
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="languages[]" value="th-th" data-option> 泰文(泰國)
+                                        </label>
+                                    </div>
+                                    <!-- 已選標籤 -->
+                                    <div class="search-checkbox-tags"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <h2>遊戲</h2>
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="field">
+                                    <h3>活動主入口<span>*</span></h3>
+                                    <input type="text" placeholder="請輸入" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="field">
+                                    <h3>遊戲官網<span>*</span></h3>
+                                    <input type="text" placeholder="請輸入" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="field">
+                                    <h3>圖示網址<span>*</span></h3>
+                                    <input type="text" placeholder="請輸入" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="field mar-0">
+                                    <h3>主視覺網址<span>*</span></h3>
+                                    <input type="text" placeholder="請輸入" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </form>
+        
+        <div class="bottom">
+            <button class="btn-pri larg">確定</button>
+            <button class="btn-sec larg">取消</button>
+        </div>
+    </main>
+</body>
+</html>

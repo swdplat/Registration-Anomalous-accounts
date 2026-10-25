@@ -1,0 +1,2212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link type="text/css" rel="stylesheet" href="css/default.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link type="text/css" rel="stylesheet" href="css/select2.css" />
+    <link type="text/css" rel="stylesheet" href="./scss/style.css" />
+
+    <!-- Datepicker start -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.js"></script>
+    <script src="js/zh.js"></script>
+    <!-- Datepicker end -->
+
+    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="js/select2.min.js"></script>
+    <!-- <script type="text/javascript" src="js/moment.min.js"></script> -->
+    <!-- <script type="text/javascript" src="js/daterangepicker.min.js"></script> -->
+    <script type="text/javascript" src="js/highlight.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script>
+    <script type="text/javascript" src="js/components.js"></script>
+    <script type="text/javascript" src="js/calendar.js"></script>
+    <script type="text/javascript" src="js/pagination.js"></script>
+    <script type="text/javascript" src="js/sort.js"></script>
+    <script type="text/javascript" src="js/popup.js"></script>
+    <script type="text/javascript" src="js/dialog.js"></script>
+    <script type="text/javascript" src="js/dual-listbox.js"></script>
+    <script type="text/javascript" src="js/toast-message.js"></script>
+    <script type="text/javascript" src="js/progress-bar.js"></script>
+    <script type="text/javascript" src="js/tooltip.js"></script>
+    <script type="text/javascript" src="js/searchSelect.js"></script>
+    <script type="text/javascript" src="js/searchCheckbox.js"></script>
+    <script type="text/javascript" src="js/prize.js"></script>
+    <script type="text/javascript" src="js/advanced-time.js"></script>
+    <script type="text/javascript" src="js/time-axis.js"></script>
+    <script type="text/javascript" src="js/switch-controls.js"></script>
+    <script type="text/javascript" src="js/scroll-to-edge.js"></script>
+    <title>模板</title>
+</head>
+
+<body>
+
+    <main>
+        <header class="header">
+            <h1>異常註冊帳號防堵</h1>
+            <!-- <button type="button" class="btn btn-back"><i class="material-symbols-outlined">arrow_back</i></button> -->
+        </header>
+        <form>
+
+            <section>
+                <!-- TAB -->
+                <h2>異常註冊帳號防堵</h2>
+                <div class="tabs-container">
+                    <div class="tabs-bar">
+                        <ul class="tabs">
+                            <li class="active">正規表示式(Regex) 規則設定</li>
+                            <li>信件網域名單</li>
+                            <li>規則測試工具</li>
+                            <li>會員註冊模擬</li>
+                            <li>批次掃描</li>
+                            <li>批次審核</li>
+                            <li>白名單管理</li>
+                            <li>命中紀錄查詢</li>
+                            <li>操作歷程記錄</li>
+                        </ul>
+                        <!-- <button type="button" class="add-new-tab"><i
+                                class="material-symbols-outlined">add_circle</i>新增標籤
+                            <ul class="options">
+                                <li>選項1</li>
+                                <li>選項2</li>
+                                <li>選項3</li>
+                            </ul>
+                        </button> -->
+                    </div>
+                    <div class="content">
+                        <div class="tab1-content active">
+                            <h2 class="title-region">正規表示式(Regex) 規則設定</h2>
+                            <p class="subtitle-desc">自行新增、編輯、啟用/停用多組正規表達式規則，用以判斷會員信箱是否符合異常樣式；命中後依情境（新註冊／既有會員）分別執行攔截註冊或標籤帳號。</p>
+                            <div class="regular-btn-outer">
+                                <button type="button" class="add-regular-btn">＋ 新增規則</button>
+                            </div>
+                            <div class="table-pagination-wrap" data-pagination-root data-page-size="10">
+                <table class="item-list col" data-pagination-table>
+                    <thead>
+                        <tr>
+                            <th class="title-bar">
+                                <div class="mul-checkbox-header">
+                                   <label class="w-30 align">
+                                     <input type="checkbox" class="mul-checkbox-selectall all-allow">
+                                    全選
+                                   </label>
+                                </div>
+                            </th>
+                            <th class="align">規則名稱／說明</th>
+                            <th class="align">正規表示式(Regex) 內容</th>
+                            <th class="align">啟用狀態</th>
+                            <th class="align">累計命中</th>
+                            <th class="align">最後命中</th>
+                            <th class="align">規則新增人</th>
+                            <th class="tooltip-trigger truncate-cell align">最後編輯人</th>
+                            <th class="tooltip-trigger truncate-cell align">操作</th>
+                            <!-- <th>活動開始時間</th>
+                            <th>活動結束時間</th> -->
+                        </tr>
+                    </thead>
+                    <tbody data-pagination-body>
+                        <tr class="data-row">
+                            <td>
+                                <div class="mul-checkbox-items mar-ts">
+                                    <label class="w-30" >
+                                      <input type="checkbox" class="mul-checkbox-item all-allow">
+                                    </label>
+                                </div>
+                            </td>
+                            <td class="tooltip-trigger  truncate-cell">機器生成信箱樣式 v1機器生成信箱樣式 v1
+                            </td>
+                            <td class="tooltip-trigger truncate-cell">^u[0-9a-f]{12,16}@s[0-9a-f]{4,10}\.m[0-9a-f]{4,10}\.[a-z0-9]+\.[a-z]{2,10}$
+                            </td>
+                            <td>
+                                <div class="action-btns">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                    <!-- <button class="btn-text">修改</button> -->
+                                </div>
+                            </td>
+                            <td>3</td>
+                            <td>2024072201</td>
+                            <td>John Lin</td>
+                            <td>John Lin</td>
+                            <td class="console-button"><button type="button" class="btn-text edit-text-rule">編輯</button><button type="button" class="btn-text" data-action="delete-row">刪除</button></td>
+                            <!-- <td>2024-08-01 00:00</td>
+                            <td>2024-09-30 00:00</td> -->
+                        </tr>
+                        <!-- <tr class="merchant-setting-container child-container" style="display: none;">
+                            <td class="child" colspan="12">
+                                <form class="mar-t0">
+                                    <div class="field col-4">
+                                        <h3>請選擇儲值廠商類型</h3>
+                                        <select>
+                                            <option disabled>請選擇</option>
+                                            <option>選項</option>
+                                            <option>選項</option>
+                                            <option>選項</option>
+                                        </select>
+                                    </div>
+                                    <div class="row">
+                                        <div class="listbox-wrap col">
+                                            <div class="dual-listbox-container">
+                                                <div class="unset-wrapper">
+                                                    <h3>可供選擇的項目</h3>
+                                                    <div class="searchbar">
+                                                        <input type="search" placeholder="搜尋..." />
+                                                        <p class="unset-counter"></p>
+                                                        <div class="trailing-element">
+                                                            <button type="button" class="btn-sec small"
+                                                                data-add-button>清除選取</button>
+                                                        </div>
+                                                    </div>
+                                                    <ul>
+                                                        <li>台灣</li>
+                                                        <li>中國</li>
+                                                        <li>香港</li>
+                                                        <li>澳門</li>
+                                                        <li>新加坡</li>
+                                                        <li>馬來西亞</li>
+                                                        <li>泰國</li>
+                                                        <li>印尼</li>
+                                                        <li>菲律賓</li>
+                                                        <li>越南</li>
+                                                        <li>全球</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="control-wrapper">
+                                                    <button type="button" class="set"><span
+                                                            class="material-symbols-outlined fz-4xl">chevron_right</span></button>
+                                                    <button type="button" class="set-all"><span
+                                                            class="material-symbols-outlined fz-4xl">keyboard_double_arrow_right</span></button>
+                                                    <button type="button" class="unset-all"><span
+                                                            class="material-symbols-outlined fz-4xl">keyboard_double_arrow_left</span></button>
+                                                    <button type="button" class="unset"><span
+                                                            class="material-symbols-outlined fz-4xl">chevron_left</span></button>
+                                                </div>
+                                                <div class="set-wrapper">
+                                                    <h3>已選擇的項目</h2>
+                                                        <div class="searchbar">
+                                                            <input type="search" placeholder="搜尋..." />
+                                                            <p class="set-counter"></p>
+                                                            <div class="trailing-element">
+                                                                <button type="button" class="btn-sec small"
+                                                                    data-add-button>清除選取</button>
+                                                            </div>
+                                                        </div>
+                                                        <ul>
+                                                        </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="listbox-wrap">
+                                        <div class="field mar-0 d-flex">
+                                            <label>
+                                                <input type="checkbox" class="switch-dual-listbox" />
+                                                官網儲值頁關聯遊戲ID
+                                            </label>
+                                            <div class="alert">
+                                                <i class="material-symbols-outlined fill-icon waring">warning</i>
+                                                <span>此設定僅為官網儲值頁指定遊戲活動入口顯示，與實際活動判斷無關。</span>
+                                            </div>
+                                        </div>
+                                        <div class="dual-listbox-container disabled pad-ts">
+                                            <div class="unset-wrapper">
+                                                <h3>可供選擇的項目</h3>
+                                                <div class="searchbar">
+                                                    <input type="search" placeholder="搜尋..." disabled />
+                                                    <p class="unset-counter"></p>
+                                                    <div class="trailing-element">
+                                                        <button type="button" class="btn-sec small"
+                                                            data-add-button>清除選取</button>
+                                                    </div>
+                                                </div>
+
+                                                <ul>
+                                                    <li>台灣</li>
+                                                    <li>中國</li>
+                                                    <li>香港</li>
+                                                    <li>澳門</li>
+                                                    <li>新加坡</li>
+                                                    <li>馬來西亞</li>
+                                                    <li>泰國</li>
+                                                    <li>印尼</li>
+                                                    <li>菲律賓</li>
+                                                    <li>越南</li>
+                                                    <li>全球</li>
+                                                </ul>
+                                            </div>
+                                            <div class="control-wrapper">
+                                                <button type="button" class="set"><span
+                                                        class="material-symbols-outlined fz-4xl">chevron_right</span></button>
+                                                <button type="button" class="set-all"><span
+                                                        class="material-symbols-outlined fz-4xl">keyboard_double_arrow_right</span></button>
+                                                <button type="button" class="unset-all"><span
+                                                        class="material-symbols-outlined fz-4xl">keyboard_double_arrow_left</span></button>
+                                                <button type="button" class="unset"><span
+                                                        class="material-symbols-outlined fz-4xl">chevron_left</span></button>
+                                            </div>
+                                            <div class="set-wrapper">
+                                                <h3>已選擇的項目</h2>
+                                                    <div class="searchbar">
+                                                        <input type="search" placeholder="搜尋..." disabled />
+                                                        <p class="set-counter"></p>
+                                                        <div class="trailing-element">
+                                                            <button type="button" class="btn-sec small"
+                                                                data-add-button>清除選取</button>
+                                                        </div>
+                                                    </div>
+                                                    <ul>
+                                                    </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+                                <button class="btn-pri larg">確定</button>
+                            </td>
+                        </tr> -->
+                        <!-- <tr class="prize-inquiry-container child-container" style="display: none;">
+                            <td class="child" colspan="12">
+                                <div class="table-action-wrap">
+                                    <table class="item-list col mar-0">
+                                        <thead>
+                                            <tr>
+                                                <th>功能</th>
+                                                <th>獎項名稱</th>
+                                                <th>送獎類型</th>
+                                                <th>獎項數量</th>
+                                                <th>新增貨付款獎項資訊</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><button class="btn-text">編輯</button></td>
+                                                <td>參加指定活動</td>
+                                                <td>領獎專區贈獎方式:實體贈品</td>
+                                                <td>100</td>
+                                                <td><a href="#">PRZ00007554</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="btn-container">
+                                        <button type="button" class="btn-pri small">新增一筆資料</button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr> -->
+                        <!-- <tr class="slot-amount-container child-container" style="display: none;">
+                            <td class="child" colspan="12">
+                                <form class="mar-0">
+                                    <div class="field">
+                                        <h3>是否使用轉盤</h3>
+                                        <div class="radio-group">
+                                            <label for="eventStatusEnabled">
+                                                <input type="radio" id="eventStatusEnabled" name="eventStatus"
+                                                    value="enabled" checked>
+                                                是
+                                            </label>
+                                            <label for="eventStatusDisabled">
+                                                <input type="radio" id="eventStatusDisabled" name="eventStatus"
+                                                    value="disabled">
+                                                否
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="table-action-wrap">
+                                        <table class="item-list col mar-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>功能</th>
+                                                    <th>盤數</th>
+                                                    <th>區間</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody data-section="dynamic-prizeList">
+                                                <tr class="data-row">
+                                                    <td>
+                                                        <div class="action-btns">
+                                                            <button type="button" class="btn-text"
+                                                                data-action="delete-row">刪除</button>
+                                                            <button type="button" class="btn-text"
+                                                                data-action="view-row">檢視</button>
+                                                        </div>
+                                                    </td>
+                                                    <td>1</td>
+                                                    <td>1~10</td>
+                                                </tr>
+                                                <tr class="data-row">
+                                                    <td>
+                                                        <div class="action-btns">
+                                                            <button type="button" class="btn-text"
+                                                                data-action="delete-row">刪除</button>
+                                                            <button type="button" class="btn-text"
+                                                                data-action="view-row">檢視</button>
+                                                        </div>
+                                                    </td>
+                                                    <td>2</td>
+                                                    <td>1~1</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="btn-container">
+                                            <button type="button" class="btn-pri small">新增一筆資料</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </td>
+                        </tr> -->
+                        <tr class="data-row">
+                            <td>
+                                <div class="mul-checkbox-items mar-ts">
+                                    <label class="w-30" for="繁體中文(台灣)">
+                                      <input type="checkbox" class="mul-checkbox-item all-allow" >
+                                    </label>
+                                </div>
+                            </td>
+                            <td class="tooltip-trigger  truncate-cell">MFA 帳號格式（測試中）
+                            </td>
+                            <td class="tooltip-trigger truncate-cell">^[A-Z]{3}\d{12}$
+                            </td>
+                            <td>
+                                <div class="action-btns">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                    <!-- <button class="btn-text">修改</button> -->
+                                </div>
+                            </td>
+                            <td>0</td>
+                            <td>-</td>
+                            <td>John Lin</td>
+                            <td>John Lin</td>
+                            <td class="console-button"><button type="button" class="btn-text edit-text-rule">編輯</button><button type="button" class="btn-text" data-action="delete-row">刪除</button></td>
+                            <!-- <td>2024-08-01 00:00</td>
+                            <td>2024-09-30 00:00</td> -->
+                        </tr>
+                        <tr class="data-row">
+                            <td>
+                                <div class="mul-checkbox-items mar-ts">
+                                    <label class="w-30" for="繁體中文(台灣)">
+                                      <input type="checkbox" class="mul-checkbox-item all-allow" >
+                                    </label>
+                                </div>
+                            </td>
+                            <td class="tooltip-trigger  truncate-cell">機器生成信箱樣式 v1機器生成信箱樣式 v1
+                            </td>
+                            <td class="tooltip-trigger truncate-cell">^u[0-9a-f]{12,16}@s[0-9a-f]{4,10}\.m[0-9a-f]{4,10}\.[a-z0-9]+\.[a-z]{2,10}$
+                            </td>
+                            <td>
+                                <div class="action-btns">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                    <!-- <button class="btn-text">修改</button> -->
+                                </div>
+                            </td>
+                            <td>3</td>
+                            <td>2024072201</td>
+                            <td>John Lin</td>
+                            <td>John Lin</td>
+                            <td class="console-button"><button type="button" class="btn-text edit-text-rule">編輯</button><button type="button" class="btn-text" data-action="delete-row">刪除</button></td>
+                            <!-- <td>2024-08-01 00:00</td>
+                            <td>2024-09-30 00:00</td> -->
+                        </tr>
+                        <tr class="data-row">
+                            <td>
+                                <div class="mul-checkbox-items mar-ts">
+                                    <label class="w-30" for="繁體中文(台灣)">
+                                      <input type="checkbox" class="mul-checkbox-item all-allow" >
+                                    </label>
+                                </div>
+                            </td>
+                            <td class="tooltip-trigger  truncate-cell">機器生成信箱樣式 v1機器生成信箱樣式 v1
+                            </td>
+                            <td class="tooltip-trigger truncate-cell">^u[0-9a-f]{12,16}@s[0-9a-f]{4,10}\.m[0-9a-f]{4,10}\.[a-z0-9]+\.[a-z]{2,10}$
+                            </td>
+                            <td>
+                                <div class="action-btns">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                    <!-- <button class="btn-text">修改</button> -->
+                                </div>
+                            </td>
+                            <td>3</td>
+                            <td>2024072201</td>
+                            <td>John Lin</td>
+                            <td>John Lin</td>
+                            <td class="console-button"><button type="button" class="btn-text edit-text-rule">編輯</button><button type="button" class="btn-text" data-action="delete-row">刪除</button></td>
+                            <!-- <td>2024-08-01 00:00</td>
+                            <td>2024-09-30 00:00</td> -->
+                        </tr>
+                        <tr class="data-row">
+                            <td>
+                                <div class="mul-checkbox-items mar-ts">
+                                    <label class="w-30" for="繁體中文(台灣)">
+                                      <input type="checkbox" class="mul-checkbox-item all-allow" >
+                                    </label>
+                                </div>
+                            </td>
+                            <td class="tooltip-trigger  truncate-cell">機器生成信箱樣式 v1機器生成信箱樣式 v1
+                            </td>
+                            <td class="tooltip-trigger truncate-cell">^u[0-9a-f]{12,16}@s[0-9a-f]{4,10}\.m[0-9a-f]{4,10}\.[a-z0-9]+\.[a-z]{2,10}$
+                            </td>
+                            <td>
+                                <div class="action-btns">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                    <!-- <button class="btn-text">修改</button> -->
+                                </div>
+                            </td>
+                            <td>3</td>
+                            <td>2024072201</td>
+                            <td>John Lin</td>
+                            <td>John Lin</td>
+                            <td class="console-button"><button type="button" class="btn-text edit-text-rule">編輯</button><button type="button" class="btn-text" data-action="delete-row">刪除</button></td>
+                            <!-- <td>2024-08-01 00:00</td>
+                            <td>2024-09-30 00:00</td> -->
+                        </tr>
+                        <tr class="data-row">
+                            <td>
+                                <div class="mul-checkbox-items mar-ts">
+                                    <label class="w-30" for="繁體中文(台灣)">
+                                      <input type="checkbox" class="mul-checkbox-item all-allow">
+                                    </label>
+                                </div>
+                            </td>
+                            <td class="tooltip-trigger  truncate-cell">機器生成信箱樣式 v1機器生成信箱樣式 v1
+                            </td>
+                            <td class="tooltip-trigger truncate-cell">^u[0-9a-f]{12,16}@s[0-9a-f]{4,10}\.m[0-9a-f]{4,10}\.[a-z0-9]+\.[a-z]{2,10}$
+                            </td>
+                            <td>
+                                <div class="action-btns">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                    <!-- <button class="btn-text">修改</button> -->
+                                </div>
+                            </td>
+                            <td>3</td>
+                            <td>2024072201</td>
+                            <td>John Lin</td>
+                            <td>John Lin</td>
+                            <td class="console-button"><button type="button" class="btn-text edit-text-rule">編輯</button><button type="button" class="btn-text" data-action="delete-row" disabled>刪除</button></td>
+                            <!-- <td>2024-08-01 00:00</td>
+                            <td>2024-09-30 00:00</td> -->
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pagination" data-pagination>
+                    <button type="button" class="first-page" data-pagination-action="first">第一頁</button>
+                    <button type="button" class="pre-page" data-pagination-action="prev">上一頁</button>
+                    <button type="button" class="page-number active" data-pagination-page="1">1</button>
+                    <button type="button" class="page-number" data-pagination-page="2">2</button>
+                    <button type="button" class="page-number" data-pagination-page="3">3</button>
+                    <button type="button" class="next-page" data-pagination-action="next">下一頁</button>
+                    <button type="button" class="last-page" data-pagination-action="last">最後一頁</button>
+                </div>
+            </div>
+                        </div>
+                        <div class="tab2-content">
+                            <h2 class="title-region">信件網域名單</h2>
+                            <p class="subtitle-desc">維護多組信件網域，設定該網域之比對方式與處理動作。</p>
+                            <div class="domain-name-btn">
+                              <button type="button" class="btn-pri larg add-email-domain">+ 新增網域</button>
+                              <button type="button" class="btn-sec larg csv-insert-btn">批次匯入 ( CSV )</button>
+                            </div>
+                            <div class="table-pagination-wrap" data-pagination-root="" data-page-size="10">
+                <table class="item-list col" data-pagination-table="">
+                    <thead>
+                        <tr>
+                            <th class="title-bar">
+                                <div class="mul-checkbox-header">
+                                   <label class="w-30 align">
+                                     <input type="checkbox" class="mul-checkbox-selectall email-domain-allow">
+                                    全選
+                                   </label>
+                                </div>
+                            </th>
+                            <th class="align">網域<i class="material-symbols-outlined">keyboard_arrow_down</i></th>
+                            <th class="align">比對方式</th>
+                            <th class="align">啟用狀態</th>
+                            <th class="align">累計命中<i class="material-symbols-outlined">keyboard_arrow_down</i></th>
+                            <th class="align">最後命中<i class="material-symbols-outlined">keyboard_arrow_down</i></th>
+                            <th class="align">新增人</th>
+                            <th class="tooltip-trigger truncate-cell align">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody data-pagination-body="">
+                        <tr class="data-row" style="">
+                            <td>
+                                <div class="mul-checkbox-items mar-ts">
+                                    <label class="w-30">
+                                      <input type="checkbox" class="mul-checkbox-item email-domain-allow">
+                                    </label>
+                                </div>
+                            </td>
+                            <td class="tooltip-trigger  truncate-cell">fovira792.sbs
+                            </td>
+                            <td class="tooltip-trigger truncate-cell">精確符合
+                            </td>
+                            <td>
+                                <div class="action-btns">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                    <!-- <button class="btn-text">修改</button> -->
+                                </div>
+                            </td>
+                            <td>3</td>
+                            <td>2026/10/15 09:37</td>
+                            <td>John Lin</td>
+                            <td class="console-button"><button type="button" class="btn-text" data-action="delete-row">刪除</button></td>
+                        </tr>
+                        <tr class="data-row" style="">
+                            <td>
+                                <div class="mul-checkbox-items mar-ts">
+                                    <label class="w-30" for="繁體中文(台灣)">
+                                      <input type="checkbox" class="mul-checkbox-item email-domain-allow">
+                                    </label>
+                                </div>
+                            </td>
+                            <td class="tooltip-trigger  truncate-cell">	kavelo628.space
+                            </td>
+                            <td class="tooltip-trigger truncate-cell">精確符合
+                            </td>
+                            <td>
+                                <div class="action-btns">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                    <!-- <button class="btn-text">修改</button> -->
+                                </div>
+                            </td>
+                            <td>0</td>
+                            <td>-</td>
+                            <td>John Lin</td>
+                            <td class="console-button"><button type="button" class="btn-text" data-action="delete-row">刪除</button></td>
+                        </tr>
+                        <tr class="data-row" style="">
+                            <td>
+                                <div class="mul-checkbox-items mar-ts">
+                                    <label class="w-30" for="繁體中文(台灣)">
+                                      <input type="checkbox" class="mul-checkbox-item email-domain-allow">
+                                    </label>
+                                </div>
+                            </td>
+                            <td class="tooltip-trigger  truncate-cell">	luneri596.site
+                            </td>
+                            <td class="tooltip-trigger truncate-cell">精確符合
+                            </td>
+                            <td>
+                                <div class="action-btns">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                    <!-- <button class="btn-text">修改</button> -->
+                                </div>
+                            </td>
+                            <td>3</td>
+                            <td>2026/10/15 09:37</td>
+                            <td>John Lin</td>
+                            <td class="console-button"><button type="button" class="btn-text" data-action="delete-row">刪除</button></td>
+                        </tr>
+                        <tr class="data-row" style="">
+                            <td>
+                                <div class="mul-checkbox-items mar-ts">
+                                    <label class="w-30" for="繁體中文(台灣)">
+                                      <input type="checkbox" class="mul-checkbox-item email-domain-allow">
+                                    </label>
+                                </div>
+                            </td>
+                            <td class="tooltip-trigger  truncate-cell">mavora817.online
+                            </td>
+                            <td class="tooltip-trigger truncate-cell">精確符合
+                            </td>
+                            <td>
+                                <div class="action-btns">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                    <!-- <button class="btn-text">修改</button> -->
+                                </div>
+                            </td>
+                            <td>3</td>
+                            <td>2026/10/15 09:37</td>
+                            <td>John Lin</td>
+                            <td class="console-button"><button type="button" class="btn-text" data-action="delete-row">刪除</button></td>
+                        </tr>
+                        <tr class="data-row" style="">
+                            <td>
+                                <div class="mul-checkbox-items mar-ts">
+                                    <label class="w-30" for="繁體中文(台灣)">
+                                      <input type="checkbox" class="mul-checkbox-item email-domain-allow">
+                                    </label>
+                                </div>
+                            </td>
+                            <td class="tooltip-trigger  truncate-cell">norevi935.website
+                            </td>
+                            <td class="tooltip-trigger truncate-cell">精確符合
+                            </td>
+                            <td>
+                                <div class="action-btns">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                    <!-- <button class="btn-text">修改</button> -->
+                                </div>
+                            </td>
+                            <td>3</td>
+                            <td>2026/10/15 09:37</td>
+                            <td>John Lin</td>
+                            <td class="console-button"><button type="button" class="btn-text" data-action="delete-row">刪除</button></td>
+                        </tr>
+                        <tr class="data-row" style="">
+                            <td>
+                                <div class="mul-checkbox-items mar-ts">
+                                    <label class="w-30" for="繁體中文(台灣)">
+                                      <input type="checkbox" class="mul-checkbox-item email-domain-allow">
+                                    </label>
+                                </div>
+                            </td>
+                            <td class="tooltip-trigger  truncate-cell">	renuva453.cyou
+                            </td>
+                            <td class="tooltip-trigger truncate-cell">精確符合
+                            </td>
+                            <td>
+                                <div class="action-btns">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                    <!-- <button class="btn-text">修改</button> -->
+                                </div>
+                            </td>
+                            <td>3</td>
+                            <td>2026/10/15 09:37</td>
+                            <td>John Lin</td>
+                            <td class="console-button"><button type="button" class="btn-text" data-action="delete-row" disabled="">刪除</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pagination" data-pagination="">
+                    <button type="button" class="first-page" data-pagination-action="first" disabled="">第一頁</button>
+                    <button type="button" class="pre-page" data-pagination-action="prev" disabled="">上一頁</button>
+                    
+                    
+                    
+                    <button type="button" class="page-number active" data-pagination-page="1">1</button><button type="button" class="next-page" data-pagination-action="next" disabled="">下一頁</button>
+                    <button type="button" class="last-page" data-pagination-action="last" disabled="">最後一頁</button>
+                </div>
+            </div>
+                        </div>
+                        <div class="tab3-content">
+                            <h2 class="title-region">規則測試工具</h2>
+                            <p class="subtitle-desc">上線規則前，先測試多筆信箱是否會被現有【已啟用】規則命中，不會寫入命中紀錄。</p>
+                            <p class="batch-test">批次測試</p>
+                            <p class="subtitle-desc">此功能僅供測試比對結果，不觸發任何實際攔截或註銷動作，也不會寫入命中紀錄。</p>
+                            <div class="field">
+                            <h3>信箱清單（每行一筆）</h3>
+                           <textarea rows="5" placeholder="user1@example.com 
+user2@tempmail.xyz"></textarea>
+                           <div class="suppl">
+                             <span class="field-validation-error">欄位必填</span>
+                           </div>
+                           <div class="rule-test-bottom">
+                               <button type="button" class="btn-pri larg">分析</button>
+                               <button type="button" class="btn-sec larg">全部匯出Excel</button>
+                           </div>
+                           <div class="rule-analyze">
+                            <div class="rule-analyze-inner">
+                                <div class="analyze-one">
+                                  <div class="analyze-one-num">0</div>
+                                  <div class="analyze-one-text">總筆數</div>
+                                </div>
+                                <div class="analyze-two">
+                                  <div class="analyze-two-num">0</div>
+                                  <div class="analyze-two-text">命中筆數</div>
+                                </div>
+                            </div>
+
+                            <div class="table-pagination-wrap">
+                    <table class="item-list col analyze-test" data-pagination-table="">
+                        <thead>
+                            <tr>
+                                <th class="align">信箱</th>
+                                <th class="align">結果</th>
+                                <th class="align">命中規則</th>
+                            </tr>
+                        </thead>
+                        <tbody data-pagination-body="">
+                            <tr class="data-row">
+                                <td class="tooltip-trigger  truncate-cell  mail-name control-person">happy@gmail.com
+                                </td>
+                                <td class="tooltip-trigger truncate-cell control-person">✓
+                                </td>
+                                <td>—</td>
+                            </tr>
+                            <tr class="data-row" style="">
+                                <td class="tooltip-trigger  truncate-cell mail-name control-person">imboy@hotmail.com
+                                </td>
+                                <td class="tooltip-trigger truncate-cell control-person">✓
+                                </td>
+                                <td>—</td>
+                            </tr>
+                            <tr class="data-row" style="">
+                                <td class="tooltip-trigger  truncate-cell mail-name control-person">omg@yopmail.com
+                                </td>
+                                <td class="tooltip-trigger truncate-cell control-person">✓
+                                </td>
+                                <td>—</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                 </div>
+                           </div>
+                </div>
+                        </div>
+                        <div class="tab4-content">
+                            <h2 class="title-region">會員註冊模擬</h2>
+                            <p class="subtitle-desc">模擬會員送出註冊申請時的即時比對流程：白名單 → 正規表示式(Regex) 規則 → 網域規則。命中結果會寫入命中紀錄（SR007）並累計規則命中數。</p>
+                            <div class="field">
+                                <div class="member-acount-insert">
+                                    <input type="text" placeholder="輸入信箱後點選送出註冊..." class="check-insert-email">
+                                    <button type="button" class="btn-pri larg send-out">送出註冊</button>
+                                </div>
+                               <div class="suppl must-write">
+                                 <span class="field-validation-error">欄位必填</span>
+                               </div>
+                               <div class="member-acount-msg register-success">
+                                  <div class="member-acount-desc">
+                                    ✓ 註冊成功，帳號已建立為正常會員。
+                                  </div>
+                               </div>
+                           </div>
+                        </div>
+                        <div class="tab5-content">
+                            <h2 class="title-region">批次掃描</h2>
+                            <p class="subtitle-desc">手動觸發掃描，掃描對象為既有會員資料庫中所有會員。</p>
+                            <section>
+                                <div class="row process">
+                                    <div class="col-4">
+                                        <div class="field">
+                                            <h3>掃瞄範圍</h3>
+                                            <select>
+                                                <option selected="">全部會員（不限規則）</option>
+                                                <option>Regex：機器生成信箱樣式 v1（r1）</option>
+                                                <option>Regex：MFA 帳號格式（測試中）（r2）</option>
+                                                <option>網域：fovira792.sbs（d1）</option>
+                                                <option>網域：kavelo628.space（d2）</option>
+                                                <option>網域：luneri596.site（d3）</option>
+                                                <option>網域：mavora817.online（d4）</option>
+                                                <option>網域：norevi935.website（d5）</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-5 search-btn">
+                                        <button class="btn-sec larg btn-style push-scan-btn" data-file-export="既有會員批次掃描中..." data-file-export-message="批次掃描完成" style="margin-bottom: 0px;">手動觸發掃描</button>
+                                    </div>
+                                </div>
+                            </section>
+                            <div class="scanning-text">
+                                <div class="scanning-desc">
+                                    掃描已完成，請於彈窗確認是否送審標籤。
+                                </div>
+                                <div class="scanning-alert">
+                                    <span>目前有 1 批帳號審核中：共 2 筆，送審時間 2026/10/23 19:57。審核完成前無法送審新的批次。</span>
+                                    <button type="button" class="alert-btn" >前往批次審核</button>
+                                </div>
+                                <div class="rule-analyze">
+                            <div class="rule-analyze-inner">
+                                <div class="analyze-one">
+                                  <div class="analyze-one-num">10</div>
+                                  <div class="analyze-one-text">掃描筆數</div>
+                                </div>
+                                <div class="analyze-two">
+                                  <div class="analyze-two-num">0</div>
+                                  <div class="analyze-two-text">命中筆數</div>
+                                </div>
+                            </div>
+
+                            <div class="table-pagination-wrap">
+                    <table class="item-list col analyze-test" data-pagination-table="">
+                        <thead>
+                            <tr>
+                                <th class="align">信箱</th>
+                                <th class="align">處理結果</th>
+                                <th class="align">命中規則</th>
+                            </tr>
+                        </thead>
+                        <tbody data-pagination-body="">
+                            <tr class="data-row">
+                                <td class="tooltip-trigger  truncate-cell  mail-name control-person">user01@example.com
+                                </td>
+                                <td class="tooltip-trigger truncate-cell control-person">正常
+                                </td>
+                                <td>—</td>
+                            </tr>
+                            <tr class="data-row" style="">
+                                <td class="tooltip-trigger  truncate-cell mail-name control-person">user02@example.com
+                                </td>
+                                <td class="tooltip-trigger truncate-cell control-person">正常
+                                </td>
+                                <td>—</td>
+                            </tr>
+                            <tr class="data-row" style="">
+                                <td class="tooltip-trigger  truncate-cell mail-name control-person">MFA260921074277@fovira792.sbs
+                                </td>
+                                <td class="tooltip-trigger truncate-cell control-person">正常（不在掃描範圍內）
+                                </td>
+                                <td>—</td>
+                            </tr>
+                            <tr class="data-row" style="">
+                                <td class="tooltip-trigger  truncate-cell mail-name control-person">MFA118820391045@kavelo628.space
+                                </td>
+                                <td class="tooltip-trigger truncate-cell control-person">正常（不在掃描範圍內）
+                                </td>
+                                <td>—</td>
+                            </tr>
+                            <tr class="data-row" style="">
+                                <td class="tooltip-trigger  truncate-cell mail-name control-person">u3f9a2b8c1d4e7f@s6a2c1f.m9b3e7a.host.xyz
+                                </td>
+                                <td class="tooltip-trigger truncate-cell control-person">正常（不在掃描範圍內）
+                                </td>
+                                <td>—</td>
+                            </tr>
+                            <tr class="data-row" style="">
+                                <td class="tooltip-trigger  truncate-cell mail-name control-person">u1a2b3c4d5e6f7890@s1234ab.m5678cd.net.info	
+                                </td>
+                                <td class="tooltip-trigger truncate-cell control-person">正常（不在掃描範圍內）
+                                </td>
+                                <td>—</td>
+                            </tr>
+                            <tr class="data-row" style="">
+                                <td class="tooltip-trigger  truncate-cell mail-name control-person">member03@luneri596.site
+                                </td>
+                                <td class="tooltip-trigger truncate-cell control-person">正常（不在掃描範圍內）
+                                </td>
+                                <td>—</td>
+                            </tr>
+                            <tr class="data-row" style="">
+                                <td class="tooltip-trigger  truncate-cell mail-name control-person">member04@mavora817.online
+                                </td>
+                                <td class="tooltip-trigger truncate-cell control-person">正常（不在掃描範圍內）
+                                </td>
+                                <td>—</td>
+                            </tr>
+                            <tr class="data-row" style="">
+                                <td class="tooltip-trigger  truncate-cell mail-name control-person">regular_user05@gmail.com
+                                </td>
+                                <td class="tooltip-trigger truncate-cell control-person">正常
+                                </td>
+                                <td>—</td>
+                            </tr>
+                            <tr class="data-row" style="">
+                                <td class="tooltip-trigger  truncate-cell mail-name control-person">regular_user06@yahoo.com
+                                </td>
+                                <td class="tooltip-trigger truncate-cell control-person">正常
+                                </td>
+                                <td>—</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                 </div>
+                           </div>
+                            </div>
+                        </div>
+                        <div class="tab6-content">
+                            <h2 class="title-region">批次審核</h2>
+                            <p class="subtitle-desc">審核「既有會員批次掃描」送審的帳號批次。審核通過後才會對該批次帳號進行標籤；一次僅能有一個批次處於審核中。</p>
+                            <section>
+                                <div class="row process">
+                                    <div class="col-4">
+                                        <div class="field">
+                                            <h3>送審區間<span>*</span></h3>
+                                            <div class="date-range-field">
+                                                <input type="text" name="range-start" class="calendar flatpickr-input" autocomplete="off" placeholder="yyyy/mm/dd hh:mm">
+                                                <span class="sign">-</span>
+                                                <input type="text" name="range-end" class="calendar flatpickr-input" autocomplete="off" placeholder="yyyy/mm/dd hh:mm">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="field">
+                                            <h3>審核狀態</h3>
+                                            <select>
+                                                <option selected="" disabled="">全部</option>
+                                                <option>未審核</option>
+                                                <option>通過</option>
+                                                <option>不通過</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-5 search-btn">
+                                        <button class="btn-sec larg btn-style">查詢</button>
+                                    </div>
+                                </div>
+                            </section>
+                            <div class="table-pagination-wrap" data-pagination-root="" data-page-size="10">
+                <table class="item-list col" data-pagination-table="">
+                    <thead>
+                        <tr>
+                            <th class="align">審核</th>
+                            <th class="align">檢視名單</th>
+                            <th class="align">審核狀態</th>
+                            <th class="align">送審時間</th>
+                            <th class="align">送審帳號數</th>
+                            <th class="align">送審人</th>
+                            <th class="tooltip-trigger truncate-cell align">審核人	</th>
+                            <th class="tooltip-trigger truncate-cell align">審核時間</th>
+                            <th>不通過原因</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody data-pagination-body="">
+                        <tr class="data-row" style="">
+                            <td class="tooltip-trigger  truncate-cell"><button type="button" class="btn-text review-btn">審核</button></td>
+                            <td class="tooltip-trigger  truncate-cell"><button type="button" class="btn-text " data-file-export="產出 Excel.xlsx" data-file-export-message="已發信至使用者信箱。" style="margin-bottom: 0px;">寄送</button>
+                            </td>
+                            <td class="tooltip-trigger truncate-cell unreviewed-msg">未審核
+                            </td>
+                            <td>
+                                2026/10/23 14:12	
+                            </td>
+                            <td>3</td>
+                            <td>Justin Wu</td>
+                            <td>Emily Haung</td>
+                            <td>2026/10/26 14:12</td>
+                            <td class="tooltip-trigger truncate-cell control-person">名單中包含正常會員，請確認規則後重新掃描</td>
+                            <!-- <td>2024-08-01 00:00</td>
+                            <td>2024-09-30 00:00</td> -->
+                        </tr>
+                        <tr class="data-row" style="">
+                            <td class="tooltip-trigger  truncate-cell">-</td>
+                            <td class="tooltip-trigger  truncate-cell"><button type="button" class="btn-text " data-file-export="產出 Excel.xlsx" data-file-export-message="已發信至使用者信箱。" style="margin-bottom: 0px;">寄送</button>
+                            </td>
+                            <td class="tooltip-trigger truncate-cell accept-msg">通過
+                            </td>
+                            <td>
+                                2026/10/14 04:49
+                            </td>
+                            <td>2</td>
+                            <td>Justin Wu</td>
+                            <td>Emily Haung</td>
+                            <td>2026/10/15 08:49</td>
+                            <td class="tooltip-trigger truncate-cell control-person">名單中包含正常會員，請確認規則後重新掃描</td>
+                            <!-- <td>2024-08-01 00:00</td>
+                            <td>2024-09-30 00:00</td> -->
+                        </tr>
+                        <tr class="data-row" style="">
+                            <td class="tooltip-trigger  truncate-cell">-</td>
+                            <td class="tooltip-trigger  truncate-cell"><button type="button" class="btn-text " data-file-export="產出 Excel.xlsx" data-file-export-message="已發信至使用者信箱。" style="margin-bottom: 0px;">寄送</button>
+                            </td>
+                            <td class="tooltip-trigger truncate-cell accept-msg">通過
+                            </td>
+                            <td>
+                               2026/10/19 04:49
+                            </td>
+                            <td>5</td>
+                            <td>Justin Wu</td>
+                            <td>Emily Haung</td>
+                            <td>2026/10/21 04:49</td>
+                            <td class="tooltip-trigger truncate-cell control-person">名單中包含正常會員，請確認規則後重新掃描</td>
+                            <!-- <td>2024-08-01 00:00</td>
+                            <td>2024-09-30 00:00</td> -->
+                        </tr>
+                        <tr class="data-row" style="">
+                            <td class="tooltip-trigger  truncate-cell">-</td>
+                            <td class="tooltip-trigger  truncate-cell"><button type="button" class="btn-text " data-file-export="產出 Excel.xlsx" data-file-export-message="已發信至使用者信箱。" style="margin-bottom: 0px;">寄送</button>
+                            </td>
+                            <td class="tooltip-trigger truncate-cell failed-msg">不通過
+                            </td>
+                            <td>
+                                2026/12/14 04:49
+                            </td>
+                            <td>6</td>
+                            <td>Justin Wu</td>
+                            <td>Emily Haung</td>
+                            <td>2026/12/15 09:49</td>
+                            <td class="tooltip-trigger truncate-cell control-person">-</td>
+                            <!-- <td>2024-08-01 00:00</td>
+                            <td>2024-09-30 00:00</td> -->
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pagination" data-pagination="">
+                    <button type="button" class="first-page" data-pagination-action="first" disabled="">第一頁</button>
+                    <button type="button" class="pre-page" data-pagination-action="prev" disabled="">上一頁</button>
+                    
+                    
+                    
+                    <button type="button" class="page-number active" data-pagination-page="1">1</button><button type="button" class="next-page" data-pagination-action="next" disabled="">下一頁</button>
+                    <button type="button" class="last-page" data-pagination-action="last" disabled="">最後一頁</button>
+                </div>
+            </div>
+                        </div>
+                        <div class="tab7-content">
+                            <h2 class="title-region">白名單管理</h2>
+                            <p class="subtitle-desc">白名單優先權高於所有規則，命中白名單者一律視為正常，不進行任何攔截、標記或註銷。</p>
+                            <div class="regular-btn-outer">
+                                <button type="button" class="whitelist-btn">＋ 新增白名單</button>
+                            </div>
+                            <div class="table-pagination-wrap" data-pagination-root="" data-page-size="10">
+                <table class="item-list col" data-pagination-table="">
+                    <thead>
+                        <tr>
+                            <th class="align">類型</th>
+                            <th class="align">內容</th>
+                            <th class="align">加入原因</th>
+                            <th class="align">建立時間</th>
+                            <th class="align">操作人員</th>
+                            <th class="tooltip-trigger truncate-cell align">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody data-pagination-body="">
+                        <tr class="data-row" style="">
+                            <td class="tooltip-trigger  truncate-cell">帳號
+                            </td>
+                            <td class="tooltip-trigger truncate-cell">ppp@gmail.com
+                            </td>
+                            <td class="tooltip-trigger truncate-cell">
+                                短時間有多次登錄的情形，似乎在進行測試，需要多留意觀察。
+                            </td>
+                            <td>2026/10/21 17:48</td>
+                            <td>John Lin</td>
+                            <td class="console-button"><button type="button" class="btn-text" data-action="delete-row">刪除</button></td>
+                            <!-- <td>2024-08-01 00:00</td>
+                            <td>2024-09-30 00:00</td> -->
+                        </tr>
+                        <tr class="data-row" style="">
+                            <td class="tooltip-trigger  truncate-cell">帳號
+                            </td>
+                            <td class="tooltip-trigger truncate-cell">join@hahoo.com
+                            </td>
+                           <td class="tooltip-trigger truncate-cell">
+                                短時間有多次登錄的情形，似乎在進行測試，需要多留意觀察。
+                            </td>
+                            <td>2026/10/21 17:48</td>
+                            <td>John Lin</td>
+                            <td class="console-button"><button type="button" class="btn-text" data-action="delete-row">刪除</button></td>
+                            <!-- <td>2024-08-01 00:00</td>
+                            <td>2024-09-30 00:00</td> -->
+                        </tr>
+                        <tr class="data-row" style="">
+                            <td class="tooltip-trigger  truncate-cell">網域
+                            </td>
+                            <td class="tooltip-trigger truncate-cell">space@hahoo.com
+                            </td>
+                            <td class="tooltip-trigger truncate-cell">
+                                短時間有多次登錄的情形，似乎在進行測試，需要多留意觀察。
+                            </td>
+                            <td>2026/10/21 17:48</td>
+                            <td>John Lin</td>
+                            <td class="console-button"><button type="button" class="btn-text" data-action="delete-row">刪除</button></td>
+                            <!-- <td>2024-08-01 00:00</td>
+                            <td>2024-09-30 00:00</td> -->
+                        </tr>
+                        <tr class="data-row" style="">
+                            <td class="tooltip-trigger  truncate-cell">網域
+                            </td>
+                            <td class="tooltip-trigger truncate-cell">comeon@space.com
+                            </td>
+                            <td class="tooltip-trigger truncate-cell">
+                                短時間有多次登錄的情形，似乎在進行測試，需要多留意觀察。
+                            </td>
+                            <td>2026/10/21 17:48</td>
+                            <td>John Lin</td>
+                            <td class="console-button"><button type="button" class="btn-text" data-action="delete-row">刪除</button></td>
+                            <!-- <td>2024-08-01 00:00</td>
+                            <td>2024-09-30 00:00</td> -->
+                        </tr>
+                        <tr class="data-row" style="">
+                            <td class="tooltip-trigger  truncate-cell">網域
+                            </td>
+                            <td class="tooltip-trigger truncate-cell">iufaeuejo@hahoo.com
+                            </td>
+                            <td class="tooltip-trigger truncate-cell">
+                                短時間有多次登錄的情形，似乎在進行測試，需要多留意觀察。
+                            </td>
+                            <td>2026/10/21 17:48</td>
+                            <td>John Lin</td>
+                            <td class="console-button"><button type="button" class="btn-text" data-action="delete-row">刪除</button></td>
+                            <!-- <td>2024-08-01 00:00</td>
+                            <td>2024-09-30 00:00</td> -->
+                        </tr>
+                        <tr class="data-row" style="">
+                            <td class="tooltip-trigger  truncate-cell">目前無白名單項目
+                            </td>
+                            <td class="tooltip-trigger truncate-cell">目前無白名單項目
+                            </td>
+                            <td class="tooltip-trigger truncate-cell">
+                                目前無白名單項目
+                            </td>
+                            <td>目前無白名單項目</td>
+                            <td>目前無白名單項目</td>
+                            <td class="tooltip-trigger truncate-cell">目前無白名單項目</td>
+                            <!-- <td>2024-08-01 00:00</td>
+                            <td>2024-09-30 00:00</td> -->
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pagination" data-pagination="">
+                    <button type="button" class="first-page" data-pagination-action="first" disabled="">第一頁</button>
+                    <button type="button" class="pre-page" data-pagination-action="prev" disabled="">上一頁</button>
+                    
+                    
+                    
+                    <button type="button" class="page-number active" data-pagination-page="1">1</button><button type="button" class="next-page" data-pagination-action="next" disabled="">下一頁</button>
+                    <button type="button" class="last-page" data-pagination-action="last" disabled="">最後一頁</button>
+                </div>
+            </div>
+                        </div>
+                        <div class="tab8-content">
+                            <h2 class="title-region">命中紀錄查詢</h2>
+                            <p class="subtitle-desc">依規則、時間查詢所有命中紀錄，供稽核與申訴處理使用。所有查詢條件皆為選填；未輸入任何條件時，預設查詢近 7 天資料。</p>
+                            <section>
+                                <div class="row process">
+                                    <div class="col-4">
+                                        <div class="field">
+                                            <h3>起始日期 - 結束日期<span>*</span></h3>
+                                            <div class="date-range-field">
+                                                <input type="text" name="range-start" class="calendar flatpickr-input" autocomplete="off"
+                                                    placeholder="yyyy/mm/dd hh:mm">
+                                                <span class="sign">-</span>
+                                                <input type="text" name="range-end" class="calendar flatpickr-input" autocomplete="off"
+                                                    placeholder="yyyy/mm/dd hh:mm">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-5">
+                                        <div class="field">
+                                            <h3>規則類型</h3>
+                                            <select>
+                                                <option selected="" disabled="">全部</option>
+                                                <option>Regex規則</option>
+                                                <option>網域規則</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-5">
+                                        <div class="field">
+                                            <h3>規則ID</h3>
+                                            <select class="record-query">
+                                                <option selected="" disabled="">全部</option>
+                                                <option>ppp(r26)</option>
+                                                <option>機器生成信箱樣式 v1（r1）</option>
+                                                <option>MFA 帳號格式（測試中）（r2）</option>
+                                                <option>fovira792.sbs（d1）</option>
+                                                <option>kavelo628.space（d2）</option>
+                                                <option>luneri596.site（d3）</option>
+                                                <option>mavora817.online（d4）</option>
+                                                <option>norevi935.website（d5）</option>
+                                                <option>renuva453.cyou（d6）</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-5">
+                                        <div class="field">
+                                            <h3>處理動作</h3>
+                                            <select>
+                                                <option selected="" disabled="">全部</option>
+                                                <option>攔截註冊</option>
+                                                <option>標籤帳號</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-5">
+                                        <div class="field mar-0">
+                                            <h3>會員帳號關鍵字</h3>
+                                            <input type="text" placeholder="輸入操作人員關鍵字">
+                                        </div>
+                                    </div>
+                                    <div class="col-5 search-btn">
+                                        <button class="btn-sec larg btn-style">查詢</button>
+                                    </div>
+                                </div>
+                            </section>
+                            <div class="row row-between row-hcenter" style="margin-bottom: 32px;">
+                            <div class="btn-group">
+                                <!-- data-file-export：右上角浮動進度卡，見 js/progress-bar.js -->
+                                <button type="button" class="btn-sec larg insert-button" data-file-export="產出 Excel.xlsx" data-file-export-message="已寄送" style="margin-bottom: 0px;">匯出Excel</button>
+                                <span class="show-desc">共 0 筆（預設顯示近 7 天，總計 0 筆）</span>
+                            </div>
+                        </div>
+                        <div class="table-pagination-wrap" data-pagination-root="" data-page-size="10">
+                            <table class="item-list col" data-pagination-table="">
+                                <thead>
+                                    <tr>
+                                        <th class="align">命中時間<i class="material-symbols-outlined">keyboard_arrow_down</i></th>
+                                        <th class="align">會員帳號<i class="material-symbols-outlined">keyboard_arrow_down</i></th>
+                                        <th class="align">命中規則</th>
+                                        <th class="align">處理動作</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-pagination-body="">
+                                    <tr class="data-row" style="">
+                                        <td class="tooltip-trigger  truncate-cell time-style control-person">尚無資料
+                                        </td>
+                                        <td class="control-person">
+                                            尚無資料
+                                        </td>
+                                        <td class="tooltip-trigger truncate-cell control-person">尚無資料
+                                        </td>
+                                        <td class="tooltip-trigger  truncate-cell table-word control-person">尚無資料</td>
+                                    </tr>
+                                    <tr class="data-row" style="">
+                                        <td class="tooltip-trigger  truncate-cell time-style control-person">2026/10/25 14:24
+                                        </td>
+                                        <td class="control-person">
+                                           u1a2b3c4d5e6f7890@s1234ab.m5678cd.net.info
+                                        </td>
+                                        <td class="tooltip-trigger truncate-cell control-person">正規表示式(Regex)規則：機器生成信箱樣式 v1（r1）
+                                        </td>
+                                        <td class="tooltip-trigger  truncate-cell table-word control-person"><span class="tag-intercept">攔截註冊</span></td>
+                                    </tr>
+                                    <tr class="data-row" style="">
+                                        <td class="tooltip-trigger  truncate-cell time-style control-person">2026/10/25 14:24
+                                        </td>
+                                        <td class="control-person">
+                                            u3f9a2b8c1d4e7f@s6a2c1f.m9b3e7a.host.xyz
+                                        </td>
+                                        <td class="tooltip-trigger truncate-cell control-person">正規表示式(Regex)規則：機器生成信箱樣式 v1（r1）
+                                        </td>
+                                        <td class="tooltip-trigger  truncate-cell table-word control-person"><span class="tag-intercept">攔截註冊</span></td>
+                                    </tr>
+                                    <tr class="data-row" style="">
+                                        <td class="tooltip-trigger  truncate-cell time-style control-person">2026/10/20 09:30
+                                        </td>
+                                        <td class="control-person">
+                                            u3f9a2b8c1d4e7f@s6a2c1f.m9b3e7a.host.xyz
+                                        </td>
+                                        <td class="tooltip-trigger truncate-cell control-person">正規表示式(Regex)規則
+                                        </td>
+                                        <td class="tooltip-trigger  truncate-cell table-word control-person"><span class="tag-intercept">攔截註冊</span></td>
+                                    </tr>
+                                    <tr class="data-row" style="">
+                                        <td class="tooltip-trigger  truncate-cell time-style control-person">2026/10/20 09:30
+                                        </td>
+                                        <td class="tooltip-trigger truncate-cell control-person">u3f9a2b8c1d4e7f@s6a2c1f.m9b3e7a.host.xyz
+                                        </td>
+                                        <td class="control-person">
+                                            ppp
+                                        </td>
+                                        <td class="tooltip-trigger  truncate-cell table-word control-person"><span class="tag-intercept">攔截註冊</span></td>
+                                    </tr>
+                                    <tr class="data-row" style="">
+                                        <td class="tooltip-trigger  truncate-cell time-style control-person">2026/10/20 09:30
+                                        </td>
+                                        <td class="control-person">
+                                            MFA 帳號格式（測試中）
+                                        </td>
+                                        <td class="tooltip-trigger truncate-cell control-person">正規表示式(Regex)規則
+                                        </td>
+                                        <td class="tooltip-trigger  truncate-cell table-word control-person">啟用=true</td>
+                                    </tr>
+                                    <tr class="data-row" style="">
+                                        <td class="tooltip-trigger  truncate-cell time-style control-person">2026/10/20 09:30
+                                        </td>
+                                        <td class="control-person">
+                                            MFA 帳號格式（測試中）
+                                        </td>
+                                        <td class="tooltip-trigger truncate-cell control-person">正規表示式(Regex)規則
+                                        </td>
+                                        <td class="tooltip-trigger  truncate-cell table-word control-person">啟用=false</td>
+                                    </tr>
+                                    <tr class="data-row" style="">
+                                        <td class="tooltip-trigger truncate-cell time-style control-person">2026/10/20 09:30
+                                        </td>
+                                        <td class="control-person">
+                                            機器生成信箱樣式 v1
+                                        </td>
+                                        <td class="tooltip-trigger truncate-cell control-person">正規表示式(Regex)規則
+                                        </td>
+                                        <td class="tooltip-trigger  truncate-cell table-word control-person">啟用=true</td>
+                                    </tr>
+                                    <tr class="data-row" style="">
+                                        <td class="tooltip-trigger  truncate-cell time-style control-person">2026/10/20 09:30
+                                        </td>
+                                        <td class="control-person">
+                                            sovela482.shop（d7）
+                                        </td>
+                                        <td class="tooltip-trigger truncate-cell control-person">正規表示式(Regex)規則
+                                        </td>
+                                        <td class="tooltip-trigger  truncate-cell table-word control-person">啟用=false</td>
+                                    </tr>
+                                    <tr class="data-row" style="">
+                                        <td class="tooltip-trigger  truncate-cell time-style control-person">2026/10/20 09:30
+                                        </td>
+                                        <td class="control-person">
+                                            velnora731.pw（d8）
+                                        </td>
+                                        <td class="tooltip-trigger truncate-cell control-person">正規表示式(Regex)規則
+                                        </td>
+                                        <td class="tooltip-trigger truncate-cell table-word control-person">啟用=true</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="pagination" data-pagination="">
+                                <button type="button" class="first-page" data-pagination-action="first" disabled="">第一頁</button>
+                                <button type="button" class="pre-page" data-pagination-action="prev" disabled="">上一頁</button>
+                        
+                        
+                        
+                                <button type="button" class="page-number active" data-pagination-page="1">1</button><button type="button" class="next-page" data-pagination-action="next" disabled="">下一頁</button>
+                                <button type="button" class="last-page" data-pagination-action="last" disabled="">最後一頁</button>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="tab9-content">
+                            <h2 class="title-region">操作歷程記錄</h2>
+                            <p class="subtitle-desc">記錄所有規則、網域、白名單之新增/修改/刪除操作，供稽核追溯。本紀錄不可由任何後台功能刪除或修改，僅供查詢。</p>
+                            <section>
+                                <div class="row process">
+                                    <div class="col-4">
+                                        <div class="field">
+                                            <h3>起始日期 - 結束日期<span>*</span></h3>
+                                            <div class="date-range-field">
+                                                <input type="text" name="range-start" class="calendar flatpickr-input" autocomplete="off"
+                                                    placeholder="yyyy/mm/dd hh:mm">
+                                                <span class="sign">-</span>
+                                                <input type="text" name="range-end" class="calendar flatpickr-input" autocomplete="off"
+                                                    placeholder="yyyy/mm/dd hh:mm">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-5">
+                                        <div class="field">
+                                            <h3>操作類別</h3>
+                                            <select>
+                                                <option selected="" disabled="">全部</option>
+                                                <option>Regex規則</option>
+                                                <option>網域規則</option>
+                                                <option>白名單</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-5">
+                                        <div class="field mar-0">
+                                            <h3>操作人員</h3>
+                                            <input type="text" placeholder="輸入操作人員關鍵字">
+                                        </div>
+                                    </div>
+                                    <div class="col-5 search-btn">
+                                        <button class="btn-sec larg btn-style">查詢</button>
+                                    </div>
+                                </div>
+                            </section>
+                        <div class="row row-between row-hcenter" style="margin-bottom: 32px;">
+                            <div class="btn-group">
+                                <!-- data-file-export：右上角浮動進度卡，見 js/progress-bar.js -->
+                                <button type="button" class="btn-sec larg insert-button" data-file-export="產出 Excel.xlsx"
+                                    data-file-export-message="已寄送" style="margin-bottom: 0px;">匯出Excel</button>
+                                <span class="show-desc">共 10 筆（總計 10 筆）</span>
+                            </div>
+                        </div>
+                        <div class="table-pagination-wrap" data-pagination-root="" data-page-size="10">
+                            <table class="item-list col" data-pagination-table="">
+                                <thead>
+                                    <tr>
+                                        <th class="align">異動時間</th>
+                                        <th class="align">操作類別</th>
+                                        <th class="align">異動對象</th>
+                                        <th class="align">變更前</th>
+                                        <th class="align">變更後</th>
+                                        <th class="align">操作人員</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-pagination-body="">
+                                    <tr class="data-row" style="">
+                                        <td class="tooltip-trigger  truncate-cell time-style control-person">2026/10/20 09:30
+                                        </td>
+                                        <td class="tooltip-trigger truncate-cell control-person">網域規則
+                                        </td>
+                                        <td class="control-person">
+                                            luneri596.site
+                                        </td>
+                                        <td class="tooltip-trigger  truncate-cell table-word control-person">啟用=false</td>
+                                        <td class="tooltip-trigger  truncate-cell table-word control-person">啟用=true</td>
+                                        <td class="control-person">John Lin(管理員)</td>
+                                    </tr>
+                                    <tr class="data-row" style="">
+                                        <td class="tooltip-trigger truncate-cell time-style control-person">2026/10/20 09:30
+                                        </td>
+                                        <td class="tooltip-trigger truncate-cell control-person">網域規則
+                                        </td>
+                                        <td class="control-person">
+                                            luneri596.site
+                                        </td>
+                                        <td class="tooltip-trigger  truncate-cell table-word control-person">(無)</td>
+                                        <td class="tooltip-trigger  truncate-cell table-word control-person">啟用=false</td>
+                                        <td class="control-person">John Lin(管理員)</td>
+                                    </tr>
+                                    <tr class="data-row" style="">
+                                        <td class="tooltip-trigger truncate-cell time-style control-person">2026/10/20 09:30
+                                        </td>
+                                        <td class="tooltip-trigger truncate-cell control-person">正規表示式(Regex)規則
+                                        </td>
+                                        <td class="control-person">
+                                            ppp
+                                        </td>
+                                        <td class="tooltip-trigger  truncate-cell table-word control-person">啟用=true</td>
+                                        <td class="tooltip-trigger  truncate-cell table-word control-person">名稱=ppp／動作=攔截註冊／啟用=false</td>
+                                        <td class="control-person">John Lin(管理員)</td>
+                                    </tr>
+                                    <tr class="data-row" style="">
+                                        <td class="tooltip-trigger truncate-cell time-style control-person">2026/10/20 09:30
+                                        </td>
+                                        <td class="tooltip-trigger truncate-cell control-person">正規表示式(Regex)規則
+                                        </td>
+                                        <td class="control-person">
+                                            ppp
+                                        </td>
+                                        <td class="tooltip-trigger  truncate-cell table-word control-person">名稱=ppp／動作=攔截註冊／啟用=false</td>
+                                        <td class="tooltip-trigger  truncate-cell table-word control-person">新增規則，動作=攔截註冊／啟用=false</td>
+                                        <td>John Lin(管理員)</td>
+                                    </tr>
+                                    <tr class="data-row" style="">
+                                        <td class="tooltip-trigger truncate-cell time-style control-person">2026/10/20 09:30
+                                        </td>
+                                        <td class="tooltip-trigger truncate-cell control-person">正規表示式(Regex)規則
+                                        </td>
+                                        <td class="control-person">
+                                            MFA 帳號格式（測試中）
+                                        </td>
+                                        <td class="tooltip-trigger  truncate-cell table-word control-person">啟用=true</td>
+                                        <td class="tooltip-trigger  truncate-cell table-word control-person">啟用=false</td>
+                                        <td class="control-person">John Lin(管理員)</td>
+                                    </tr>
+                                    <tr class="data-row" style="">
+                                        <td class="tooltip-trigger truncate-cell time-style control-person">2026/10/20 09:30
+                                        </td>
+                                        <td class="tooltip-trigger truncate-cell control-person">正規表示式(Regex)規則
+                                        </td>
+                                        <td class="control-person">
+                                            MFA 帳號格式（測試中）
+                                        </td>
+                                        <td class="tooltip-trigger  truncate-cell table-word control-person">啟用=false</td>
+                                        <td class="tooltip-trigger  truncate-cell table-word control-person">啟用=true</td>
+                                        <td class="control-person">John Lin(管理員)</td>
+                                    </tr>
+                                    <tr class="data-row" style="">
+                                        <td class="tooltip-trigger truncate-cell time-style control-person">2026/10/20 09:30
+                                        </td>
+                                        <td class="tooltip-trigger truncate-cell control-person">正規表示式(Regex)規則
+                                        </td>
+                                        <td class="control-person">
+                                            機器生成信箱樣式 v1
+                                        </td>
+                                        <td class="tooltip-trigger truncate-cell table-word control-person">啟用=true</td>
+                                        <td class="tooltip-trigger truncate-cell table-word control-person">啟用=false</td>
+                                        <td class="control-person">John Lin(管理員)</td>
+                                    </tr>
+                                    <tr class="data-row" style="">
+                                        <td class="tooltip-trigger truncate-cell time-style control-person">2026/10/20 09:30
+                                        </td>
+                                        <td class="tooltip-trigger truncate-cell control-person">正規表示式(Regex)規則
+                                        </td>
+                                        <td class="control-person">
+                                            機器生成信箱樣式 v1
+                                        </td>
+                                        <td class="tooltip-trigger truncate-cell table-word control-person">啟用=false</td>
+                                        <td class="tooltip-trigger truncate-cell table-word control-person">啟用=true</td>
+                                        <td class="control-person">John Lin(管理員)</td>
+                                    </tr>
+                                    <tr class="data-row" style="">
+                                        <td class="tooltip-trigger truncate-cell time-style control-person">2026/10/20 09:30
+                                        </td>
+                                        <td class="tooltip-trigger truncate-cell control-person">正規表示式(Regex)規則
+                                        </td>
+                                        <td class="control-person">
+                                            機器生成信箱樣式 v1
+                                        </td>
+                                        <td class="tooltip-trigger truncate-cell table-word control-person">啟用=true</td>
+                                        <td class="tooltip-trigger truncate-cell table-word control-person">啟用=true</td>
+                                        <td class="control-person">John Lin(管理員)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="pagination" data-pagination="">
+                                <button type="button" class="first-page" data-pagination-action="first" disabled="">第一頁</button>
+                                <button type="button" class="pre-page" data-pagination-action="prev" disabled="">上一頁</button>
+                        
+                        
+                        
+                                <button type="button" class="page-number active" data-pagination-page="1">1</button><button type="button"
+                                    class="next-page" data-pagination-action="next" disabled="">下一頁</button>
+                                <button type="button" class="last-page" data-pagination-action="last" disabled="">最後一頁</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nav Tab（底線頁籤）-->
+                <!-- 預設顯示「白名單搜尋」，點擊頁籤切換下方 .nav-tab-panel 內容，切換邏輯見 js/components.js -->
+                <!-- <h2>Nav Tab（底線頁籤）</h2>
+                <div class="nav-tabs-container">
+                    <ul class="nav-tabs">
+                        <li class="active" data-nav-tab="whitelist-search">Tab 1</li>
+                        <li data-nav-tab="remark-template">Tab 2</li>
+                    </ul>
+                    <div class="nav-tabs-content">
+                    
+                        <div class="nav-tab-panel active" data-nav-tab-panel="whitelist-search">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="field">
+                                        <h3>tab_1_內容</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+             
+                        <div class="nav-tab-panel" data-nav-tab-panel="remark-template">
+                            <div class="field">
+                                <h3>tab_2_內容</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </section>
+
+        </form>
+
+        <script>
+            // template.html 的 Progress Card 範例 2：示範 progressBar 的程式式 API。
+            // 實務上 percent 應來自後端回報，而不是像這樣按按鈕遞增。
+            $(function () {
+                let demoTask = null;
+                let demoPercent = 0;
+
+                $('#progressDemoStart').on('click', function () {
+                    demoPercent = 0;
+                    demoTask = progressBar.start({ fileName: '產出 Excel.xlsx' });
+                });
+
+                $('#progressDemoPlus').on('click', function () {
+                    if (!demoTask) return;
+                    demoPercent = Math.min(100, demoPercent + 25);
+                    demoTask.update(demoPercent);
+                });
+
+                $('#progressDemoFail').on('click', function () {
+                    if (!demoTask) return;
+                    demoTask.fail('產出失敗');
+                });
+            });
+        </script>
+    </main>
+
+    <!-- 這是正規表示式(Regex) 規則設定 新增規則的填寫彈窗 -->
+    <div class="htmlcss-modal insert-rule" id="htmlCssModal" style="display: none;">
+        <div class="htmlcss-modal-overlay"></div>
+        <div class="htmlcss-modal-panel new-rule-region">
+            <div class="htmlcss-modal-header">
+                <h1>新增規則</h1>
+                <button type="button" class="btn-icon htmlcss-modal-close">
+                    <i class="material-symbols-outlined">close</i>
+                </button>
+            </div>
+            <section class="scroll-bar">
+                <div class="row" style="margin-bottom: 32px;">
+                   <div class="rule-outer">
+                   <div class="field mar-0">
+                     <h3 class="new-rule">規則名稱</h3>
+                     <input class="add-rule" type="text" placeholder="請輸入">
+                   </div>
+                   </div>
+                </div>
+                <div class="row" style="margin-bottom: 32px;">
+                  <div class="col">
+                   <div class="field">
+                    <h3 class="insert-reges">正規表示式(Regex)內容</h3>
+                    <textarea class="reges-text" rows="5" placeholder="請輸入"></textarea>
+                   </div>
+                  </div>
+                </div>
+                <div class="row" style="margin-bottom: 32px;">
+                   <div class="rule-outer">
+                   <div class="field mar-0">
+                     <h3 class="rule-test-strting">測試字串</h3>
+                     <input class="add-rule rule-margin" type="text" placeholder="輸入範例信箱進行即時驗證">
+                     <button type="button" class="btn-sec larg" id="progressDemoPlus">測試比對</button>
+                   </div>
+                   </div>
+                </div>
+                <div class="htmlcss-modal-footer rule-choose-btn">
+                    <button type="button" class="btn-sec larg htmlcss-modal-cancel">取消</button>
+                <button type="button" class="btn-pri larg htmlcss-modal-save">儲存</button>
+            </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- 這是正規表示式(Regex) 規則設定 新增規則的填寫彈窗 -->
+    <div class="htmlcss-modal edit-rule" id="editruleModal" style="display: none;">
+        <div class="htmlcss-modal-overlay"></div>
+        <div class="htmlcss-modal-panel new-rule-region">
+            <div class="htmlcss-modal-header">
+                <h1>編輯規則</h1>
+                <button type="button" class="btn-icon htmlcss-modal-close">
+                    <i class="material-symbols-outlined">close</i>
+                </button>
+            </div>
+            <section class="scroll-bar">
+                <div class="row" style="margin-bottom: 32px;">
+                   <div class="rule-outer">
+                   <div class="field mar-0">
+                     <h3 class="edit-rule-title">規則ID</h3>
+                     <input class="add-rule rule-id-style" type="text" placeholder="請輸入" value="John Lin" disabled>
+                   </div>
+                   </div>
+                </div>
+                <div class="row" style="margin-bottom: 32px;">
+                   <div class="rule-outer">
+                   <div class="field mar-0">
+                     <h3 class="new-rule">規則名稱</h3>
+                     <input class="add-rule" type="text" placeholder="請輸入" value="這是新規定，請注意">
+                   </div>
+                   </div>
+                </div>
+                <div class="row" style="margin-bottom: 32px;">
+                  <div class="col">
+                   <div class="field">
+                    <h3 class="insert-reges">正規表示式(Regex)內容</h3>
+                    <textarea class="reges-text" rows="5" placeholder="請輸入">這是新規則，大家一起來看看吧</textarea>
+                   </div>
+                  </div>
+                </div>
+                <div class="row" style="margin-bottom: 32px;">
+                   <div class="rule-outer">
+                   <div class="field mar-0">
+                     <h3 class="rule-test-strting">測試字串</h3>
+                     <input class="add-rule rule-margin" type="text" placeholder="輸入範例信箱進行即時驗證">
+                     <button type="button" class="btn-sec larg" id="progressDemoPlus">測試比對</button>
+                   </div>
+                   </div>
+                </div>
+                <div class="htmlcss-modal-footer rule-choose-btn">
+                    <button type="button" class="btn-sec larg htmlcss-modal-cancel">取消</button>
+                <button type="button" class="btn-pri larg htmlcss-modal-save">儲存</button>
+            </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- 這是信件網域名單-新增網域填寫的彈窗 -->
+    <div class="htmlcss-modal email-domain" id="emaildomainModal" style="display: none;">
+        <div class="htmlcss-modal-overlay"></div>
+        <div class="htmlcss-modal-panel new-rule-region email-domain-sytle">
+            <div class="htmlcss-modal-header">
+                <h1>新增網域</h1>
+                <button type="button" class="btn-icon htmlcss-modal-close">
+                    <i class="material-symbols-outlined">close</i>
+                </button>
+            </div>
+            <section class="scroll-bar">
+                <div class="row" style="margin-bottom: 32px;">
+                   <div class="rule-outer">
+                   <div class="field mar-0">
+                     <h3 class="new-rule">網域名稱</h3>
+                     <input class="add-rule" type="text" placeholder="例：tempmail.xyz">
+                   </div>
+                   </div>
+                </div>
+                <div class="row" style="margin-bottom: 8px;">
+                  <div class="col">
+                   <div class="field">
+                    <h3 class="insert-reges">比對方式</h3>
+                    <select>
+                        <option selected="">精確符合</option>
+                        <option>萬用字元後綴（例：*.sbs）</option>
+                    </select>
+                   </div>
+                  </div>
+                </div>
+                <div class="row" style="margin-bottom: 32px;">
+                   <div class="wildcard-desc">
+                      <strong>萬用字元說明</strong>
+                      <br>
+                      「*」代表任意文字。選擇萬用字元後綴時，網域請以 
+                      <span class="mono">*.</span>
+                       開頭，系統只比對信箱網域的「結尾」，不論前面有幾層子網域，一次涵蓋整個網域後綴。
+                       <br>
+                       例：設定 
+                       <span class="mono">*.sbs</span>
+                       ，則 
+                       <span class="mono">mail.sbs</span>
+                       、
+                       <span class="mono">x.y.sbs</span>
+                        皆命中；
+                        <span class="mono">sbs.com</span>
+                         不命中。
+                   </div>
+                </div>
+                <div class="htmlcss-modal-footer rule-choose-btn">
+                    <button type="button" class="btn-sec larg htmlcss-modal-cancel">取消</button>
+                <button type="button" class="btn-pri larg htmlcss-modal-save">儲存</button>
+            </div>
+          </section>
+        </div>
+    </div>
+
+     <!-- 這是信件網域名單-批次匯入網域（CSV）填寫的彈窗 -->
+      <div class="htmlcss-modal csv-insert" id="csvinsertModal" style="display: none;">
+        <div class="htmlcss-modal-overlay"></div>
+        <div class="htmlcss-modal-panel new-rule-region email-domain-sytle">
+            <div class="htmlcss-modal-header">
+                <h1>批次匯入網域（CSV）</h1>
+                <button type="button" class="btn-icon htmlcss-modal-close">
+                    <i class="material-symbols-outlined">close</i>
+                </button>
+            </div>
+            <p class="csv-insert-desc">
+                每行一筆，欄位以逗號分隔：網域名稱,比對方式,處理動作,啟用狀態。比對方式可填「精確符合／萬用字元後綴」，處理動作可填「攔截註冊／標籤帳號」，啟用狀態可填「啟用／停用」；後三欄留空則分別預設為精確符合／攔截註冊／停用。
+            </p>
+            <section class="scroll-bar">
+                <div class="row" style="margin-bottom: 32px;">
+                   <div class="rule-outer">
+                   <div class="field mar-0">
+                     <h3 class="new-rule">CSV 內容</h3>
+                     <textarea class="csv-insert-text" rows="5" placeholder="tempmail.xyz,精確符合,攔截註冊,停用evil.sbs,萬用字元後綴,標籤帳號,啟用another-domain.xyz"></textarea>
+                   </div>
+                   </div>
+                </div>
+                <div class="htmlcss-modal-footer rule-choose-btn" style="border-top: none;">
+                    <button type="button" class="btn-sec larg htmlcss-modal-cancel">取消</button>
+                    <button type="button" class="btn-pri larg htmlcss-modal-save">匯入</button>
+            </div>
+          </section>
+        </div>
+    </div>
+
+    <!-- 這是白名單管理，新增白名單的彈窗 -->
+    <div class="htmlcss-modal" id="whitelistModal" style="display: none;">
+        <div class="htmlcss-modal-overlay"></div>
+        <div class="htmlcss-modal-panel new-rule-region email-domain-sytle">
+            <div class="htmlcss-modal-header">
+                <h1>新增白名單</h1>
+                <button type="button" class="btn-icon htmlcss-modal-close">
+                    <i class="material-symbols-outlined">close</i>
+                </button>
+            </div>
+            <section class="scroll-bar">
+                <div class="row" style="margin-bottom: 15px;">
+                  <div class="col">
+                   <div class="field">
+                    <h3 class="insert-reges">白名單類型</h3>
+                    <select>
+                        <option selected="">帳號</option>
+                        <option>網域</option>
+                    </select>
+                   </div>
+                  </div>
+                </div>
+                <div class="row whitelist-content" style="margin-bottom: 15px;">
+                   <div class="rule-outer">
+                   <div class="field mar-0">
+                     <h3 class="new-rule">白名單內容</h3>
+                     <input class="add-rule" type="text" placeholder="">
+                   </div>
+                   </div>
+                </div>
+                <div class="row join-reason" style="margin-bottom: 0px;">
+                   <div class="rule-outer">
+                   <div class="field mar-0">
+                     <h3 class="new-rule">加入原因</h3>
+                     <input class="add-rule" type="text" placeholder="例：客服申訴案件 #1234">
+                   </div>
+                   </div>
+                </div>
+                <div class="row reason-must" style="margin-bottom: 15px;">
+                   <div class="whitelist-desc">
+                      <strong>白名單內容與加入原因為必填</strong>
+                   </div>
+                </div>
+                <div class="row not-match-account" style="margin-bottom: 15px;">
+                   <div class="whitelist-desc">
+                      <strong>白名單內容不符合帳號格式規範</strong>
+                   </div>
+                </div>
+                <div class="row not-match-online" style="margin-bottom: 15px;">
+                   <div class="whitelist-desc">
+                      <strong>白名單內容不符合網域格式規範</strong>
+                   </div>
+                </div>
+                <div class="htmlcss-modal-footer rule-choose-btn">
+                    <button type="button" class="btn-sec larg htmlcss-modal-cancel">取消</button>
+                <button type="button" class="btn-pri larg htmlcss-modal-save">儲存</button>
+            </div>
+          </section>
+        </div>
+    </div>
+
+    <!-- 這是批次審核，點及審核會出現彈窗 -->
+     <div class="htmlcss-modal review-point" id="reviewpointModal" style="display: none;">
+        <div class="htmlcss-modal-overlay"></div>
+        <div class="htmlcss-modal-panel new-rule-region email-domain-sytle">
+            <div class="htmlcss-modal-header">
+                <h1>批次審核</h1>
+                <button type="button" class="btn-icon htmlcss-modal-close">
+                    <i class="material-symbols-outlined">close</i>
+                </button>
+            </div>
+            <section class="scroll-bar">
+                <div class="batch-review">
+                    <p>送審時間：2026/10/23 18:29</p>
+                    <p>送審人：Justin</p>
+                    <p>送審帳號數： <span>2</span> 筆</p>
+                </div>
+                <div class="batch-review-hint">
+                    <p>審核通過後，將對該批次帳號進行標籤；不通過則不進行標籤，可重新掃描後再送審。</p>
+                </div>
+                <div class="row" style="margin-bottom: 10px;">
+                  <div class="col">
+                   <div class="field">
+                    <h3 class="insert-reges">不通過原因（不通過時必填）</h3>
+                    <textarea class="reges-text" rows="5" placeholder="請輸入不通過原因，限 200 字元"></textarea>
+                   </div>
+                  </div>
+                </div>
+                <div class="review-alert alertmsg" style="display: none;">
+                    不通過時需填寫原因
+                </div>
+                <div class="htmlcss-modal-footer review-bottom">
+                    <button type="button" class="btn-sec larg htmlcss-modal-cancel">取消</button>
+                    <button type="button" class="btn-sec larg htmlcss-modal-cancel not-pass">不通過</button>
+                <button type="button" class="btn-pri larg htmlcss-modal-save">通過</button>
+            </div>
+          </section>
+        </div>
+    </div>
+
+    <!-- 這是批次掃描，點擊手動批次掃描會出現彈窗 -->
+     <div class="htmlcss-modal scan-alert-box" id="scanalertModal" style="display: none;">
+        <div class="htmlcss-modal-overlay"></div>
+        <div class="htmlcss-modal-panel new-rule-region email-domain-sytle">
+            <div class="htmlcss-modal-header">
+                <h1>批次掃描完成</h1>
+                <button type="button" class="btn-icon htmlcss-modal-close">
+                    <i class="material-symbols-outlined">close</i>
+                </button>
+            </div>
+            <section class="scroll-bar">
+                <div class="batch-review">
+                    <p>本次掃描共命中 <span>6</span> 筆帳號，是否要全部標籤？</p>
+                </div>
+                <div class="table-pagination-wrap" data-pagination-root="" data-page-size="10">
+                    <table class="item-list col" data-pagination-table="">
+                        <thead>
+                            <tr>
+                                <th class="align">信箱</th>
+                                <th class="align">命中規則</th>
+                            </tr>
+                        </thead>
+                        <tbody data-pagination-body="">
+                            <tr class="data-row" style="">
+                                <td class="tooltip-trigger truncate-cell control-person alert-box">
+                                    尚無資料
+                                </td>
+                                <td class="tooltip-trigger truncate-cell control-person">尚無資料
+                                </td>
+                            </tr>
+                            <tr class="data-row" style="">
+                                <td class="tooltip-trigger truncate-cell control-person">
+                                    luneri596.site
+                                </td>
+                                <td class="tooltip-trigger truncate-cell control-person">網域規則
+                                </td>
+                            </tr>
+                            <tr class="data-row" style="">
+                                <td class="tooltip-trigger truncate-cell control-person">
+                                    luneri596.site
+                                </td>
+                                <td class="tooltip-trigger truncate-cell control-person">網域規則
+                                </td>
+                            </tr>
+                            <tr class="data-row" style="">
+                                <td class="tooltip-trigger truncate-cell control-person">
+                                    ppp
+                                </td>
+                                <td class="tooltip-trigger truncate-cell control-person">正規表示式(Regex)規則
+                                </td>
+                            </tr>
+                            <tr class="data-row" style="">
+                                </td>
+                                <td class="tooltip-trigger truncate-cell tooltip-trigger truncate-cell control-person">正規表示式(Regex)規則
+                                </td>
+                                <td class="control-person">
+                                    ppp
+                                </td>
+                            </tr>
+                            <tr class="data-row" style="">
+                                <td class="tooltip-trigger truncate-cell control-person">
+                                    MFA 帳號格式（測試中）
+                                </td>
+                                <td class="tooltip-trigger truncate-cell control-person">正規表示式(Regex)規則
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="pagination" data-pagination="">
+                        <button type="button" class="first-page" data-pagination-action="first" disabled="">第一頁</button>
+                        <button type="button" class="pre-page" data-pagination-action="prev" disabled="">上一頁</button>
+                
+                
+                
+                        <button type="button" class="page-number active" data-pagination-page="1">1</button><button type="button"
+                            class="next-page" data-pagination-action="next" disabled="">下一頁</button>
+                        <button type="button" class="last-page" data-pagination-action="last" disabled="">最後一頁</button>
+                    </div>
+                </div>
+                <div class="htmlcss-modal-footer review-bottom">
+                    <button type="button" class="btn-sec larg htmlcss-modal-cancel " data-file-export="產出 Excel.xlsx" data-file-export-message="已發信至使用者信箱。">匯出結果</button>
+                    <button type="button" class="btn-sec larg htmlcss-modal-cancel">取消</button>
+                <button type="button" class="btn-pri larg htmlcss-modal-save all-tages">全部標籤</button>
+            </div>
+          </section>
+        </div>
+    </div>
+
+    <!-- 這是無法送審，點擊全部標籤的按鈕後會出現彈窗 -->
+        <div class="htmlcss-modal scan-attention" id="scanattentionModal" style="display: none;">
+            <div class="htmlcss-modal-overlay"></div>
+            <div class="htmlcss-modal-panel new-rule-region scan-message">
+                <div class="htmlcss-modal-header">
+                    <h1>無法送審</h1>
+                    <button type="button" class="btn-icon htmlcss-modal-close">
+                        <i class="material-symbols-outlined">close</i>
+                    </button>
+                </div>
+                <section class="scroll-bar">
+                    <div class="batch-review">
+                        <p>目前已有一批帳號審核中（共 2 筆，送審時間 2026/10/23 19:57）。</p>
+                    </div>
+                    <div class="batch-review-hint">
+                        <p>為避免重複標籤，一次僅能送審一批次帳號，請待上一批次審核完成後，再送審新的批次。</p>
+                    </div>
+                    <div class="htmlcss-modal-footer scan-alert-box">
+                        <button type="button" class="btn-pri larg htmlcss-modal-save close-scan-alert">確定</button>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    <script>
+        $(function () {
+            var $memberEmail = $('.check-insert-email');
+            var $memberField = $memberEmail.closest('.field');
+            var $memberRequired = $memberField.find('.must-write');
+            var $memberSuccess = $memberField.find('.register-success');
+
+            $memberRequired.hide();
+            $memberSuccess.hide();
+
+            $memberField.on('click', '.send-out', function () {
+                var hasEmail = $.trim($memberEmail.val()).length > 0;
+
+                $memberRequired.toggle(!hasEmail);
+                $memberSuccess.toggle(hasEmail);
+            });
+
+            var $ruleModal = $('#htmlCssModal');
+
+            $('.add-regular-btn').on('click', function () {
+                $ruleModal.show();
+            });
+
+            $ruleModal.on('click', '.htmlcss-modal-close, .htmlcss-modal-cancel, .htmlcss-modal-overlay', function () {
+                $ruleModal.hide();
+            });
+
+            var $editrule = $('#editruleModal');
+
+            $('.edit-text-rule').on('click', function () {
+                $editrule.show();
+            });
+
+            $editrule.on('click', '.htmlcss-modal-close, .htmlcss-modal-cancel, .htmlcss-modal-overlay', function () {
+                $editrule.hide();
+            });
+
+            $(document).on('change', '.mul-checkbox-selectall.all-allow', function () {
+                $('input[type="checkbox"].all-allow')
+                    .not(this)
+                    .prop('checked', this.checked);
+            });
+
+            $(document).on('click', '[data-action="delete-row"]', function () {
+                $(this).closest('tr.data-row').remove();
+            });
+
+            var $emaildomain = $('#emaildomainModal');
+            $('.add-email-domain').on('click', function () {
+                $emaildomain.show();
+            });
+
+            $emaildomain.on('click', '.htmlcss-modal-close, .htmlcss-modal-cancel, .htmlcss-modal-overlay', function () {
+                $emaildomain.hide();
+            });
+
+            var $csvinsert = $('#csvinsertModal');
+            $('.csv-insert-btn').on('click', function () {
+                $csvinsert.show();
+            });
+
+             $csvinsert.on('click', '.htmlcss-modal-close, .htmlcss-modal-cancel, .htmlcss-modal-overlay', function () {
+                $csvinsert.hide();
+            });
+
+             $(document).on('change', '.mul-checkbox-selectall.email-domain-allow', function () {
+                $('input[type="checkbox"].email-domain-allow')
+                    .not(this)
+                    .prop('checked', this.checked);
+            });
+
+
+            var $whitelistpaper = $('#whitelistModal');
+            var $whitelistType = $whitelistpaper.find('select');
+            var $whitelistValue = $whitelistpaper.find('.whitelist-content input');
+            var $whitelistReason = $whitelistpaper.find('.join-reason input');
+            var $whitelistRequired = $whitelistpaper.find('.reason-must');
+            var $whitelistAccountError = $whitelistpaper.find('.not-match-account');
+            var $whitelistDomainError = $whitelistpaper.find('.not-match-online');
+
+            $whitelistRequired.hide();
+            $whitelistAccountError.hide();
+            $whitelistDomainError.hide();
+
+            $('.whitelist-btn').on('click', function () {
+                $whitelistpaper.show();
+            });
+
+            $whitelistpaper.on('click', '.htmlcss-modal-save', function () {
+                var whitelistValue = $.trim($whitelistValue.val());
+                var joinReason = $.trim($whitelistReason.val());
+
+                $whitelistRequired.hide();
+                $whitelistAccountError.hide();
+                $whitelistDomainError.hide();
+
+                if (!whitelistValue || !joinReason) {
+                    $whitelistRequired.show();
+                    return;
+                }
+
+                var selectedTypeIndex = $whitelistType.prop('selectedIndex');
+                if (selectedTypeIndex === 1 && whitelistValue.indexOf('@') === -1) {
+                    $whitelistDomainError.show();
+                } else if (selectedTypeIndex === 0 && !/\d/.test(whitelistValue)) {
+                    $whitelistAccountError.show();
+                }
+            });
+
+            $whitelistpaper.on('click', '.htmlcss-modal-close, .htmlcss-modal-cancel, .htmlcss-modal-overlay', function () {
+                $whitelistpaper.hide();
+            });
+
+
+            var $reviewcheck = $('#reviewpointModal');
+            $('.review-btn').on('click', function () {
+                $reviewcheck.show();
+            });
+
+            $reviewcheck.on('click', '.htmlcss-modal-close, .htmlcss-modal-cancel:not(.not-pass), .htmlcss-modal-overlay', function () {
+                $reviewcheck.hide();
+            });
+
+            $reviewcheck.on('click', '.not-pass', function (event) {
+                var hasReason = $.trim($reviewcheck.find('.reges-text').val()).length > 0;
+                var $alert = $reviewcheck.find('.alertmsg');
+
+                if ($alert.is(':visible')) {
+                    $reviewcheck.hide();
+                } else if (!hasReason) {
+                    event.preventDefault();
+                    $alert.show();
+                } else {
+                    $alert.hide();
+                    $reviewcheck.hide();
+                }
+            });
+
+            $reviewcheck.on('input', '.reges-text', function () {
+                if ($.trim($(this).val()).length > 0) {
+                    $reviewcheck.find('.alertmsg').hide();
+                }
+            });
+
+
+            var $scanCheck = $('#scanalertModal');
+            var $scanAttention = $('#scanattentionModal');
+
+            $('.push-scan-btn').on('click', function () {
+                $scanCheck.show();
+            });
+
+            $scanCheck.on('click', '.all-tages', function () {
+                $scanCheck.hide();
+                $scanAttention.show();
+            });
+
+            $scanAttention.on('click', '.close-scan-alert', function () {
+                $scanAttention.hide();
+            });
+
+            $scanAttention.on('click', '.htmlcss-modal-close, .htmlcss-modal-overlay', function () {
+                $scanAttention.hide();
+            });
+
+            $('.alert-btn').on('click', function () {
+                var $tab6 = $('.tab6-content');
+                if ($tab6.length) {
+                    var $tabsContainer = $tab6.closest('.tabs-container');
+                    var tabIndex = $tabsContainer.find('.content > div').index($tab6);
+                    $tabsContainer.find('.tabs li').eq(tabIndex).trigger('click');
+                }
+            });
+
+            $scanCheck.on('click', '.htmlcss-modal-close, .htmlcss-modal-cancel:not(.not-pass), .htmlcss-modal-overlay', function () {
+                $scanCheck.hide();
+            });
+
+            $scanCheck.on('click', '.not-pass', function (event) {
+                var hasReason = $.trim($scanCheck.find('.reges-text').val()).length > 0;
+                var $alert = $scanCheck.find('.alertmsg');
+
+                if ($alert.is(':visible')) {
+                    $scanCheck.hide();
+                } else if (!hasReason) {
+                    event.preventDefault();
+                    $alert.show();
+                } else {
+                    $alert.hide();
+                    $scanCheck.hide();
+                }
+            });
+
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,578 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="../../../css/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../../css/select2.css" />
+    <script type="text/javascript" src="../../../js/jquery-3.7.1.min.js"></script>
+    <!-- Select2 下拉選單 start-->
+    <script type="text/javascript" src="../../../js/select2.min.js"></script>
+    <!-- Select2 下拉選單 end-->
+    <script type="text/javascript" src="../../../js/prize.js"></script>
+    <script type="text/javascript" src="../../../js/components.js"></script>
+    <script type="text/javascript" src="../../../js/switch-controls.js"></script>
+    <script type="text/javascript" src="../../../js/calendar.js"></script>
+    <script type="text/javascript" src="../../../js/pagination.js"></script>
+    <script type="text/javascript" src="../../../js/dual-listbox.js"></script>
+    <script type="text/javascript" src="../../../js/popup.js"></script>
+    <script type="text/javascript" src="../../../js/searchSelect.js"></script>
+    <script type="text/javascript" src="../../../js/toast-message.js"></script>
+    <script type="text/javascript" src="../../../js/tooltip.js"></script>
+    <script type="text/javascript" src="../../../js/scroll-to-edge.js"></script>
+    <title>領獎專區</title>
+</head>
+
+<body>
+    <main>
+        <div class="search-bar">
+            <div>
+                <label for="event-id">活動代號</label>
+                <input id="event-id" type="text" placeholder="請輸入" />
+            </div>
+            <div>
+                <label for="event-name">活動名稱</label>
+                <input id="event-name" type="text" placeholder="請輸入" />
+            </div>
+            <div class="field">
+                <label>活動主入口</label>
+                <select class="select2-search">
+                    <option selected>請選擇</option>
+                    <option>選項A</option>
+                    <option>選項B</option>
+                    <option>選項C</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>語系選擇</label>
+                <select class="select2-search">
+                    <option selected>請選擇</option>
+                    <option>選項A</option>
+                    <option>選項B</option>
+                    <option>選項C</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>審核狀態</label>
+                <select class="select2-search">
+                    <option selected>請選擇</option>
+                    <option>選項A</option>
+                    <option>選項B</option>
+                    <option>選項C</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>活動條件</label>
+                <select class="select2-search">
+                    <option selected>請選擇</option>
+                    <option>選項A</option>
+                    <option>選項B</option>
+                    <option>選項C</option>
+                </select>
+            </div>
+            <button class="btn-sec larg">查詢</button>
+        </div>
+
+        <div class="row row-between row-hcenter">
+            <button class="btn-pri larg insert-button">新增資料</button>
+            <div class="perpage field mar-bm">
+                <span>每頁顯示</span>
+                <select>
+                    <option>10</option>
+                    <option>50</option>
+                    <option>100</option>
+                </select>
+                <span>筆</span>
+            </div>
+        </div>
+
+        <div class="table-pagination-wrap" data-pagination-root data-page-size="10">
+            <table class="item-list col" data-pagination-table>
+                <thead>
+                    <tr>
+                        <th>功能</th>
+                        <th>審核狀態</th>
+                        <th>活動條件</th>
+                        <th>活動遊戲廠商</th>
+                        <th>活動獎項</th>
+                        <th>設定獎項盤數</th>
+                        <th>活動代號</th>
+                        <th class="tooltip-trigger truncate-cell">活動名稱</th>
+                        <th class="tooltip-trigger truncate-cell">活動內容</th>
+                        <th>活動開始時間</th>
+                        <th>活動結束時間</th>
+                        <th>狀態</th>
+                    </tr>
+                </thead>
+                <tbody data-pagination-body>
+                    <tr>
+                        <td>
+                            <div class="action-btns">
+                                <button class="btn-text">修改</button>
+                            </div>
+                        </td>
+                        <td>通過</td>
+                        <td><button type="button" class="btn-text">設定</button></td>
+                        <td><button type="button" class="btn-select" data-target="merchant-setting-container">
+                                <div>設定廠商</div><i class="material-symbols-outlined">keyboard_arrow_down</i>
+                            </button></td>
+                        <td><button type="button" class="btn-select" data-target="prize-inquiry-container">
+                                <div>獎項查詢</div><i class="material-symbols-outlined">keyboard_arrow_down</i>
+                            </button></td>
+                        <td><button type="button" class="btn-select" data-target="slot-amount-container">
+                                <div>獎項盤數</div><i class="material-symbols-outlined">keyboard_arrow_down</i>
+                            </button></td>
+                        <td>2024072201</td>
+                        <td class="tooltip-trigger truncate-cell">參加指定活動參加指定活動參加指定活動</td>
+                        <td class="tooltip-trigger truncate-cell">參加指定活動參加指定活動參加指定活動</td>
+                        <td>2024-08-01 00:00</td>
+                        <td>2024-09-30 00:00</td>
+                        <td>啟用</td>
+                    </tr>
+                    <tr class="merchant-setting-container child-container" style="display: none;">
+                        <td class="child" colspan="12">
+                            <form class="mar-t0">
+                                <div class="field col-4">
+                                    <h3>請選擇儲值廠商類型<span>*</span></h3>
+                                    <select>
+                                        <option disabled>請選擇</option>
+                                        <option>選項</option>
+                                        <option>選項</option>
+                                        <option>選項</option>
+                                    </select>
+                                </div>
+                                <div class="row">
+                                    <div class="listbox-wrap col">
+                                        <div class="dual-listbox-container">
+                                            <div class="unset-wrapper">
+                                                <h3>可供選擇的項目</h3>
+                                                <div class="searchbar">
+                                                    <input type="search" placeholder="搜尋..." />
+                                                    <p class="unset-counter"></p>
+                                                    <div class="trailing-element">
+                                                        <button type="button" class="btn-sec small"
+                                                            data-add-button>清除選取</button>
+                                                    </div>
+                                                </div>
+                                                <ul>
+                                                    <li>台灣</li>
+                                                    <li>中國</li>
+                                                    <li>香港</li>
+                                                    <li>澳門</li>
+                                                    <li>新加坡</li>
+                                                    <li>馬來西亞</li>
+                                                    <li>泰國</li>
+                                                    <li>印尼</li>
+                                                    <li>菲律賓</li>
+                                                    <li>越南</li>
+                                                    <li>全球</li>
+                                                </ul>
+                                            </div>
+                                            <div class="control-wrapper">
+                                                <button type="button" class="set"><span
+                                                        class="material-symbols-outlined fz-4xl">chevron_right</span></button>
+                                                <button type="button" class="set-all"><span
+                                                        class="material-symbols-outlined fz-4xl">keyboard_double_arrow_right</span></button>
+                                                <button type="button" class="unset-all"><span
+                                                        class="material-symbols-outlined fz-4xl">keyboard_double_arrow_left</span></button>
+                                                <button type="button" class="unset"><span
+                                                        class="material-symbols-outlined fz-4xl">chevron_left</span></button>
+                                            </div>
+                                            <div class="set-wrapper">
+                                                <h3>已選擇的項目</h2>
+                                                    <div class="searchbar">
+                                                        <input type="search" placeholder="搜尋..." />
+                                                        <p class="set-counter"></p>
+                                                        <div class="trailing-element">
+                                                            <button type="button" class="btn-sec small"
+                                                                data-add-button>清除選取</button>
+                                                        </div>
+                                                    </div>
+                                                    <ul>
+                                                    </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="listbox-wrap">
+                                    <div class="field mar-0 d-flex">
+                                        <label>
+                                            <input type="checkbox" class="switch-dual-listbox" />
+                                            官網儲值頁關聯遊戲ID
+                                        </label>
+                                        <div class="alert">
+                                            <i class="material-symbols-outlined fill-icon waring">warning</i>
+                                            <span>此設定僅為官網儲值頁指定遊戲活動入口顯示，與實際活動判斷無關。</span>
+                                        </div>
+                                    </div>
+                                    <div class="dual-listbox-container disabled pad-ts">
+                                        <div class="unset-wrapper">
+                                            <h3>可供選擇的項目</h3>
+                                            <div class="searchbar">
+                                                <input type="search" placeholder="搜尋..." disabled />
+                                                <p class="unset-counter"></p>
+                                                <div class="trailing-element">
+                                                    <button type="button" class="btn-sec small"
+                                                        data-add-button>清除選取</button>
+                                                </div>
+                                            </div>
+
+                                            <ul>
+                                                <li>台灣</li>
+                                                <li>中國</li>
+                                                <li>香港</li>
+                                                <li>澳門</li>
+                                                <li>新加坡</li>
+                                                <li>馬來西亞</li>
+                                                <li>泰國</li>
+                                                <li>印尼</li>
+                                                <li>菲律賓</li>
+                                                <li>越南</li>
+                                                <li>全球</li>
+                                            </ul>
+                                        </div>
+                                        <div class="control-wrapper">
+                                            <button type="button" class="set"><span
+                                                    class="material-symbols-outlined fz-4xl">chevron_right</span></button>
+                                            <button type="button" class="set-all"><span
+                                                    class="material-symbols-outlined fz-4xl">keyboard_double_arrow_right</span></button>
+                                            <button type="button" class="unset-all"><span
+                                                    class="material-symbols-outlined fz-4xl">keyboard_double_arrow_left</span></button>
+                                            <button type="button" class="unset"><span
+                                                    class="material-symbols-outlined fz-4xl">chevron_left</span></button>
+                                        </div>
+                                        <div class="set-wrapper">
+                                            <h3>已選擇的項目</h2>
+                                                <div class="searchbar">
+                                                    <input type="search" placeholder="搜尋..." disabled />
+                                                    <p class="set-counter"></p>
+                                                    <div class="trailing-element">
+                                                        <button type="button" class="btn-sec small"
+                                                            data-add-button>清除選取</button>
+                                                    </div>
+                                                </div>
+                                                <ul>
+                                                </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                            <button class="btn-pri larg">儲存</button>
+                        </td>
+                    </tr>
+                    <tr class="prize-inquiry-container child-container" style="display: none;">
+                        <td class="child" colspan="12">
+                            <div class="table-action-wrap">
+                                <table class="item-list col mar-0">
+                                    <thead>
+                                        <tr>
+                                            <th>功能</th>
+                                            <th>獎項名稱</th>
+                                            <th>送獎類型</th>
+                                            <th>獎項數量</th>
+                                            <th>新增貨付款獎項資訊</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><button class="btn-text">編輯</button></td>
+                                            <td>參加指定活動</td>
+                                            <td>領獎專區贈獎方式:實體贈品</td>
+                                            <td>100</td>
+                                            <td><a href="#">PRZ00007554</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="btn-container">
+                                    <button type="button" class="btn-pri small">新增一筆資料</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="slot-amount-container child-container" style="display: none;">
+                        <td class="child" colspan="12">
+                            <form class="mar-0">
+                                <div class="field">
+                                    <h3>是否使用轉盤</h3>
+                                    <label class="switch">
+                                        <input type="checkbox" role="switch" name="eventStatus" value="enabled" checked>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                                <div class="table-action-wrap">
+                                    <table class="item-list col mar-0">
+                                        <thead>
+                                            <tr>
+                                                <th>功能</th>
+                                                <th>盤數</th>
+                                                <th>區間</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody data-section="dynamic-prizeList">
+                                            <tr class="data-row">
+                                                <td>
+                                                    <div class="action-btns">
+                                                        <button type="button" class="btn-text" data-action="delete-row">刪除</button>
+                                                        <button type="button" class="btn-text" data-action="view-row">檢視</button>
+                                                    </div>
+                                                </td>
+                                                <td>1</td>
+                                                <td>1~10</td>
+                                            </tr>
+                                            <tr class="data-row">
+                                                <td>
+                                                    <div class="action-btns">
+                                                        <button type="button" class="btn-text" data-action="delete-row">刪除</button>
+                                                        <button type="button" class="btn-text" data-action="view-row">檢視</button>
+                                                    </div>
+                                                </td>
+                                                <td>2</td>
+                                                <td>1~1</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="btn-container">
+                                        <button type="button" class="btn-pri small">新增一筆資料</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr class="danger">
+                        <td>
+                            <div class="action-btns">
+                                <button class="btn-text">修改</button>
+                            </div>
+                        </td>
+                        <td>通過</td>
+                        <td><button type="button" class="btn-text">設定</button></td>
+                        <td><button type="button" class="btn-select" data-target="merchant-setting-container">
+                                <div>設定廠商</div><i class="material-symbols-outlined">keyboard_arrow_down</i>
+                            </button></td>
+                        <td><button type="button" class="btn-select" data-target="prize-inquiry-container">
+                                <div>獎項查詢</div><i class="material-symbols-outlined">keyboard_arrow_down</i>
+                            </button></td>
+                        <td><button type="button" class="btn-select" data-target="slot-amount-container">
+                                <div>獎項盤數</div><i class="material-symbols-outlined">keyboard_arrow_down</i>
+                            </button></td>
+                        <td>2024072201</td>
+                        <td class="tooltip-trigger truncate-cell">參加指定活動</td>
+                        <td class="tooltip-trigger truncate-cell">參加指定活動</td>
+                        <td>2024-08-01 00:00</td>
+                        <td>2024-09-30 00:00</td>
+                        <td>不啟用</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="action-btns">
+                                <button class="btn-text">修改</button>
+                            </div>
+                        </td>
+                        <td>通過</td>
+                        <td><button type="button" class="btn-text">設定</button></td>
+                        <td><button type="button" class="btn-select" data-target="merchant-setting-container">
+                                <div>設定廠商</div><i class="material-symbols-outlined">keyboard_arrow_down</i>
+                            </button></td>
+                        <td><button type="button" class="btn-select" data-target="prize-inquiry-container">
+                                <div>獎項查詢</div><i class="material-symbols-outlined">keyboard_arrow_down</i>
+                            </button></td>
+                        <td><button type="button" class="btn-select" data-target="slot-amount-container">
+                                <div>獎項盤數</div><i class="material-symbols-outlined">keyboard_arrow_down</i>
+                            </button></td>
+                        <td>2024072201</td>
+                        <td class="tooltip-trigger truncate-cell">參加指定活動參加指定活動參加指定活動</td>
+                        <td class="tooltip-trigger truncate-cell">參加指定活動參加指定活動參加指定活動</td>
+                        <td>2024-08-01 00:00</td>
+                        <td>2024-09-30 00:00</td>
+                        <td>不啟用</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="action-btns">
+                                <button class="btn-text">修改</button>
+                            </div>
+                        </td>
+                        <td>通過</td>
+                        <td><button type="button" class="btn-text">設定</button></td>
+                        <td><button type="button" class="btn-select" data-target="merchant-setting-container">
+                                <div>設定廠商</div><i class="material-symbols-outlined">keyboard_arrow_down</i>
+                            </button></td>
+                        <td><button type="button" class="btn-select" data-target="prize-inquiry-container">
+                                <div>獎項查詢</div><i class="material-symbols-outlined">keyboard_arrow_down</i>
+                            </button></td>
+                        <td><button type="button" class="btn-select" data-target="slot-amount-container">
+                                <div>獎項盤數</div><i class="material-symbols-outlined">keyboard_arrow_down</i>
+                            </button></td>
+                        <td>2024072201</td>
+                        <td class="tooltip-trigger truncate-cell">參加指定活動</td>
+                        <td class="tooltip-trigger truncate-cell">參加指定活動</td>
+                        <td>2024-08-01 00:00</td>
+                        <td>2024-09-30 00:00</td>
+                        <td>不啟用</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="action-btns">
+                                <button class="btn-text">修改</button>
+                            </div>
+                        </td>
+                        <td>通過</td>
+                        <td><button type="button" class="btn-text">設定</button></td>
+                        <td><button type="button" class="btn-select" data-target="merchant-setting-container">
+                                <div>設定廠商</div><i class="material-symbols-outlined">keyboard_arrow_down</i>
+                            </button></td>
+                        <td><button type="button" class="btn-select" data-target="prize-inquiry-container">
+                                <div>獎項查詢</div><i class="material-symbols-outlined">keyboard_arrow_down</i>
+                            </button></td>
+                        <td><button type="button" class="btn-select" data-target="slot-amount-container">
+                                <div>獎項盤數</div><i class="material-symbols-outlined">keyboard_arrow_down</i>
+                            </button></td>
+                        <td>2024072201</td>
+                        <td class="tooltip-trigger truncate-cell">參加指定活動</td>
+                        <td class="tooltip-trigger truncate-cell">參加指定活動</td>
+                        <td>2024-08-01 00:00</td>
+                        <td>2024-09-30 00:00</td>
+                        <td>啟用</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="action-btns">
+                                <button class="btn-text">修改</button>
+                            </div>
+                        </td>
+                        <td>通過</td>
+                        <td><button type="button" class="btn-text">設定</button></td>
+                        <td><button type="button" class="btn-select" data-target="merchant-setting-container">
+                                <div>設定廠商</div><i class="material-symbols-outlined">keyboard_arrow_down</i>
+                            </button></td>
+                        <td><button type="button" class="btn-select" data-target="prize-inquiry-container">
+                                <div>獎項查詢</div><i class="material-symbols-outlined">keyboard_arrow_down</i>
+                            </button></td>
+                        <td><button type="button" class="btn-select" data-target="slot-amount-container">
+                                <div>獎項盤數</div><i class="material-symbols-outlined">keyboard_arrow_down</i>
+                            </button></td>
+                        <td>2024072201</td>
+                        <td class="tooltip-trigger truncate-cell">參加指定活動</td>
+                        <td class="tooltip-trigger truncate-cell">參加指定活動</td>
+                        <td>2024-08-01 00:00</td>
+                        <td>2024-09-30 00:00</td>
+                        <td>啟用</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="action-btns">
+                                <button class="btn-text">修改</button>
+                            </div>
+                        </td>
+                        <td>通過</td>
+                        <td><button type="button" class="btn-text">設定</button></td>
+                        <td><button type="button" class="btn-select" data-target="merchant-setting-container">
+                                <div>設定廠商</div><i class="material-symbols-outlined">keyboard_arrow_down</i>
+                            </button></td>
+                        <td><button type="button" class="btn-select" data-target="prize-inquiry-container">
+                                <div>獎項查詢</div><i class="material-symbols-outlined">keyboard_arrow_down</i>
+                            </button></td>
+                        <td><button type="button" class="btn-select" data-target="slot-amount-container">
+                                <div>獎項盤數</div><i class="material-symbols-outlined">keyboard_arrow_down</i>
+                            </button></td>
+                        <td>2024072201</td>
+                        <td class="tooltip-trigger truncate-cell">參加指定活動</td>
+                        <td class="tooltip-trigger truncate-cell">參加指定活動</td>
+                        <td>2024-08-01 00:00</td>
+                        <td>2024-09-30 00:00</td>
+                        <td>啟用</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="action-btns">
+                                <button class="btn-text">修改</button>
+                            </div>
+                        </td>
+                        <td>通過</td>
+                        <td><button type="button" class="btn-text">設定</button></td>
+                        <td><button type="button" class="btn-select" data-target="merchant-setting-container">
+                                <div>設定廠商</div><i class="material-symbols-outlined">keyboard_arrow_down</i>
+                            </button></td>
+                        <td><button type="button" class="btn-select" data-target="prize-inquiry-container">
+                                <div>獎項查詢</div><i class="material-symbols-outlined">keyboard_arrow_down</i>
+                            </button></td>
+                        <td><button type="button" class="btn-select" data-target="slot-amount-container">
+                                <div>獎項盤數</div><i class="material-symbols-outlined">keyboard_arrow_down</i>
+                            </button></td>
+                        <td>2024072201</td>
+                        <td class="tooltip-trigger truncate-cell">參加指定活動</td>
+                        <td class="tooltip-trigger truncate-cell">參加指定活動</td>
+                        <td>2024-08-01 00:00</td>
+                        <td>2024-09-30 00:00</td>
+                        <td>啟用</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="action-btns">
+                                <button class="btn-text">修改</button>
+                            </div>
+                        </td>
+                        <td>通過</td>
+                        <td><button type="button" class="btn-text">設定</button></td>
+                        <td><button type="button" class="btn-select" data-target="merchant-setting-container">
+                                <div>設定廠商</div><i class="material-symbols-outlined">keyboard_arrow_down</i>
+                            </button></td>
+                        <td><button type="button" class="btn-select" data-target="prize-inquiry-container">
+                                <div>獎項查詢</div><i class="material-symbols-outlined">keyboard_arrow_down</i>
+                            </button></td>
+                        <td><button type="button" class="btn-select" data-target="slot-amount-container">
+                                <div>獎項盤數</div><i class="material-symbols-outlined">keyboard_arrow_down</i>
+                            </button></td>
+                        <td>2024072201</td>
+                        <td class="tooltip-trigger tooltip-trigger truncate-cell">參加指定活動</td>
+                        <td class="tooltip-trigger truncate-cell">參加指定活動</td>
+                        <td>2024-08-01 00:00</td>
+                        <td>2024-09-30 00:00</td>
+                        <td>啟用</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="action-btns">
+                                <button class="btn-text">修改</button>
+                            </div>
+                        </td>
+                        <td>通過</td>
+                        <td><button type="button" class="btn-text">設定</button></td>
+                        <td><button type="button" class="btn-select" data-target="merchant-setting-container">
+                                <div>設定廠商</div><i class="material-symbols-outlined">keyboard_arrow_down</i>
+                            </button></td>
+                        <td><button type="button" class="btn-select" data-target="prize-inquiry-container">
+                                <div>獎項查詢</div><i class="material-symbols-outlined">keyboard_arrow_down</i>
+                            </button></td>
+                        <td><button type="button" class="btn-select" data-target="slot-amount-container">
+                                <div>獎項盤數</div><i class="material-symbols-outlined">keyboard_arrow_down</i>
+                            </button></td>
+                        <td>2024072201</td>
+                        <td class="tooltip-trigger tooltip-trigger truncate-cell">參加指定活動</td>
+                        <td class="tooltip-trigger truncate-cell">參加指定活動</td>
+                        <td>2024-08-01 00:00</td>
+                        <td>2024-09-30 00:00</td>
+                        <td>啟用</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="pagination" data-pagination>
+                <button type="button" class="first-page" data-pagination-action="first">第一頁</button>
+                <button type="button" class="pre-page" data-pagination-action="prev">上一頁</button>
+                <button type="button" class="page-number active" data-pagination-page="1">1</button>
+                <button type="button" class="page-number" data-pagination-page="2">2</button>
+                <button type="button" class="page-number" data-pagination-page="3">3</button>
+                <button type="button" class="page-number" data-pagination-page="4">4</button>
+                <button type="button" class="page-number" data-pagination-page="5">5</button>
+                <button type="button" class="next-page" data-pagination-action="next">下一頁</button>
+                <button type="button" class="last-page" data-pagination-action="last">最後一頁</button>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

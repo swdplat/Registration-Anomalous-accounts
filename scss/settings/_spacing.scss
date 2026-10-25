@@ -1,0 +1,172 @@
+.mar {
+    
+    //外距歸0
+    &-0 {
+        margin: 0 !important;
+    }
+
+    &-t0 {
+        margin-top: 0 !important;
+    }
+
+    &-b0 {
+        margin-bottom: 0 !important;
+    }
+
+    //TOP
+    &-txs {
+        margin-top: $spacing-base*0.25; //4px
+    }
+
+    &-ts {
+        margin-top: $spacing-base * 0.5; //8px
+    }
+
+    &-tms {
+        margin-top: $spacing-base * 0.75; //12px
+    }
+
+    &-tm {
+        margin-top: $spacing-base; //16px
+    }
+
+    &-tl {
+        margin-top: $spacing-base * 1.5; //24px
+    }
+
+    &-txl {
+        margin-top: $spacing-base * 2; //32px
+    }
+
+    &-txxl {
+        margin-top: $spacing-base * 2.5; //40px
+    }
+
+    //BOTTOM
+    &-bxs {
+        margin-bottom: $spacing-base * 0.25; //4px
+    }
+
+    &-bs {
+        margin-bottom: $spacing-base * 0.5; //8px
+    }
+
+    &-bms {
+        margin-bottom: $spacing-base * 0.75; //12px
+    }
+
+    &-bm {
+        margin-bottom: $spacing-base; //16px
+    }
+
+    &-bl {
+        margin-bottom: $spacing-base * 1.5; //24px
+    }
+
+    &-bxl {
+        margin-bottom: $spacing-base * 2; //32px
+    }
+
+    &-bxxl {
+        margin-bottom: $spacing-base * 2.5; //40px
+    }
+
+    //y軸上下間距
+    &-yxs {
+        margin-top: $spacing-base * 0.25; //4px
+        margin-bottom: $spacing-base * 0.25; //4px
+    }
+
+    &-yl {
+        margin-top: $spacing-base * 1.5; //24px
+        margin-bottom: $spacing-base * 1.5; //24px
+    }
+    
+    //x軸兩邊間距
+    &-xl {
+        margin-right: $spacing-base * 1.5; //24px
+        margin-left: $spacing-base * 1.5; //24px
+    }
+
+    //特殊尺寸(差距補全)
+    &-spt16 {
+        margin-top: 16px;
+    }
+
+    &-spt44 {
+        margin-right: 44px;
+    }
+}
+
+.pad {
+    
+    //內距歸0
+    &-0 {
+        padding: inherit !important;
+    }
+
+    //常用
+    &-m {
+        padding: $spacing-base; //16px
+    }
+
+    //TOP
+    &-txs {
+        padding-top: $spacing-base * 0.25; //4px
+    }
+
+    &-ts {
+        padding-top: $spacing-base * 0.5; //8px
+    }
+
+    &-tms {
+        padding-top: $spacing-base * 0.75; //12px
+    }
+
+    &-tm {
+        padding-top: $spacing-base; //16px
+    }
+
+    &-tl {
+        padding-top: $spacing-base * 1.5; //24px
+    }
+
+    &-txl {
+        padding-top: $spacing-base * 2; //32px
+    }
+
+    //BOTTOM
+    &-bxs {
+        padding-bottom: $spacing-base * 0.25; //4px
+    }
+
+    &-bs {
+        padding-bottom: $spacing-base * 0.5; //8px
+    }
+
+    &-bm {
+        padding-bottom: $spacing-base; //16px
+    }
+
+    &-bl {
+        padding-bottom: $spacing-base * 1.5; //24px
+    }
+
+    &-bxl {
+        padding-bottom: $spacing-base * 2; //32px
+    }
+
+    //y軸上下間距
+    &-yl {
+        padding-top: $spacing-base * 1.5; //24px
+        padding-bottom: $spacing-base * 1.5; //24px
+    }
+    
+    //x軸兩邊間距
+    &-xl {
+        padding-right: $spacing-base * 1.5; //24px
+        padding-left: $spacing-base * 1.5; //24px
+    }
+
+    //特殊尺寸(差距補全)
+}

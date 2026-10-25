@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="../../../css/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../../css/select2.css" />
+    <script type="text/javascript" src="../../../js/jquery-3.7.1.min.js"></script>
+    <!-- Select2 下拉選單 start-->
+    <script type="text/javascript" src="../../../js/select2.min.js"></script>
+    <!-- Select2 下拉選單 end-->
+    <script type="text/javascript" src="../../../js/prize.js"></script>
+    <script type="text/javascript" src="../../../js/toast-message.js"></script>
+    <script type="text/javascript" src="../../../js/components.js"></script>
+    <script type="text/javascript" src="../../../js/calendar.js"></script>
+    <script type="text/javascript" src="../../../js/pagination.js"></script>
+    <script type="text/javascript" src="../../../js/tooltip.js"></script>
+    <script type="text/javascript" src="../../../js/scroll-to-edge.js"></script>
+    <title>遊戲維護功能</title>
+</head>
+<body>
+    <main>
+        <header class="header">
+            <h1>遊戲維護</h1>
+        </header>
+        <div class="search-bar">
+            <div>
+                <label for="event-id">活動主入口</label>
+                <input id="event-id" type="text" placeholder="請輸入" />
+            </div>
+            <div>
+                <label for="event-name">遊戲ID</label>
+                <input id="event-name" type="text" placeholder="請輸入" />
+            </div>
+            <button class="btn-sec larg">查詢</button>
+        </div>
+    
+        <div class="row row-between row-hcenter">
+            <button class="btn-pri larg insert-button">新增資料</button>
+            <div class="perpage field mar-bm">
+                <span>每頁顯示</span>
+                <select>
+                    <option>10</option>
+                    <option>50</option>
+                    <option>100</option>
+                </select>
+                <span>筆</span>
+            </div>
+        </div>
+    
+        <div class="table-pagination-wrap" data-pagination-root data-page-size="10">
+        <table class="item-list col" data-pagination-table>
+            <thead>
+                <tr>
+                    <th>功能</th>
+                    <th>活動主入口</th>
+                    <th>遊戲ID</th>
+                    <th>遊戲官網</th>
+                    <th>圖示網址</th>
+                    <th>主視覺網址</th>
+                    <th>狀態</th>
+                </tr>
+            </thead>
+            <tbody data-pagination-body>
+                <tr>
+                    <td>
+                        <div class="action-btns">
+                            <button class="btn-text">修改</button>
+                        </div>
+                    </td>
+                    <td>宮廷計</td>
+                    <td>school09</td>
+                    <td class="tooltip-trigger truncate-cell">https://www.game.com.tw</td>
+                    <td class="tooltip-trigger truncate-cell">-</td>
+                    <td class="tooltip-trigger truncate-cell">https://app.mycard520.com.tw/wp-content/uploads/2020/09/k5lCaiB.jpg</td>
+                    <td>啟用</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="action-btns">
+                            <button class="btn-text">修改</button>
+                        </div>
+                    </td>
+                    <td>英雄聯盟儲值送</td>
+                    <td>herold</td>
+                    <td class="tooltip-trigger truncate-cell">https://www.game.com.tw</td>
+                    <td class="tooltip-trigger truncate-cell">https://www.game.com.tw</td>
+                    <td class="tooltip-trigger truncate-cell">https://app.mycard520.com.tw/wp-content/uploads/2020/09/k5lCaiB.jpg</td>
+                    <td>啟用</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="pagination" data-pagination>
+            <button type="button" class="first-page" data-pagination-action="first">第一頁</button>
+            <button type="button" class="pre-page" data-pagination-action="prev">上一頁</button>
+            <button type="button" class="page-number active" data-pagination-page="1">1</button>
+            <button type="button" class="page-number" data-pagination-page="2">2</button>
+            <button type="button" class="page-number" data-pagination-page="3">3</button>
+            <button type="button" class="page-number" data-pagination-page="4">4</button>
+            <button type="button" class="page-number" data-pagination-page="5">5</button>
+            <button type="button" class="next-page" data-pagination-action="next">下一頁</button>
+            <button type="button" class="last-page" data-pagination-action="last">最後一頁</button>
+        </div>
+        </div>
+    </main>
+</body>
+</html>

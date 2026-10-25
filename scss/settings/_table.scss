@@ -1,0 +1,171 @@
+table.item-list {
+    margin-bottom: $spacing-xl;
+    // width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: $radius-lg;
+    // box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06), 0 4px 6px 0 rgba(0, 0, 0, 0.10); <-此table.item-list移除陰影，因為最外層有陰影了，避免陰影重疊
+    background-color: $color-bg-light;
+    overflow-x: auto;
+    
+
+    thead th {
+        font-weight: normal;
+        // border: 1px solid $color-border;
+        border-left: none;
+        border-right: none;
+        background-color: $primary-1;
+        white-space: nowrap;
+        padding: $spacing-md 12px;
+        text-align: left;
+        color: #fff;
+        font-weight: bold;
+
+        // &:first-child {
+        //     border-left: 1px solid $color-border;
+        //     border-top-left-radius: $radius-lg;
+        //     width: 124px;
+        // }
+
+        // &:last-child {
+        //     border-right: 1px solid $color-border;
+        //     border-top-right-radius: $radius-lg;
+        // }
+
+        span {
+            display: block;
+            width: 100%;
+            white-space: nowrap;
+        }
+
+        img {
+            display: inline-block;
+            width: 16px;
+        }
+
+        button {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        // 可排序表頭（全域，對應 js/sort.js 的 data-sort）
+        &[data-sort] {
+            cursor: pointer;
+            user-select: none;
+            transition: background-color 0.15s ease;
+
+            &:hover {
+                background-color: darken($primary-1, 8%);
+            }
+
+            .sort-icon {
+                font-size: $fz-xl;
+                vertical-align: middle;
+                margin-left: $spacing-xs;
+            }
+        }
+    }
+
+    tr {
+
+        // padding: 10px 15px;
+        &.danger {
+            td {
+                background-color: rgba(#FF2525, 0.08);
+            }
+        }
+
+        
+
+        td {
+            padding: $spacing-sm 15px;
+            border-bottom: 1px solid $color-border;
+            // background-color: $color-bg-white;
+            vertical-align: middle;
+            width: auto;
+            white-space: nowrap;
+            max-width: 385px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+
+            &.truncate-cell {
+                max-width: 150px;
+            }
+
+            &:first-child {
+                // border-left: 1px solid $color-border;
+                width: 80px; //讓列表的第一欄(刪除/修改)寬度符合內容寬度
+            }
+
+            // &:last-child {
+            //     border-right: 1px solid $color-border;
+            // }
+
+            &.child {
+                padding: $gap-base;
+                background-color: $color-bg-gray;
+            }
+
+            &.fit {
+                width: 80px; //讓列表欄位寬度符合內容寬度
+            }
+
+            .action-btns {
+                display: flex;
+                align-items: center;
+                gap: 24px;
+            }
+        }
+
+        // &:last-child td:not([style*="display: none"]) {
+        //     border-bottom: none;
+        // }
+    }
+
+    // .btn-sec {
+    //     padding: $spacing-xs $spacing-sm;
+    //     height: auto;
+    // }
+}
+
+.table-action-wrap {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            background-color: $color-bg-light;
+            border-radius: $radius-lg;
+            border: 1px solid $color-border;
+            overflow-x: auto;
+
+            .btn-container {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                padding: $spacing-base;
+                // border-top: 1px solid $color-border;
+            }
+        }
+
+//列表展開動畫
+.child-container {
+
+    @keyframes fade {
+
+        0% {
+            opacity: 0;
+        }
+
+        20% {
+            opacity: 0.6;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    animation-name: fade;
+    animation-duration: .5s;
+    animation-timing-function: linear;
+}

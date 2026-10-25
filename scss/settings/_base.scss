@@ -1,0 +1,560 @@
+// 僅html的標籤樣式，如 <p>（段落）、<h1>（標題）、<a>（連結）等。(非classname，沒有「.」)
+
+body {
+    font-family: $font-family;
+    font-size: $fz-md;
+    background-color: $color-bg-gray-dark;
+    min-height: 100%;
+    color: #374151;
+    // overflow-anchor: none; // 防止內容於底部展開時，瀏覽器自動修正 viewport 而造成畫面往上推的問題
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    line-height: 100%;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-family: $font-family;
+    line-height: 100%;
+}
+
+main {
+    padding: $gap-base;
+    // 給予底部充足的留白緩衝空間
+    // 確保當您在最底部觸發收合時，頁面總高度不會因為突然縮減而迫使瀏覽器強制把畫面往上推
+    padding-bottom: 200px;
+    min-height: 100%;
+}
+
+//讓頁面內容寬度不會受瀏覽器的scrollbar影響
+html {
+    scrollbar-gutter: stable;
+    min-height: 100%;
+    background-color: $color-bg-gray-dark;
+}
+
+// Select
+select {
+    padding: $spacing-sm 39px $spacing-sm 15px;
+    border-radius: $radius-md;
+    border: 1px solid $color-border;
+    background-color: $color-bg-white;
+    background-image: url('../images/dropdown.svg');
+    background-position: right 15px center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: $input-height;
+
+    &~select {
+        margin-top: $spacing-sm;
+    }
+
+    &:disabled {
+        background-color: $color-bg-disabled;
+        cursor: not-allowed;
+    }
+}
+
+
+
+// 20261013新樣式設定 
+// p標籤新增樣式 開始
+.subtitle-desc{
+    color: #9ca3af;
+    font-size: 14px;
+    margin: 0 0 24px 0;
+    line-height: 1.7;
+    max-width: 70ch;
+}
+// p標籤新增樣式 結束
+
+// 標題欄位樣式修改
+.mul-checkbox-header .align{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.align{
+    align-content: center;
+}
+
+table.item-list thead .title-bar{
+    padding-left: 14px;
+}
+
+// 操作欄位的編輯刪除按鈕
+.console-button{
+    display: flex;
+    gap: 5px;
+    height: 47px;
+}
+
+// 新增規則按鈕
+.regular-btn-outer{
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.add-regular-btn{
+    color: #fff;
+    font-weight: 500;
+    border: 1px solid #4aa8ff;
+    background-color: #4aa8ff;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: 8px 24px;
+}
+
+// 新增規則彈窗樣式
+.scroll-bar{
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+body .new-rule-region{
+    width: 40%;
+}
+
+.new-rule-region .rule-outer{
+    width: 100%;
+}
+
+.new-rule{
+    margin: 0 0 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ff2525;
+    width: 100%;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.rule-test-strting{
+    margin: 0 0 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #374151;
+    width: 100%;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.add-rule{
+    padding: 8px 15px;
+    border-radius: 6px;
+    background-color: #fff;
+    border: 1px solid #d1d5db;
+    height: 40px;
+    width: 100%;
+    margin: 0 0 8px;
+}
+
+.rule-margin{
+    margin-bottom: 15px;
+}
+
+.insert-reges{
+    margin: 0 0 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ff2525;
+    width: 100%;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.reges-text{
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    width: 100%;
+    resize: vertical;
+    font-size: 16px;
+    font-family: "微軟正黑體";
+}
+
+.rule-choose-btn{
+    justify-content: right;
+    border-top: 0px solid #d1d5db ;
+    padding: 16px 24px;
+}
+
+// 這是編輯按鈕彈窗的新樣式
+.edit-rule-title{
+    margin: 0 0 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #374151;;
+    width: 100%;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.rule-id-style{
+    color: rgba(55, 65, 81, .5);
+    background-color: #efefef;
+    cursor: not-allowed;
+}
+
+
+// 會員註冊模擬樣式
+.member-acount-insert{
+    display: flex;
+    gap: 10px;
+}
+
+.member-acount-msg{
+    width: 100%;
+    margin-top: 8px;
+}
+
+.member-acount-desc{
+    background-color: rgba(48, 209, 88, .08);
+    color: #166b34;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    line-height: 1.7;
+    border: 1px solid #20be48;
+}
+
+.batch-test{
+    color: #4aa8ff;
+    font-size: 16px;
+    margin: 0 0 16px 0;
+    line-height: 1;
+}
+
+.rule-test-bottom{
+    display: flex;
+    gap: 16px;
+    padding: 32px 0px 16px 0px;
+    justify-content: flex-start;
+}
+
+.rule-analyze{
+    width: 100%;
+
+    .rule-analyze-inner{
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+      .analyze-one{
+        background: #fff;
+        border: 1px solid #d1d5db;
+        border-left: 3px solid #4aa8ff;
+        border-radius: 8px;
+        padding: 14px 22px;
+        min-width: 150px;
+        flex: 1;
+
+        .analyze-one-num{
+            font-family: Menlo, Consolas, "Courier New", monospace;
+            font-size: 26px;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .analyze-one-text{
+            font-size: 12.5px;
+            color: #9ca3af;
+            margin-top: 4px;
+        }
+      }
+
+      .analyze-two{
+        background: #fff;
+        border: 1px solid #d1d5db;
+        border-left: 3px solid #4aa8ff;
+        border-radius: 8px;
+        padding: 14px 22px;
+        min-width: 150px;
+        flex: 1;
+
+        .analyze-two-num{
+            font-family: Menlo, Consolas, "Courier New", monospace;
+            font-size: 26px;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .analyze-two-text{
+            font-size: 12.5px;
+            color: #9ca3af;
+            margin-top: 4px;
+        }
+      }
+    }
+
+    .analyze-test{
+        overflow: hidden;
+        border-radius: 8px 8px 0px 0px;
+
+        .mail-name{
+            width: auto;
+            max-width: 150px;
+        }
+    }
+
+}
+
+// 信件網域名單 樣式
+.domain-name-btn{
+    display: flex;
+    gap: 16px;
+    padding: 32px 0px 16px 0px;
+    justify-content: flex-start;
+    margin-bottom: 16px;
+}
+
+body .email-domain-sytle{
+    position: relative;
+    width: 45%;
+    max-width: 1520px;
+    height: 95%;
+    max-height: 600px;
+}
+
+.wildcard-desc{
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px 14px;
+    background: rgb(243, 244, 246);
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgb(75, 85, 99);
+}
+
+.csv-insert {
+    .csv-insert-desc{
+        color: #9ca3af;
+        font-size: 14px;
+        margin: 0 0 24px 0;
+        line-height: 1.7;
+        max-width: 70ch;
+    }
+
+    .csv-insert-text{
+        padding: 15px;
+        background-color: #FFF;
+        border: 1px solid #D1D5DB;
+        border-radius: 6px;
+        width: 100%;
+        resize: vertical;
+        font-size: 16px;
+        font-family: "微軟正黑體";
+    }
+}
+
+// 歷程記錄樣式
+.process{
+    .search-btn{
+        display: inline-block;
+        align-content: center;
+
+        .btn-style{
+            color: #fff;
+            font-weight: 500;
+            border: 1px solid #4aa8ff;
+            background-color: #4aa8ff;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+    }
+}
+
+.show-desc{
+    color: #9ca3af;
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 70ch;
+    align-content: center;
+}
+
+.control-person{
+    height: 47px;
+}
+
+body table.item-list tr td.time-style{
+    width: 170px;
+    max-width: 170px;
+}
+
+.table-word{
+    color: #9ca3af;
+}
+
+.record-query{
+    max-width: 109px;
+}
+
+// 白名單管理 樣式
+.whitelist-btn{
+    color: #fff;
+    font-weight: 500;
+    border: 1px solid #4aa8ff;
+    background-color: #4aa8ff;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: 8px 24px;
+}
+
+.whitelist-desc{
+    display: block;
+    width: 100%;
+    margin-top: 0px;
+    padding: 12px 14px;
+    background: rgb(243, 244, 246);
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgb(75, 85, 99);
+}
+
+// 批次審核樣式
+.unreviewed-msg{
+    color: #c2410c;
+    font-weight: 600;
+}
+
+.accept-msg{
+    color: #166b34;
+    font-weight: 600;
+}
+
+.failed-msg{
+    color: #ff2525;
+    font-weight: 600;
+}
+
+.batch-review{
+    color: #9ca3af;
+    font-size: 14px;
+    margin: 0 0 24px 0;
+    line-height: 1.7;
+    max-width: 70ch;
+    p{
+        span{
+            color: #ff2525;
+        }
+    }
+}
+
+.batch-review-hint{
+    color: #9ca3af;
+    font-size: 14px;
+    margin: 0 0 24px 0;
+    line-height: 1.7;
+    max-width: 70ch;
+}
+
+.review-bottom{
+    justify-content: right;
+    border-top: 0px solid #d1d5db;
+    padding: 16px 24px;
+}
+
+.review-alert{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: 1px solid #f0d86e;
+    background-color: #fcf7d4;
+}
+
+// 批次掃描的樣式
+.scanning-text{
+    .scanning-desc{
+    color: #9ca3af;
+    font-size: 14px;
+    margin: 0 0 24px 0;
+    line-height: 1.7;
+    max-width: 70ch;
+    }
+
+    .scanning-alert{
+    margin-top: 16px;
+    margin-bottom: 24px;
+    padding: 14px 16px;
+    background: #fff7ed;
+    border: 1px solid #fed7aa;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #9a3412;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    }
+
+    .alert-btn{
+    color: #374151;
+    font-weight: 500;
+    border: 1px solid #d1d5db;
+    background-color: #fff;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: 4px 12px;
+    height: auto;
+    font-size: 14px;
+    }
+}
+
+ .alert-box{
+    width: 200px !important;
+    max-width: 200px !important;
+}
+
+.scan-alert-box{
+    justify-content: right;
+    border-top: 1px solid #d1d5db;
+    padding: 16px 24px;
+}
+
+body .scan-message{
+    position: relative;
+    width: 45%;
+    max-width: 1520px;
+    height: 100%;
+    max-height: 310px;
+}
+
+.tag-intercept{
+    background-color: rgba(255, 37, 37, .08);
+    color: #ff2525;
+    font-weight: 600;
+}
+
+// 20261013新樣式設定

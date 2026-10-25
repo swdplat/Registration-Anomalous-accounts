@@ -1,0 +1,351 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+  <link type="text/css" rel="stylesheet" href="../../../css/daterangepicker.css" />
+  <link type="text/css" rel="stylesheet" href="../../../css/style.css" />
+
+  <!-- CodeMirror (HTML / CSS 程式碼編輯器) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js"></script>
+  <!-- CodeMirror (HTML / CSS 程式碼編輯器) end-->
+
+  <script type="text/javascript" src="../../../js/jquery-3.7.1.min.js"></script>
+  <script type="text/javascript" src="../../../js/select2.min.js"></script>
+  <script type="text/javascript" src="../../../js/highlight.min.js"></script>
+  <script src="https://cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script>
+  <script type="text/javascript" src="../../../js/components.js"></script>
+  <script type="text/javascript" src="../../../js/calendar.js"></script>
+  <script type="text/javascript" src="../../../js/pagination.js"></script>
+  <script type="text/javascript" src="../../../js/popup.js"></script>
+  <script type="text/javascript" src="../../../js/dual-listbox.js"></script>
+  <script type="text/javascript" src="../../../js/toast-message.js"></script>
+  <script type="text/javascript" src="../../../js/tooltip.js"></script>
+  <script type="text/javascript" src="../../../js/searchSelect.js"></script>
+  <script type="text/javascript" src="../../../js/searchCheckbox.js"></script>
+  <script type="text/javascript" src="../../../js/prize.js"></script>
+  <script type="text/javascript" src="../../../js/scroll-to-edge.js"></script>
+  <title>活動獎項查詢-新增</title>
+</head>
+
+<body>
+  <main>
+    <header class="header">
+      <h1>新增一筆資料</h1>
+    </header>
+    <div class="search-bar mar-tl">
+      <div class="col-4">
+        <label>活動代號</label>
+        <p>2024072201</p>
+      </div>
+      <div class="col-4">
+        <label>活動名稱</label>
+        <p>參加指定活動</p>
+      </div>
+    </div>
+    <form>
+      <section>
+        <div class="row">
+          <div class="col-4">
+            <div class="field">
+              <h3>活動條件<span>*</span></h3>
+              <div class="d-flex">
+                <select>
+                  <option selected disabled>請選擇</option>
+                  <option>選項</option>
+                  <option>選項</option>
+                  <option>選項</option>
+                </select>
+                <button class="btn-sec larg field-side-action">前往編輯進階條件</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <div class="field mar-0">
+              <h3>排序</h3>
+              <input type="text" placeholder="請輸入" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="tabs-container shadow-md">
+        <div class="tabs-bar">
+          <ul class="tabs">
+            <li class="active">群組1</li>
+            <li>英文語系國家<span class="material-symbols-outlined fz-md">Cancel</span></li>
+          </ul>
+          <button class="add-new-tab"><i class="material-symbols-outlined">add_circle</i>新增標籤</button>
+        </div>
+        <div class="content">
+          <div class="tab1-content active">
+            <div class="d-flex row-end mar-bm" style="position: absolute; right: 16px;">
+              <button type="button" class="btn-sec small copy-tab-btn">複製頁籤內容</button>
+            </div>
+            <div class="row">
+              <div class="col-4">
+                <div class="field">
+                  <h3>頁籤群組名稱<span>*</span></h3>
+                  <div class="d-flex">
+                    <input type="text" class="showToast" placeholder="請輸入" value="群組1" />
+                    <button type="button" class="changeAction btn-sec larg field-side-action">修改</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2>活動顯示的前台語系</h2>
+            <div class="row">
+              <div class="col-4">
+                <div class="field" data-lang-multiselect>
+                  <h3>語系<span>*</span></h3>
+                  <!-- 送出用的隱藏欄位 -->
+                  <input type="hidden" name="contentSettings-languages">
+                  <!-- 觸發下拉 -->
+                  <button type="button" class="search-checkbox-trigger">
+                    <span>點擊選擇語系</span>
+                    <i class="material-symbols-outlined">expand_more</i>
+                  </button>
+                  <!-- 下拉面板 -->
+                  <div class="search-checkbox-panel" style="display: none;">
+                    <label>
+                      <input type="checkbox" data-all> 全選
+                    </label>
+                    <hr>
+                    <label>
+                      <input type="checkbox" name="languages[]" value="zh-tw" data-option>
+                      繁體中文(台灣)
+                    </label>
+                    <label>
+                      <input type="checkbox" name="languages[]" value="en-us" data-option> 英文(美國)
+                    </label>
+                    <label>
+                      <input type="checkbox" name="languages[]" value="id-id" data-option> 印尼文(印尼)
+                    </label>
+                    <label>
+                      <input type="checkbox" name="languages[]" value="zh-hk" data-option>
+                      繁體中文(香港)
+                    </label>
+                    <label>
+                      <input type="checkbox" name="languages[]" value="ms-my" data-option>
+                      英文(馬來西亞)
+                    </label>
+                    <label>
+                      <input type="checkbox" name="languages[]" value="zh-cn" data-option>
+                      簡體中文(中國)
+                    </label>
+                    <label>
+                      <input type="checkbox" name="languages[]" value="ja-jp" data-option> 日文(日本)
+                    </label>
+                    <label>
+                      <input type="checkbox" name="languages[]" value="th-th" data-option> 泰文(泰國)
+                    </label>
+                  </div>
+                  <!-- 已選標籤 -->
+                  <div class="search-checkbox-tags"></div>
+                </div>
+              </div>
+            </div>
+            <h2>活動</h2>
+            <div class="row">
+              <div class="col-4">
+                <div class="field">
+                  <h3>多重名稱</h3>
+                  <input type="text" placeholder="100字元" />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="field">
+                  <h3>多重內容</h3>
+                  <textarea rows="5" placeholder="請輸入"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="row mar-bxl">
+              <div class="col">
+                <h3 class="mar-bs">活動詳情</h3>
+                <div class="editor"></div>
+              </div>
+              <div class="mar-tms">
+                <button type="button" class="btn-sec larg openHtmlCssModalBtn">自訂網頁html/css</button>
+              </div>
+            </div>
+            <div class="row d-flex-end">
+              <div class="col-4">
+                <div class="field mar-0">
+                  <h3>會員資格代碼</h3>
+                  <div class="d-flex">
+                    <input type="text" placeholder="請輸入" />
+                    <button class="btn-sec larg field-side-action">前往新增代碼</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab2-content">
+            <div class="d-flex row-end mar-bm" style="position: absolute; right: 16px;">
+              <button type="button" class="btn-sec small copy-tab-btn">複製頁籤內容</button>
+            </div>
+            <div class="row">
+              <div class="col-4">
+                <div class="field">
+                  <h3>頁籤群組名稱<span>*</span></h3>
+                  <div class="d-flex">
+                    <input type="text" class="showToast" placeholder="請輸入" value="英文語系國家" />
+                    <button type="button" class="changeAction btn-sec larg">修改</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2>活動顯示的前台語系</h2>
+            <div class="row">
+              <div class="col-4">
+                <div class="field" data-lang-multiselect>
+                  <h3>語系<span>*</span></h3>
+                  <!-- 送出用的隱藏欄位 -->
+                  <input type="hidden" name="contentSettings-languages">
+                  <!-- 觸發下拉 -->
+                  <button type="button" class="search-checkbox-trigger">
+                    <span>點擊選擇語系</span>
+                    <i class="material-symbols-outlined">expand_more</i>
+                  </button>
+                  <!-- 下拉面板 -->
+                  <div class="search-checkbox-panel" style="display: none;">
+                    <label>
+                      <input type="checkbox" data-all> 全選
+                    </label>
+                    <hr>
+                    <label>
+                      <input type="checkbox" name="languages[]" value="zh-tw" data-option>
+                      繁體中文(台灣)
+                    </label>
+                    <label>
+                      <input type="checkbox" name="languages[]" value="en-us" data-option> 英文(美國)
+                    </label>
+                    <label>
+                      <input type="checkbox" name="languages[]" value="id-id" data-option> 印尼文(印尼)
+                    </label>
+                    <label>
+                      <input type="checkbox" name="languages[]" value="zh-hk" data-option>
+                      繁體中文(香港)
+                    </label>
+                    <label>
+                      <input type="checkbox" name="languages[]" value="ms-my" data-option>
+                      英文(馬來西亞)
+                    </label>
+                    <label>
+                      <input type="checkbox" name="languages[]" value="zh-cn" data-option>
+                      簡體中文(中國)
+                    </label>
+                    <label>
+                      <input type="checkbox" name="languages[]" value="ja-jp" data-option> 日文(日本)
+                    </label>
+                    <label>
+                      <input type="checkbox" name="languages[]" value="th-th" data-option> 泰文(泰國)
+                    </label>
+                  </div>
+                  <!-- 已選標籤 -->
+                  <div class="search-checkbox-tags"></div>
+                </div>
+              </div>
+            </div>
+            <h2>活動</h2>
+            <div class="row">
+              <div class="col-4">
+                <div class="field">
+                  <h3>多重名稱</h3>
+                  <input type="text" placeholder="100字元" />
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="field">
+                  <h3>排序</h3>
+                  <input type="text" placeholder="請輸入" />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="field">
+                  <h3>多重內容</h3>
+                  <textarea rows="5" placeholder="請輸入"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="row mar-bxl">
+              <div class="col">
+                <h3 class="mar-bs">活動詳情</h3>
+                <div class="editor"></div>
+                <div class="mar-tms">
+                  <button type="button" class="btn-sec larg openHtmlCssModalBtn">自訂網頁html/css</button>
+                </div>
+              </div>
+            </div>
+            <div class="row d-flex-end">
+              <div class="col-4">
+                <div class="field mar-0">
+                  <h3>會員資格代碼</h3>
+                  <div class="d-flex">
+                    <input type="text" placeholder="請輸入" />
+                    <button class="btn-sec larg field-side-action">前往新增代碼</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="bottom">
+      <button class="btn-pri larg">確定</button>
+      <button class="btn-sec larg">取消</button>
+    </div>
+  </main>
+
+  <!-- 自訂網頁 html/css 彈窗 -->
+    <div class="htmlcss-modal" id="htmlCssModal" style="display:none;">
+        <div class="htmlcss-modal-overlay"></div>
+        <div class="htmlcss-modal-panel">
+            <div class="htmlcss-modal-header">
+                <h1>自訂網頁html/css</h1>
+                <button type="button" class="btn-icon htmlcss-modal-close">
+                    <i class="material-symbols-outlined">close</i>
+                </button>
+            </div>
+            <div class="htmlcss-modal-body">
+                <div class="htmlcss-editor-col">
+                    <h2>HTML</h2>
+                    <div class="htmlcss-editor-wrap">
+                        <textarea id="htmlCssModalHtml"></textarea>
+                    </div>
+                </div>
+                <div class="htmlcss-editor-col">
+                    <h2>CSS</h2>
+                    <div class="htmlcss-editor-wrap">
+                        <textarea id="htmlCssModalCss"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="htmlcss-modal-footer">
+                <button type="button" class="btn-pri larg htmlcss-modal-save">確定</button>
+                <button type="button" class="btn-sec larg htmlcss-modal-cancel">取消</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

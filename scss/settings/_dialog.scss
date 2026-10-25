@@ -1,0 +1,224 @@
+// ============================================
+// Dialog 全頁彈窗元件
+// ============================================
+
+.dialog-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// 遮罩
+.dialog-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); // #000 透明度 80%
+    z-index: 1;
+}
+
+// 內容面板
+.dialog-panel {
+    position: relative;
+    width: 95%;
+    height: 95%;
+    background-color: $color-bg-white;
+    border-radius: $radius-lg;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+// 標題列
+.dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $spacing-md $spacing-lg;
+    flex-shrink: 0;
+
+    h1 {
+        margin: 0;
+        font-size: $fz-xl;
+        font-weight: 600;
+        color: $color-text;
+    }
+
+    .btn-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        border: none;
+        background: none;
+        cursor: pointer;
+        border-radius: $radius-md;
+        color: $color-text;
+        transition: background-color 0.15s ease;
+
+        &:hover {
+            background-color: $color-bg-gray;
+        }
+    }
+}
+
+// 內容區域
+.dialog-body {
+    flex: 1;
+    padding: $spacing-lg;
+    overflow-y: auto;
+
+    // Dialog 內的表格樣式覆寫
+    .table-pagination-wrap {
+        margin-bottom: 0;
+        box-shadow: none;
+        border: none;
+    }
+
+    table.item-list {
+        width: 100%;
+        margin-bottom: 0;
+        // 可排序表頭樣式已移至全域 _table.scss（th[data-sort]）
+        border: 1px solid $color-border;
+        border-radius: $radius-lg;
+
+        // 最後一列的 td 移除底線，避免與外框重疊成雙線
+        // 用 :not([style*="display: none"]) 排除末尾的隱藏展開列
+        tr:last-child td:not([style*="display: none"]) {
+            border-bottom: none;
+        }
+    }
+}
+
+// ============================================
+// 自訂網頁 html/css 彈窗
+// ============================================
+.htmlcss-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.htmlcss-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+}
+
+.htmlcss-modal-panel {
+    position: relative;
+    width: 95%;
+    max-width: 1520px;
+    height: 95%;
+    max-height: 770px;
+    background-color: $color-bg-white;
+    border-radius: $radius-lg;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    padding: $spacing-xl;
+    gap: $spacing-xl + $spacing-sm; // 40px
+    overflow: hidden;
+}
+
+.htmlcss-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+
+    h1 {
+        margin: 0;
+        font-size: $fz-4xl; // 32px
+        font-weight: 600;
+        color: #333;
+    }
+
+    .btn-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        border: none;
+        background: none;
+        cursor: pointer;
+        border-radius: $radius-md;
+        color: $color-text;
+        transition: background-color 0.15s ease;
+
+        &:hover {
+            background-color: $color-bg-gray;
+        }
+    }
+}
+
+.htmlcss-modal-body {
+    flex: 1;
+    display: flex;
+    gap: $spacing-xl + $spacing-sm; // 40px
+    min-height: 0;
+
+    .htmlcss-editor-col {
+        flex: 1 1 0;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-sm + $spacing-xs; // 12px
+
+        h2 {
+            margin: 0;
+            font-size: $fz-xl; // 20px
+            font-weight: 600;
+            color: #333;
+        }
+    }
+
+    .htmlcss-editor-wrap {
+        flex: 1;
+        min-height: 0;
+        border: 1px solid $color-border;
+        border-radius: $radius-md;
+        overflow: hidden;
+        display: flex;
+
+        .CodeMirror {
+            flex: 1;
+            height: auto;
+            min-height: 0;
+            font-family: Menlo, Consolas, "Courier New", monospace;
+            font-size: 14px;
+        }
+    }
+}
+
+.htmlcss-modal-footer {
+    display: flex;
+    gap: $spacing-md;
+    align-items: center;
+    flex-shrink: 0;
+}

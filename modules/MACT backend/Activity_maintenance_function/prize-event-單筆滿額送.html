@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link href="../../../css/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../../../js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="../../../js/prize.js"></script>
+    <script type="text/javascript" src="../../../js/toast-message.js"></script>
+    <script type="text/javascript" src="../../../js/components.js"></script>
+    <script type="text/javascript" src="../../../js/calendar.js"></script>
+    <script type="text/javascript" src="../../../js/pagination.js"></script>
+    <script type="text/javascript" src="../../../js/scroll-to-edge.js"></script>
+    <title>設定活動條件</title>
+</head>
+
+<body>
+    <main>
+        <header class="header">
+            <button type="button" class="btn-sec btn-back larg"><i class="material-symbols-outlined">arrow_back</i></button>
+            <h1>設定活動條件</h1>
+        </header>
+        <div class="search-bar mar-tl">
+            <div class="col-4">
+                <label for="game-name">活動條件</label>
+                <select id="game-name">
+                    <option value="" disabled>請選擇</option>
+                    <option value="單筆滿額送" selected>單筆滿額送</option>
+                    <option value="遊戲B">遊戲B</option>
+                    <option value="遊戲C">遊戲C</option>
+                </select>
+            </div>
+            <div class="col-4">
+                <label>活動代號</label>
+                <p>2024072201</p>
+            </div>
+            <div class="col-4">
+                <label>活動名稱</label>
+                <p>參加指定活動</p>
+            </div>
+        </div>
+
+        <div class="d-flex">
+            <button class="btn-pri larg insert-button">新增資料</button>
+            <button class="btn-sec larg mar-bm">整批刪除</button>
+        </div>
+
+        <div class="table-pagination-wrap" data-pagination-root data-page-size="10">
+            <table class="item-list col" data-pagination-table>
+                <thead>
+                    <tr>
+                        <th>功能</th>
+                        <th>廠商流水號</th>
+                        <th>金流名稱</th>
+                        <th>金流代號</th>
+                        <th>次數</th>
+                        <th>滿額目標</th>
+                    </tr>
+                </thead>
+                <tbody data-section="dynamic-singleAmountSend" data-pagination-body>
+                    <tr class="data-row">
+                        <td>
+                            <div class="action-btns">
+                                <button class="btn-text" data-action="delete-row">刪除</button>
+                            </div>
+                        </td>
+                        <td>23</td>
+                        <td>華南信用卡收單</td>
+                        <td>HC0007</td>
+                        <td>1</td>
+                        <td>10,000</td>
+                    </tr>
+                    <tr class="data-row">
+                        <td>
+                            <div class="action-btns">
+                                <button class="btn-text" data-action="delete-row">刪除</button>
+                            </div>
+                        </td>
+                        <td>46</td>
+                        <td>Paypal(港幣)下架</td>
+                        <td>HC0006</td>
+                        <td>1</td>
+                        <td>10,000</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination" data-pagination>
+                <button type="button" class="first-page" data-pagination-action="first">第一頁</button>
+                <button type="button" class="pre-page" data-pagination-action="prev">上一頁</button>
+                <button type="button" class="page-number active" data-pagination-page="1">1</button>
+                <button type="button" class="page-number" data-pagination-page="2">2</button>
+                <button type="button" class="page-number" data-pagination-page="3">3</button>
+                <button type="button" class="next-page" data-pagination-action="next">下一頁</button>
+                <button type="button" class="last-page" data-pagination-action="last">最後一頁</button>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

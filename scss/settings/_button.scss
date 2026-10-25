@@ -1,0 +1,135 @@
+.bottom {
+    display: flex;
+    gap: $gap-base;
+    padding: $spacing-xl;
+    justify-content: flex-end;
+}
+
+.btn-group {
+    display: flex;
+    gap: $gap-base;
+}
+
+button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: $spacing-xs;
+    line-height: normal;
+    border: none;
+    background: none;
+    font-size: $fz-md;
+    cursor: pointer;
+    color: #374151;
+    border-radius: 100px;
+
+    &.larg {
+        padding: $spacing-sm $spacing-lg;
+    }
+
+    &.small {
+        padding: $spacing-xs $spacing-sm;
+        height: auto;
+        font-size: $fz-sm;
+    }
+
+    &.fill {
+        background-color: $color-primary;
+        border: 1px solid $color-primary;
+        color: $color-bg-white;
+    }
+
+    &.line {
+        background-color: $color-bg-white;
+        border: 1px solid $color-text;
+        color: $color-text;
+    }
+
+    &.disable {
+        background-color: $color-bg-disabled;
+        border: 1px solid $color-border;
+        color: $color-border;
+    }
+
+    &.btn-pri {
+        color: $color-bg-white;
+        font-weight: 500;
+        border: 1px solid $color-primary;
+        background-color: $color-primary;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+    &.btn-sec {
+        color: #374151;
+        font-weight: 500;
+        border: 1px solid $color-border;
+        background-color: $color-bg-white;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+    &.btn-text {
+        color: #4AA8FF;
+        background-color: transparent;
+        border: none;
+        text-decoration: underline;
+        padding: 0;
+        height: auto;
+        white-space: nowrap;
+        font-weight: 600;
+
+        &:hover {
+            color: darken(#4AA8FF, 10%);
+        }
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed !important;
+    }
+}
+
+.btn-select {
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+    cursor: pointer;
+    white-space: nowrap;
+    gap: $spacing-sm;
+
+    i {
+        transition: all 0.2s ease;
+    }
+
+    span {
+        display: block;
+    }
+
+    &.active {
+        color: $color-primary;
+
+        i {
+            transform: rotate(180deg);
+            transition: all 0.2s ease;
+        }
+    }
+}
+
+.btn-back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 100px;
+    border: 1px solid #D1D5DB;
+    background: #FFF;
+    width: fit-content;
+}
+
+.insert-button {
+    margin-bottom: $spacing-md;
+}

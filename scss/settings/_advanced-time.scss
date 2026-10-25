@@ -1,0 +1,357 @@
+// ============================================
+// 進階時間與自訂文字彈窗樣式
+// ============================================
+
+
+// ============================================
+// 時間欄位列
+// ============================================
+
+.time-row {
+    .col-4 {
+        display: flex;
+        flex-direction: column;
+
+        > .field {
+            flex-grow: 0;
+        }
+    }
+}
+
+
+// ============================================
+// 雙輸入欄位 (範圍輸入)
+// ============================================
+
+.dual-inputs {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    width: 100%;
+    margin-top: $spacing-xs;
+
+    &.is-disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    &:has(input:disabled) {
+        cursor: not-allowed;
+    }
+}
+
+form .field .dual-inputs {
+    input[type=text] {
+        flex: 1 1 0;
+        min-width: 0;
+        padding: $spacing-sm $spacing-md;
+        border-radius: $radius-md;
+        background-color: $color-bg-white;
+        border: 1px solid $color-border;
+        height: $input-height;
+        font-size: $fz-md;
+        color: $color-text;
+        width: auto;
+
+        &::placeholder {
+            color: $color-text-muted;
+        }
+
+        &:disabled {
+            background-color: $color-bg-disabled;
+            color: $color-text-muted;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+    }
+}
+
+.dual-inputs-sep {
+    flex: 0 0 12px;
+    text-align: center;
+    color: $color-text-muted;
+    font-size: $fz-xs;
+    line-height: $input-height;
+}
+
+
+// ============================================
+// 進階時間面板 (表單內嵌區塊)
+// ============================================
+
+.advanced-time-panel {
+    margin-top: $spacing-md;
+    padding: 12px;
+    background-color: $color-bg-gray;
+    border-radius: $radius-lg - 2; // 8px
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+
+    > .field {
+        margin-bottom: 0;
+        width: 100%;
+    }
+
+    > .advanced-time-body {
+        width: 100%;
+    }
+
+    .field h3 {
+        font-size: $fz-md;
+        font-weight: 500;
+        color: $color-text;
+        margin-bottom: $spacing-sm;
+    }
+}
+
+
+// ============================================
+// 進階時間彈窗 (Dialog 尺寸變體)
+// ============================================
+
+.dialog-panel {
+    &.dialog-narrow {
+        width: 540px;
+        max-width: 90vw;
+        height: auto;
+        max-height: 90vh;
+    }
+}
+
+
+// ============================================
+// 進階時間彈窗 Body
+// ============================================
+
+.adv-modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+    padding-bottom: $spacing-sm;
+
+    .radio-group {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    label {
+        display: flex;
+        align-items: center;
+        gap: $spacing-xs;
+        cursor: pointer;
+        height: 20px;
+        line-height: 20px;
+    }
+}
+
+
+// ============================================
+// 進階設定區塊 (Section)
+// ============================================
+
+.adv-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+    background-color: $color-bg-gray;
+    border-radius: $radius-lg;
+
+    &:has(.adv-section-body.is-disabled) {
+        cursor: not-allowed;
+    }
+}
+
+.adv-section-toggle {
+    display: flex !important;
+    align-items: center;
+    gap: $spacing-sm;
+    font-size: $fz-md;
+    color: $color-text;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.adv-section-body {
+    padding-left: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+
+    &.is-disabled {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+}
+
+
+// ============================================
+// 星期格線
+// ============================================
+
+.weekday-grid {
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    gap: 12px $spacing-md;
+    display: flex !important;
+    padding-left: 28px;
+    justify-content: space-between;
+
+    label {
+        display: flex;
+        align-items: center;
+        gap: $spacing-xs;
+        cursor: pointer;
+        height: 20px;
+        line-height: 20px;
+        flex: 0 0 auto;
+    }
+}
+
+
+// ============================================
+// 進階時間列 (adv-row)
+// ============================================
+
+.adv-rows {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+}
+
+.adv-date-row-error {
+    margin: 0;
+    padding: 0;
+    font-size: $fz-xs;
+    color: $color-danger;
+    line-height: 1.4;
+}
+
+.adv-row {
+    display: flex;
+    align-items: flex-start;
+    gap: $spacing-sm;
+    width: 100%;
+
+    &:has(input:disabled) {
+        cursor: not-allowed;
+    }
+
+    input[type=text] {
+        flex: 1 1 0;
+        min-width: 0;
+        padding: $spacing-sm $spacing-md;
+        height: $input-height;
+        border-radius: $radius-md;
+        background-color: $color-bg-white;
+        border: 1px solid $color-border;
+        font-size: $fz-md;
+        color: $color-text;
+        width: auto;
+        transition: border-color 0.15s ease;
+
+        &::placeholder {
+            color: $color-text-muted;
+        }
+
+        &.is-error,
+        &.is-error:focus {
+            border-color: $color-danger !important;
+            background-color: lighten($color-danger, 38%);
+        }
+
+        &:disabled {
+            background-color: $color-bg-disabled;
+            color: $color-text-muted;
+            pointer-events: none;
+        }
+    }
+
+    .sign {
+        line-height: $input-height;
+        color: $color-text-muted;
+        flex: 0 0 12px;
+        text-align: center;
+    }
+}
+
+.adv-row-main {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+
+    > .dual-inputs {
+        margin-top: 0;
+    }
+}
+
+.adv-row-error {
+    font-size: $fz-sm;
+    color: $color-danger;
+    line-height: 1.4;
+    padding-top: 2px;
+}
+
+.adv-row-delete {
+    flex: 0 0 32px;
+    height: 32px;
+    margin-top: 4px; // align center with 40px input when row is flex-start
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: none;
+    color: $color-text-muted;
+    cursor: pointer;
+    padding: 0;
+
+    &:hover {
+        color: $color-danger;
+    }
+
+    i {
+        font-size: $fz-xl;
+    }
+}
+
+
+// ============================================
+// 新增一列按鈕
+// ============================================
+
+.adv-add-row {
+    align-self: flex-start;
+    padding: $spacing-xs 12px;
+    height: auto;
+    border: 1px dashed $color-primary;
+    color: $color-primary;
+    background: $color-bg-white;
+    border-radius: $radius-md;
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-xs;
+    cursor: pointer;
+    font-size: $fz-sm;
+    line-height: normal;
+
+    i {
+        font-size: $fz-md;
+    }
+}
+
+
+// ============================================
+// 進階時間彈窗 Actions
+// ============================================
+
+.adv-modal-actions {
+    display: flex;
+    gap: $spacing-md;
+    justify-content: flex-end;
+    margin-top: $spacing-sm;
+    padding-top: $spacing-md;
+}

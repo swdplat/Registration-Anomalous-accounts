@@ -1,0 +1,107 @@
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 24px;
+
+    input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+
+        &:checked + .slider {
+            background-color: $color-switch-bg;
+
+            &:before {
+                transform: translateX(24px);
+            }
+        }
+
+        &:focus + .slider {
+            box-shadow: 0 0 1px $color-switch;
+        }
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $color-switch-bg-disable;
+        -webkit-transition: .1s;
+        transition: .1s;
+
+        &:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            background-color: white;
+            -webkit-transition: .1s;
+            transition: .1s;
+            top: 2px;
+            left: 2px;
+        }
+
+        &.round {
+            border-radius: 99px;
+
+            &:before {
+                border-radius: 50%;
+            }
+        }
+    }
+}
+
+// ============================================================================
+// 平行 Switch 系統補強樣式（搭配 js/switch-controls.js）
+// 僅在此檔末段補上：
+//   1) .switch.disabled — 主開關 disabled 時的 visual 提示
+//   2) .field 內 Switch 對位：沿用 .field 既有區塊流（h3 在上、switch 在下，
+//      8px 間距），不另加 inline 容器
+//   3) .switch-container — 與 .toggle-container 視覺一致的 layout
+// 不可改 1~56 行的既有 .switch 規則。
+// ============================================================================
+
+// 1) disabled 狀態（input[disabled] 自動套用，class 版本提供 hover/cursor 提示）
+.switch {
+    input:disabled + .slider {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+
+    &.disabled {
+        cursor: not-allowed;
+
+        .slider {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    }
+}
+
+// 1b) 主開關 OFF 時，連動 disabled 的子 switch 對應 h3 同步變灰
+//     視覺與 input disabled 一致，避免標題仍是黑色造成可用錯覺
+.field:has(.switch input:disabled) {
+    > h3 {
+        color: $color-text-disabled;
+    }
+}
+
+// 2) Switch 在 .field 內的對位：沿用 .field 既有區塊流（h3 在上、switch 在下）
+//    不另設 flex 容器，確保 switch 直接替換 radio 位置、不偏移、保留既有 8px 間距
+//    用法：<div class="field"><h3>...</h3><label class="switch">...</label></div>
+
+// 3) .switch-container（對應 .toggle-container 的 Phase 3 主開關容器）
+//    層級結構：.switch-container > .switch-main-controlled + .controlled-inputs-box
+.switch-container {
+    margin-bottom: $spacing-xl;
+
+    .switch-main-controlled {
+        .field {
+            margin-bottom: 0;
+        }
+    }
+}

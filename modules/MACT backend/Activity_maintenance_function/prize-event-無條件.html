@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link href="../../../css/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../../../js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="../../../js/prize.js"></script>
+    <script type="text/javascript" src="../../../js/components.js"></script>
+    <script type="text/javascript" src="../../../js/calendar.js"></script>
+    <script type="text/javascript" src="../../../js/toast-message.js"></script>
+    <script type="text/javascript" src="../../../js/scroll-to-edge.js"></script>
+    <title>設定活動條件</title>
+</head>
+
+<body>
+    <main>
+        <header class="header">
+            <button type="button" class="btn-sec btn-back larg"><i class="material-symbols-outlined">arrow_back</i></button>
+            <h1>設定活動條件</h1>
+        </header>
+        <div class="search-bar mar-tl">
+            <div class="col-4">
+                <label for="game-name">活動條件</label>
+                <select id="game-name">
+                    <option value="" disabled>請選擇</option>
+                    <option value="無" selected>無</option>
+                    <option value="遊戲B">遊戲B</option>
+                    <option value="遊戲C">遊戲C</option>
+                </select>
+            </div>
+            <div class="col-4">
+                <label>活動代號</label>
+                <p>2024072201</p>
+            </div>
+            <div class="col-4">
+                <label>活動名稱</label>
+                <p>參加指定活動</p>
+            </div>
+        </div>
+        <form class="pad-ts">
+            <section>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="field">
+                            <label>
+                                <input type="checkbox" class="switch-limit" />
+                                是否需要登入會員
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="field">
+                            <h3>總參加次數限制<span>*</span></h3>
+                            <input type="text" placeholder="請輸入" />
+                            <div class="suppl">
+                                <span class="field-validation-error">欄位必填</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="field">
+                            <label>
+                                <input type="checkbox" class="switch-limit" />
+                                會員盤數中獎限制
+                            </label>
+                            <div class="switch-field">
+                                <div class="input-wrap">
+                                    <label>
+                                        <input type="text" placeholder="請輸入" disabled />
+                                        <span class="unit">盤</span>
+                                    </label>
+                                    <div class="suppl">
+                                        <span class="field-validation-error">欄位必填</span>
+                                    </div>
+                                </div>
+                                <span class="sign">/</span>
+                                <div class="input-wrap">
+                                    <label>
+                                        <input type="text" placeholder="請輸入" disabled />
+                                        <span class="unit">次</span>
+                                    </label>
+                                    <div class="suppl">
+                                        <span class="field-validation-error">欄位必填</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="field">
+                            <label>
+                                <input type="checkbox" class="switch-limit" />
+                                會員天數參加次數限制<span>*</span>
+                            </label>
+                            <div class="switch-field">
+                                <div class="input-wrap">
+                                    <label>
+                                        <input type="text" placeholder="請輸入" disabled />
+                                        <span class="unit">盤</span>
+                                    </label>
+                                    <div class="suppl">
+                                        <span class="field-validation-error">欄位必填</span>
+                                    </div>
+                                </div>
+                                <span class="sign">/</span>
+                                <div class="input-wrap">
+                                    <label>
+                                        <input type="text" placeholder="請輸入" disabled />
+                                        <span class="unit">次</span>
+                                    </label>
+                                    <div class="suppl">
+                                        <span class="field-validation-error">欄位必填</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="field mar-0">
+                            <label>
+                                <input type="checkbox" class="switch-limit" />
+                                每一活動區參加限制<span>*</span>
+                            </label>
+                            <div class="switch-field">
+                                <div class="input-wrap">
+                                    <label>
+                                        <input type="text" placeholder="請輸入" disabled />
+                                        <span class="unit">區間</span>
+                                    </label>
+                                    <div class="suppl">
+                                        <span class="field-validation-error">欄位必填</span>
+                                    </div>
+                                </div>
+                                <span class="sign">/</span>
+                                <div class="input-wrap">
+                                    <label>
+                                        <input type="text" placeholder="請輸入" disabled />
+                                        <span class="unit">次</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </form>
+
+        <div class="bottom">
+            <button class="btn-pri larg">確定</button>
+            <button class="btn-sec larg">取消</button>
+        </div>
+    </main>
+</body>
+
+</html>

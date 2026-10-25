@@ -1,0 +1,71 @@
+// 日曆
+.field-calendar {
+    text-indent: 25px;
+    background-image: url('../images/calendar.svg');
+    background-position: left 15px center;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+}
+
+.daterangepicker {
+    .drp-calendar {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        .calendar-time {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            gap: 6px;
+            order: 1;
+            width: 100%;
+        }
+
+        select {
+            background: $color-bg-white;
+            border: 1px solid $color-daterange-border;
+            padding: 2px;
+            outline: 0;
+            font-size: $fz-xs;
+            padding: 8px 16px;
+            border-radius: $radius-md;
+            flex: 1;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .calendar-table {
+            order: 2;
+
+            td {
+                width: 32px;
+                height: 32px;
+
+                &.start-date {
+                    border-radius: $radius-md 0 0 $radius-md;
+                }
+
+                &.end-date {
+                    border-radius: 0 $radius-md $radius-md 0;
+                }
+
+                &.in-range {
+                    background-color: $color-daterange-bg;
+                }
+
+                &.active {
+                    background-color: $color-primary-active;
+
+                    &:hover {
+                        background-color: $color-primary-hover;
+                    }
+                }
+            }
+        }
+    }
+
+    .single .calendar-table td.end-date {
+        border-radius: $radius-md;
+    }
+}

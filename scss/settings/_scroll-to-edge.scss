@@ -1,0 +1,66 @@
+// 右下角「至頂 / 至底」按鈕
+// 對應 js/scroll-to-edge.js，按鈕由 JS 動態注入
+
+.scroll-to-edge {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    // 不使用 flex gap：以下方 &__btn 的 margin-top 取代，
+    // 才能讓「兩鈕之間的間距」也跟著按鈕收合一起動畫消失。
+
+    // 作者樣式的 display:flex 會覆蓋 UA 預設 [hidden] { display: none }，
+    // 需顯式宣告 hidden 屬性的隱藏行為，否則 wrap.hidden = true 無法生效。
+    &[hidden] {
+        display: none;
+    }
+
+    &__btn {
+        width: 48px;
+        height: 48px;
+        padding: 0;
+        border: none;
+        border-radius: 50%;
+        background-color: #0950A1;
+        color: #FFF;
+        opacity: 0.4;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.30),
+            0 2px 6px 2px rgba(0, 0, 0, 0.15);
+        overflow: hidden;
+        transition:
+            opacity 0.2s ease,
+            height 0.25s ease,
+            margin 0.25s ease,
+            transform 0.25s ease;
+
+        // 取代 flex gap：間距用 margin-top，讓單顆按鈕收合時連同間距一起動畫消失
+        & + & {
+            margin-top: $spacing-md;
+        }
+
+        &:hover {
+            opacity: 0.9;
+        }
+
+        // 不用 display:none 收合；改以 height/margin/opacity/transform 動畫
+        // 收合，這樣相鄰按鈕會跟著平滑移動到新位置，而不是「啪」一下跳掉。
+        &[hidden] {
+            display: flex;
+            height: 0;
+            margin: 0;
+            opacity: 0;
+            transform: scale(0.3);
+            pointer-events: none;
+        }
+
+        .material-symbols-outlined {
+            font-size: 28px;
+        }
+    }
+}

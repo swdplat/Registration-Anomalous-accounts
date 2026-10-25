@@ -1,0 +1,66 @@
+input[type="text"] {
+    font-size: $fz-md;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin: 0;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    outline: none;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+}
+
+input[type="radio"] {
+    background-image: url('../images/radio-unselected.svg');
+
+    &:checked {
+        background-image: url('../images/radio-selected.svg');
+    }
+
+    &:focus {
+        background-image: url('../images/radio-selected.svg');
+    }
+
+    &:disabled {
+        background-image: url('../images/radio-unselected-disable.svg');
+        cursor: not-allowed;
+    }
+
+    &:checked:disabled {
+        background-image: url('../images/radio-selected-disable.svg');
+    }
+}
+
+input[type="checkbox"]{
+    background-image: url('../images/checkbox-unchecked.svg');
+    flex-shrink: 0;
+
+    &:checked {
+        background-image: url('../images/checkbox-checked.svg');
+    }
+
+    // indeterminate 狀態（部分選中時呈現一槓）
+    &:indeterminate {
+        background-image: url('../images/checkbox-checked-multi.svg');
+    }
+
+    &:disabled {
+        background-image: url('../images/checkbox-unchecked-disable.svg');
+        cursor: not-allowed;
+    }
+
+    &:checked:disabled {
+        background-image: url('../images/checkbox-checked-disable.svg');
+    }
+
+    &:indeterminate:disabled {
+        background-image: url('../images/checkbox-checked-multi.svg');
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}

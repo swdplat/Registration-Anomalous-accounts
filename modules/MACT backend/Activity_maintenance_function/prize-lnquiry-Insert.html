@@ -1,0 +1,485 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link type="text/css" rel="stylesheet" href="../../../css/style.css" />
+    <link type="text/css" rel="stylesheet" href="../../../css/select2.css" />
+    <!-- Datepicker start -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/confirmDate/confirmDate.js"></script>
+    <script src="../../../js/zh.js"></script>
+    <!-- Datepicker end -->
+    <script type="text/javascript" src="../../../js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="../../../js/select2.min.js"></script>
+    <script type="text/javascript" src="../../../js/moment.min.js"></script>
+    <script type="text/javascript" src="../../../js/components.js"></script>
+    <script type="text/javascript" src="../../../js/switch-controls.js"></script>
+    <script type="text/javascript" src="../../../js/calendar.js"></script>
+    <script type="text/javascript" src="../../../js/searchSelect.js"></script>
+    <script type="text/javascript" src="../../../js/searchCheckbox.js"></script>
+    <script type="text/javascript" src="../../../js/toast-message.js"></script>
+    <script type="text/javascript" src="../../../js/tooltip.js"></script>
+    <script type="text/javascript" src="../../../js/scroll-to-edge.js"></script>
+    <title>活動獎項查詢-新增</title>
+</head>
+
+<body>
+    <main>
+        <header class="header">
+            <h1>新增一筆資料</h1>
+
+        </header>
+        <div class="search-bar">
+            <div class="col-4">
+                <label>活動代號</label>
+                <p>2024072201</p>
+            </div>
+            <div class="col-4">
+                <label>活動名稱</label>
+                <p>參加指定活動</p>
+            </div>
+        </div>
+        <form>
+            <section>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="field">
+                            <h3>送獎類型<span>*</span></h3>
+                            <select>
+                                <option selected disabled>請選擇</option>
+                                <option>選項</option>
+                                <option>選項</option>
+                                <option>選項</option>
+                            </select>
+                            <select class="mar-ts">
+                                <option selected disabled>請選擇</option>
+                                <option>選項</option>
+                                <option>選項</option>
+                                <option>選項</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="field">
+                            <h3>服務代號</h3>
+                            <input type="text" value="" disabled />
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="field">
+                            <h3>抽獎轉盤顯示<span>*</span></h3>
+                            <select>
+                                <option selected disabled>請選擇</option>
+                                <option>選項</option>
+                                <option>選項</option>
+                                <option>選項</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="field">
+                            <h3>獎項數量<span>*</span></h3>
+                            <input type="text" placeholder="請輸入" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="field">
+                            <h3>點數</h3>
+                            <div class="switch-field pad-0">
+                                <div class="input-wrap">
+                                    <label>
+                                        <input type="text" placeholder="請輸入" />
+                                        <span class="unit">點</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="field">
+                            <h3>多重門檻・系統自動擇優條件關聯<i class="material-symbols-outlined tooltip-trigger"
+                                    data-tooltip="選項依據本活動於「發票兌獎」設定中之「多重門檻・系統自動擇優」門檻區間動態產生；僅當所屬活動採用該門檻模式時，此欄位才需要設定。" data-tooltip-position="right">Help</i></h3>
+                            <select>
+                                <option selected disabled>請選擇</option>
+                                <option>選項</option>
+                                <option>選項</option>
+                                <option>選項</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="field" data-switch-input-group>
+                            <h3>是否點選領取後派送</h3>
+                            <label class="switch">
+                                <input type="checkbox" role="switch" name="enableInput1" value="yes" checked>
+                                <span class="slider round"></span>
+                            </label>
+                            <div class="mar-ts">
+                                <h3>截止日期</h3>
+                                <div class="date-range-field dual-inputs">
+                                    <input type="text" name="range-start" class="calendar event-start-input"
+                                        data-switch-input="enableInput1" autocomplete="off"
+                                        placeholder="yyyy/mm/dd hh:mm">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="field">
+                            <h3>活動時間</h3>
+                            <div class="date-range-field dual-inputs">
+                                <input type="text" name="range-start" class="calendar event-start-input"
+                                    autocomplete="off" placeholder="yyyy/mm/dd hh:mm">
+                                <span class="sign">-</span>
+                                <input type="text" name="range-end" class="calendar event-end-input" autocomplete="off"
+                                    placeholder="yyyy/mm/dd hh:mm">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-8">
+                        <div class="toggle-container" data-custom-value="custom">
+                            <div class="main-controlled" data-enabled-value="enabled">
+                                <div class="field mar-0">
+                                    <h3>中獎圖示<span>*</span></h3>
+                                    <div class="radio-group">
+                                        <label>
+                                            <input type="radio" class="toggle-group" name="toggleExample"
+                                                value="disabled" checked>
+                                            預設
+                                        </label>
+                                        <label>
+                                            <input type="radio" class="toggle-group" name="toggleExample"
+                                                value="disabled">
+                                            不顯示
+                                        </label>
+                                        <label>
+                                            <input type="radio" class="toggle-group" name="toggleExample"
+                                                value="enabled">
+                                            自訂
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="controlled-inputs mar-ts">
+                                <div class="field mar-0">
+                                    <h3>圖示連結</h3>
+                                    <input type="text" placeholder="請輸入" disabled />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="row">
+                <div class="col">
+                    <div class="tabs-container shadow-md mar-0">
+                        <div class="tabs-bar">
+                            <ul class="tabs">
+                                <li class="active">群組1</li>
+                                <li>英文語系國家<span class="material-symbols-outlined fz-md">Cancel</span></li>
+                            </ul>
+                            <button class="add-new-tab"><i class="material-symbols-outlined">add_circle</i>新增標籤</button>
+                        </div>
+                        <div class="content">
+                            <div class="tab1-content active">
+                                <div class="d-flex row-end mar-bm" style="position: absolute; right: 16px;">
+                                    <button type="button" class="btn-sec small copy-tab-btn">複製頁籤內容</button>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="field">
+                                            <h3>頁籤群組名稱<span>*</span></h3>
+                                            <div class="d-flex">
+                                                <input type="text" class="showToast" placeholder="請輸入" value="群組1" />
+                                                <button type="button" class="changeAction btn-sec larg field-side-action">修改</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h2>活動顯示的前台語系</h2>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="field" data-lang-multiselect>
+                                            <h3>語系<span>*</span></h3>
+                                            <!-- 送出用的隱藏欄位 -->
+                                            <input type="hidden" name="contentSettings-languages">
+                                            <!-- 觸發下拉 -->
+                                            <button type="button" class="search-checkbox-trigger">
+                                                <span>點擊選擇語系</span>
+                                                <i class="material-symbols-outlined">expand_more</i>
+                                            </button>
+                                            <!-- 下拉面板 -->
+                                            <div class="search-checkbox-panel" style="display: none;">
+                                                <label>
+                                                    <input type="checkbox" data-all> 全選
+                                                </label>
+                                                <hr>
+                                                <label>
+                                                    <input type="checkbox" name="languages[]" value="zh-tw" data-option>
+                                                    繁體中文(台灣)
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" name="languages[]" value="en-us" data-option>
+                                                    英文(美國)
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" name="languages[]" value="id-id" data-option>
+                                                    印尼文(印尼)
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" name="languages[]" value="zh-hk" data-option>
+                                                    繁體中文(香港)
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" name="languages[]" value="ms-my" data-option>
+                                                    英文(馬來西亞)
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" name="languages[]" value="zh-cn" data-option>
+                                                    簡體中文(中國)
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" name="languages[]" value="ja-jp" data-option>
+                                                    日文(日本)
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" name="languages[]" value="th-th" data-option>
+                                                    泰文(泰國)
+                                                </label>
+                                            </div>
+                                            <!-- 已選標籤 -->
+                                            <div class="search-checkbox-tags"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h2>獎項</h2>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="field">
+                                            <h3>獎項名稱<span>*</span></h3>
+                                            <input type="text" placeholder="請輸入" />
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="field">
+                                            <h3>備註<span>*</span></h3>
+                                            <input type="text" placeholder="請輸入" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="field">
+                                            <h3>虛寶說明</h3>
+                                            <textarea rows="5" placeholder="請輸入"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="field">
+                                            <h3>標題<span>*</span></h3>
+                                            <input type="text" placeholder="請輸入" />
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="field">
+                                            <h3>訊息文字<span>*</span></h3>
+                                            <input type="text" placeholder="請輸入" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="field">
+                                            <h3>按鈕名稱<span>*</span></h3>
+                                            <input type="text" placeholder="請輸入" />
+                                        </div>
+                                    </div>
+                                    <div class="f-grow">
+                                        <div class="field">
+                                            <h3>按鈕連結<span>*</span></h3>
+                                            <input type="text" placeholder="請輸入" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="field mar-0">
+                                            <h3>背包按鈕名稱<span>*</span></h3>
+                                            <input type="text" placeholder="請輸入" />
+                                        </div>
+                                    </div>
+                                    <div class="f-grow">
+                                        <div class="field mar-0">
+                                            <h3>背包按鈕連結<span>*</span></h3>
+                                            <input type="text" placeholder="請輸入" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab2-content">
+                                <div class="d-flex row-end mar-bm" style="position: absolute; right: 16px;">
+                                    <button type="button" class="btn-sec small copy-tab-btn">複製頁籤內容</button>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="field">
+                                            <h3>頁籤群組名稱<span>*</span></h3>
+                                            <div class="d-flex">
+                                                <input type="text" class="showToast" placeholder="請輸入" value="英文語系國家" />
+                                                <button type="button" class="changeAction btn-sec larg field-side-action">修改</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h2>活動顯示的前台語系</h2>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="field" data-lang-multiselect>
+                                            <h3>語系<span>*</span></h3>
+                                            <!-- 送出用的隱藏欄位 -->
+                                            <input type="hidden" name="contentSettings-languages">
+                                            <!-- 觸發下拉 -->
+                                            <button type="button" class="search-checkbox-trigger">
+                                                <span>點擊選擇語系</span>
+                                                <i class="material-symbols-outlined">expand_more</i>
+                                            </button>
+                                            <!-- 下拉面板 -->
+                                            <div class="search-checkbox-panel" style="display: none;">
+                                                <label>
+                                                    <input type="checkbox" data-all> 全選
+                                                </label>
+                                                <hr class="mar-xs">
+                                                <label>
+                                                    <input type="checkbox" name="languages[]" value="zh-tw" data-option>
+                                                    繁體中文(台灣)
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" name="languages[]" value="en-us" data-option>
+                                                    英文(美國)
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" name="languages[]" value="id-id" data-option>
+                                                    印尼文(印尼)
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" name="languages[]" value="zh-hk" data-option>
+                                                    繁體中文(香港)
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" name="languages[]" value="ms-my" data-option>
+                                                    英文(馬來西亞)
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" name="languages[]" value="zh-cn" data-option>
+                                                    簡體中文(中國)
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" name="languages[]" value="ja-jp" data-option>
+                                                    日文(日本)
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" name="languages[]" value="th-th" data-option>
+                                                    泰文(泰國)
+                                                </label>
+                                            </div>
+                                            <!-- 已選標籤 -->
+                                            <div class="search-checkbox-tags"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h2>獎項</h2>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="field">
+                                            <h3>獎項名稱<span>*</span></h3>
+                                            <input type="text" placeholder="請輸入" />
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="field">
+                                            <h3>備註<span>*</span></h3>
+                                            <input type="text" placeholder="請輸入" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="field">
+                                            <h3>虛寶說明</h3>
+                                            <textarea rows="5" placeholder="請輸入"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="field">
+                                            <h3>標題<span>*</span></h3>
+                                            <input type="text" placeholder="請輸入" />
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="field">
+                                            <h3>訊息文字<span>*</span></h3>
+                                            <input type="text" placeholder="請輸入" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="field">
+                                            <h3>按鈕名稱<span>*</span></h3>
+                                            <input type="text" placeholder="請輸入" />
+                                        </div>
+                                    </div>
+                                    <div class="f-grow">
+                                        <div class="field">
+                                            <h3>按鈕連結<span>*</span></h3>
+                                            <input type="text" placeholder="請輸入" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="field mar-0">
+                                            <h3>背包按鈕名稱<span>*</span></h3>
+                                            <input type="text" placeholder="請輸入" />
+                                        </div>
+                                    </div>
+                                    <div class="f-grow">
+                                        <div class="field mar-0">
+                                            <h3>背包按鈕連結<span>*</span></h3>
+                                            <input type="text" placeholder="請輸入" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="bottom">
+            <button class="btn-pri larg">確定</button>
+            <button class="btn-sec larg">取消</button>
+        </div>
+    </main>
+</body>
+
+</html>

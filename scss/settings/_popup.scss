@@ -1,0 +1,30 @@
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    padding: $spacing-md;
+    text-align: left;
+    width: 300px;
+    background-color: $color-bg-white;
+    border-radius: $radius-lg;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xl;
+    & > p {
+        margin: 0;
+    }
+    & > button {
+        margin: 0 auto;
+    }
+    &~.overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.78);
+        z-index: 1;
+    }
+}

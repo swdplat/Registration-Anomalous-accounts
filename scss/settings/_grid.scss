@@ -1,0 +1,74 @@
+//Flexbox START
+.d-flex {
+    display: flex;
+    gap: $gap-base;
+
+    &-end {
+        align-items: flex-end;
+    }
+
+    &-vstack {
+        flex-direction: column;
+        gap: $spacing-base * 0.5;
+    }
+}
+//Flexbox END
+
+// Flex Item 工具類別 (適用於 Flex 容器的子元素)
+.flex-1 {
+    // 將子元素自動延伸並填滿空間，並將基礎寬度歸零 (等同於 flex: 1 1 0%)。
+    // 若同層有多個子元素都套用此 class，它們會強制「等比例平分」空間，無視原本內容的多寡。
+    flex: 1;
+}
+//Flex Item 工具類別 END
+
+
+//Row START
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: $gap-base;
+
+    &-vcenter {
+        justify-content: center;
+    }
+
+    &-between {
+        justify-content: space-between;
+    }
+
+    &-hcenter {
+        align-items: center;
+    }
+
+    &-vstack {
+        flex-direction: column;
+        gap: $spacing-base * 0.5;
+    }
+
+    &-end {
+        justify-content: flex-end;
+    }
+}
+//Row END
+
+
+//Columns START
+//排版以12欄為基準，欄位間距為30px
+//例:col-4意旨寬度為4欄
+.col {
+    width: 100%;
+
+    &-4 {
+        width: calc((100% - #{$gap-base*2}) / 3);
+    }
+    
+    &-6 {
+        width: calc((100% - #{$gap-base}) / 2);
+    }
+
+    &-8 {
+        width: 66%;
+    }
+}
+//Columns END

@@ -1,0 +1,102 @@
+// ============================================
+// 顏色 Colors
+// ============================================
+
+// 主色 Primary (新版色階命名)
+$primary-1: #4AA8FF; // 原專案主色
+$primary-2: #1E40AF; // 深藍色 (供標籤等文字使用)
+
+// 向下相容的舊變數 (保留供原本應用的地方使用，方便後續維護)
+$color-primary: $primary-1;
+$color-primary-active: $primary-1;
+$color-primary-hover: rgb(23, 141, 224, 0.8);
+$color-primary-disable: rgb(23, 141, 224, 0.5);
+
+// 切換元件 Switch
+$color-switch: #FFF;
+$color-switch-bg: #30D158;
+$color-switch-bg-disable: #D1D5DB;
+
+// 文字 Text
+$color-text: #374151;
+$color-text-muted: #9CA3AF;
+$color-text-disabled: rgb(55, 65, 81, 0.5);
+
+// 邊框 Border
+$color-border: #D1D5DB;
+$color-border-light: #E5E7EB;
+
+// 背景 Background
+$color-bg-light: #FFF;
+$color-bg-disabled: #EFEFEF;
+$color-bg-white: #FFF;
+$color-bg-gray: #F7F7F7;
+$color-bg-gray-dark: #E5E7EB;
+
+// 危險/錯誤 Danger & Error
+$color-danger: #FF2525;
+$color-required: #FF2525;
+$color-error: #FF2525;
+
+// 警告 Warning
+$color-warning: #F0D86E;
+$color-warning-bg: #FCF7D4;
+
+// 日期選擇器 Daterangepicker
+$color-daterange-bg: #F5F8FF;
+$color-daterange-border: #EAEAEA;
+
+// ============================================
+// 字型 Typography
+// ============================================
+$font-family: "微軟正黑體";
+
+// 基本文字字級
+$fz-base: 16px;
+
+$fz-xs: $fz-base * 0.75;   // 12px
+$fz-sm: $fz-base * 0.875;  // 14px
+$fz-md: $fz-base;          // 16px (預設基準)
+$fz-lg: $fz-base * 1.125;  // 18px
+$fz-xl: $fz-base * 1.25;   // 20px
+$fz-2xl: $fz-base * 1.5;   // 24px
+$fz-3xl: $fz-base * 1.75;  // 28px
+$fz-4xl: $fz-base * 2;     // 32px
+
+// 自訂常用字級
+$fz-heading: $fz-4xl; // 32px
+
+
+// ============================================
+// 尺寸 Sizing
+// ============================================
+$input-height: 40px;
+
+// ============================================
+// 圓角 Border Radius
+// ============================================
+$radius-sm: 4px;
+$radius-md: 6px;
+$radius-lg: 8px;
+
+// ============================================
+// 間距 Spacing
+// ============================================
+$gap-base: 32px;
+
+// 間距尺寸
+$spacing-base: 16px;
+
+$spacing-xs: $spacing-base * 0.25;     // 4px
+$spacing-sm: $spacing-base * 0.5;      // 8px
+$spacing-sm-md: $spacing-base * 0.75;  // 12px
+$spacing-md: $spacing-base;            // 16px
+$spacing-lg: $spacing-base * 1.5;      // 24px
+$spacing-xl: $spacing-base * 2;        // 32px
+$spacing-2xl: $spacing-base * 3;       // 48px
+$spacing-3xl: $spacing-base * 4;       // 64px
+
+//$spacing-sm: 10px;
+//$spacing-md: 20px;
+//$spacing-lg: 30px;
+//$spacing-xl: 40px;
