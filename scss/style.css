@@ -566,6 +566,26 @@ body .scan-message {
   font-weight: 600;
 }
 
+.new-rule-insert {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 15px;
+  border-radius: 8px;
+  border: 1px solid #f0d86e;
+  background-color: #fcf7d4;
+}
+
+.web-domain-write {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 15px;
+  border-radius: 8px;
+  border: 1px solid #f0d86e;
+  background-color: #fcf7d4;
+}
+
 .mar-0 {
   margin: 0 !important;
 }

@@ -200,10 +200,11 @@ $(document).ready(function () {
 
     // 儲存：把當前編輯器內容寫回觸發按鈕的 data 屬性（每個頁籤獨立保存）
     $modal.on("click", ".htmlcss-modal-save", function () {
-      if ($activeBtn && $activeBtn.length) {
-        $activeBtn.attr("data-saved-html", htmlEditor.getValue());
-        $activeBtn.attr("data-saved-css", cssEditor.getValue());
-      }
+      // 此 ID 也用於新增 Regex 規則彈窗；只有由 HTML/CSS 編輯按鈕開啟時才處理並關閉。
+      if (!$activeBtn || !$activeBtn.length) return;
+
+      $activeBtn.attr("data-saved-html", htmlEditor.getValue());
+      $activeBtn.attr("data-saved-css", cssEditor.getValue());
       _closeModal();
     });
 

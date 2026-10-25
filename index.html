@@ -1629,34 +1629,37 @@ user2@tempmail.xyz"></textarea>
             </div>
             <section class="scroll-bar">
                 <div class="row" style="margin-bottom: 32px;">
-                   <div class="rule-outer">
-                   <div class="field mar-0">
-                     <h3 class="new-rule">規則名稱</h3>
-                     <input class="add-rule" type="text" placeholder="請輸入">
-                   </div>
-                   </div>
+                    <div class="rule-outer">
+                        <div class="field mar-0">
+                            <h3 class="new-rule">規則名稱</h3>
+                            <input class="add-rule" type="text" placeholder="請輸入">
+                        </div>
+                    </div>
                 </div>
                 <div class="row" style="margin-bottom: 32px;">
-                  <div class="col">
-                   <div class="field">
-                    <h3 class="insert-reges">正規表示式(Regex)內容</h3>
-                    <textarea class="reges-text" rows="5" placeholder="請輸入"></textarea>
-                   </div>
-                  </div>
+                    <div class="col">
+                        <div class="field">
+                            <h3 class="insert-reges">正規表示式(Regex)內容</h3>
+                            <textarea class="reges-text" rows="5" placeholder="請輸入"></textarea>
+                        </div>
+                    </div>
                 </div>
                 <div class="row" style="margin-bottom: 32px;">
-                   <div class="rule-outer">
-                   <div class="field mar-0">
-                     <h3 class="rule-test-strting">測試字串</h3>
-                     <input class="add-rule rule-margin" type="text" placeholder="輸入範例信箱進行即時驗證">
-                     <button type="button" class="btn-sec larg" id="progressDemoPlus">測試比對</button>
-                   </div>
-                   </div>
+                    <div class="rule-outer">
+                        <div class="field mar-0">
+                            <h3 class="rule-test-strting">測試字串</h3>
+                            <input class="add-rule rule-margin" type="text" placeholder="輸入範例信箱進行即時驗證">
+                            <button type="button" class="btn-sec larg" id="progressDemoPlus">測試比對</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="newrule-msg new-rule-insert">
+                    規則名稱與正規表示式(Regex) 內容為必填
                 </div>
                 <div class="htmlcss-modal-footer rule-choose-btn">
                     <button type="button" class="btn-sec larg htmlcss-modal-cancel">取消</button>
-                <button type="button" class="btn-pri larg htmlcss-modal-save">儲存</button>
-            </div>
+                    <button type="button" class="btn-pri larg htmlcss-modal-save">儲存</button>
+                </div>
             </section>
         </div>
     </div>
@@ -1724,13 +1727,16 @@ user2@tempmail.xyz"></textarea>
                 </button>
             </div>
             <section class="scroll-bar">
-                <div class="row" style="margin-bottom: 32px;">
+                <div class="row" style="margin-bottom: 0px;">
                    <div class="rule-outer">
                    <div class="field mar-0">
                      <h3 class="new-rule">網域名稱</h3>
                      <input class="add-rule" type="text" placeholder="例：tempmail.xyz">
                    </div>
                    </div>
+                </div>
+                <div class="newrule-msg web-domain-write" style="margin-bottom: 16px;">
+                    網域名稱為必填
                 </div>
                 <div class="row" style="margin-bottom: 8px;">
                   <div class="col">
@@ -1764,7 +1770,7 @@ user2@tempmail.xyz"></textarea>
                 </div>
                 <div class="htmlcss-modal-footer rule-choose-btn">
                     <button type="button" class="btn-sec larg htmlcss-modal-cancel">取消</button>
-                <button type="button" class="btn-pri larg htmlcss-modal-save">儲存</button>
+                <button type="button" class="btn-pri larg htmlcss-modal-save new-domain-save">儲存</button>
             </div>
           </section>
         </div>
@@ -1794,7 +1800,7 @@ user2@tempmail.xyz"></textarea>
                 </div>
                 <div class="htmlcss-modal-footer rule-choose-btn" style="border-top: none;">
                     <button type="button" class="btn-sec larg htmlcss-modal-cancel">取消</button>
-                    <button type="button" class="btn-pri larg htmlcss-modal-save">匯入</button>
+                    <button type="button" class="btn-pri larg htmlcss-modal-save" data-file-export="匯入中" data-file-export-message="已匯入0組網域">匯入</button>
             </div>
           </section>
         </div>
@@ -2030,9 +2036,21 @@ user2@tempmail.xyz"></textarea>
             });
 
             var $ruleModal = $('#htmlCssModal');
+            var $ruleName = $ruleModal.find('.field.mar-0 .add-rule').first();
+            var $regexContent = $ruleModal.find('.reges-text').first();
+            var $ruleRequired = $ruleModal.find('.new-rule-insert');
+
+            $ruleRequired.hide();
 
             $('.add-regular-btn').on('click', function () {
                 $ruleModal.show();
+            });
+
+            $ruleModal.on('click', '.htmlcss-modal-save', function () {
+                var hasRuleName = $.trim($ruleName.val()).length > 0;
+                var hasRegexContent = $.trim($regexContent.val()).length > 0;
+
+                $ruleRequired.toggle(!hasRuleName || !hasRegexContent);
             });
 
             $ruleModal.on('click', '.htmlcss-modal-close, .htmlcss-modal-cancel, .htmlcss-modal-overlay', function () {
@@ -2060,8 +2078,25 @@ user2@tempmail.xyz"></textarea>
             });
 
             var $emaildomain = $('#emaildomainModal');
+            var $emailDomainType = $emaildomain.find('select');
+            var $wildcardDescription = $emaildomain.find('.wildcard-desc').closest('.row');
+            var $emailDomainRequired = $emaildomain.find('.web-domain-write');
+            var $emailDomainName = $emaildomain.find('.field.mar-0 .add-rule').first();
+
+            $wildcardDescription.hide();
+            $emailDomainRequired.hide();
+
+            $emailDomainType.on('change', function () {
+                $wildcardDescription.toggle(this.selectedIndex === 1);
+            });
+
             $('.add-email-domain').on('click', function () {
                 $emaildomain.show();
+            });
+
+            $emaildomain.on('click', '.new-domain-save', function () {
+                var hasDomainName = $.trim($emailDomainName.val()).length > 0;
+                $emailDomainRequired.toggle(!hasDomainName);
             });
 
             $emaildomain.on('click', '.htmlcss-modal-close, .htmlcss-modal-cancel, .htmlcss-modal-overlay', function () {
